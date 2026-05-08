@@ -1,0 +1,133 @@
+{
+  "actions": [],
+  "autoname": "naming_series:",
+  "creation": "2024-01-01 00:00:00.000000",
+  "doctype": "DocType",
+  "editable_grid": 1,
+  "engine": "InnoDB",
+  "field_order": [
+    "naming_series",
+    "freight_order",
+    "event_type",
+    "column_break_1",
+    "event_datetime",
+    "updated_by_driver",
+    "section_break_1",
+    "location_description",
+    "latitude",
+    "longitude",
+    "column_break_2",
+    "city",
+    "state",
+    "section_break_2",
+    "remarks"
+  ],
+  "fields": [
+    {
+      "fieldname": "naming_series",
+      "fieldtype": "Series",
+      "label": "Series",
+      "options": "STE-.YYYY.-.#####",
+      "default": "STE-.YYYY.-.#####"
+    },
+    {
+      "fieldname": "freight_order",
+      "fieldtype": "Link",
+      "in_list_view": 1,
+      "label": "Freight Order",
+      "options": "Freight Order",
+      "reqd": 1
+    },
+    {
+      "fieldname": "event_type",
+      "fieldtype": "Select",
+      "in_list_view": 1,
+      "label": "Event Type",
+      "options": "\nBooked\nDispatched\nIn Transit\nAt Hub\nOut for Delivery\nDelivered\nDelay\nException\nReturned",
+      "reqd": 1
+    },
+    {
+      "fieldname": "column_break_1",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "event_datetime",
+      "fieldtype": "Datetime",
+      "in_list_view": 1,
+      "label": "Event Date & Time",
+      "reqd": 1
+    },
+    {
+      "fieldname": "updated_by_driver",
+      "fieldtype": "Link",
+      "label": "Updated By (Driver)",
+      "options": "Driver"
+    },
+    {
+      "fieldname": "section_break_1",
+      "fieldtype": "Section Break",
+      "label": "Location"
+    },
+    {
+      "fieldname": "location_description",
+      "fieldtype": "Data",
+      "label": "Location Description"
+    },
+    {
+      "fieldname": "latitude",
+      "fieldtype": "Data",
+      "label": "Latitude"
+    },
+    {
+      "fieldname": "longitude",
+      "fieldtype": "Data",
+      "label": "Longitude"
+    },
+    {
+      "fieldname": "column_break_2",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "city",
+      "fieldtype": "Data",
+      "in_list_view": 1,
+      "label": "City"
+    },
+    {
+      "fieldname": "state",
+      "fieldtype": "Data",
+      "label": "State"
+    },
+    {
+      "fieldname": "section_break_2",
+      "fieldtype": "Section Break"
+    },
+    {
+      "fieldname": "remarks",
+      "fieldtype": "Small Text",
+      "label": "Remarks"
+    }
+  ],
+  "links": [],
+  "modified": "2024-01-01 00:00:00.000000",
+  "modified_by": "Administrator",
+  "module": "Logistics Transportation",
+  "name": "Shipment Tracking Event",
+  "naming_rule": "By \"Naming Series\" field",
+  "owner": "Administrator",
+  "permissions": [
+    {
+      "create": 1, "delete": 1, "email": 1, "export": 1,
+      "print": 1, "read": 1, "report": 1,
+      "role": "System Manager", "share": 1, "write": 1
+    },
+    {
+      "create": 1, "read": 1, "report": 1, "write": 1,
+      "role": "All"
+    }
+  ],
+  "sort_field": "event_datetime",
+  "sort_order": "DESC",
+  "title_field": "event_type",
+  "track_changes": 1
+}

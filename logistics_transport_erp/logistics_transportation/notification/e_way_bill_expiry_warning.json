@@ -1,0 +1,19 @@
+{
+  "attach_print": 0,
+  "channel": "Email",
+  "condition": "doc.status not in ('Cancelled', 'Delivered')",
+  "creation": "2024-01-01 00:00:00.000000",
+  "days_in_advance": 1,
+  "doctype": "Notification",
+  "document_type": "E Way Bill",
+  "enabled": 1,
+  "event": "Days Before",
+  "message": "<p>Dear Team,</p><p>The E-Way Bill for Freight Order <b>{{ doc.freight_order }}</b> is expiring soon.</p><p><b>EWB Number:</b> {{ doc.ewb_number }}<br><b>Valid Upto:</b> {{ doc.valid_upto }}</p><p>Please extend the E-Way Bill or complete delivery before expiry.</p>",
+  "modified": "2024-01-01 00:00:00.000000",
+  "modified_by": "Administrator",
+  "name": "E-Way Bill Expiry Warning",
+  "owner": "Administrator",
+  "send_system_notification": 1,
+  "send_to_all_assignees": 0,
+  "subject": "E-Way Bill Expiring Soon: {{ doc.ewb_number }} for {{ doc.freight_order }}"
+}

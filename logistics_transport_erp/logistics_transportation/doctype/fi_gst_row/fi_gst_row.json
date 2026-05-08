@@ -1,0 +1,103 @@
+{
+  "actions": [],
+  "allow_rename": 1,
+  "creation": "2026-05-08 13:11:50.464687",
+  "doctype": "DocType",
+  "editable_grid": 1,
+  "engine": "InnoDB",
+  "field_order": [
+    "sac_code",
+    "taxable_amount",
+    "is_rcm",
+    "column_break_1",
+    "cgst_rate",
+    "cgst_amount",
+    "sgst_rate",
+    "sgst_amount",
+    "column_break_2",
+    "igst_rate",
+    "igst_amount",
+    "total_gst"
+  ],
+  "fields": [
+    {
+      "fieldname": "sac_code",
+      "fieldtype": "Select",
+      "in_list_view": 1,
+      "label": "SAC Code",
+      "options": "\n996511\n996512\n996521\n996531"
+    },
+    {
+      "fieldname": "taxable_amount",
+      "fieldtype": "Currency",
+      "in_list_view": 1,
+      "label": "Taxable Amount (INR)"
+    },
+    {
+      "default": "0",
+      "fieldname": "is_rcm",
+      "fieldtype": "Check",
+      "label": "RCM Applicable"
+    },
+    {
+      "fieldname": "column_break_1",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "cgst_rate",
+      "fieldtype": "Percent",
+      "label": "CGST Rate %"
+    },
+    {
+      "fieldname": "cgst_amount",
+      "fieldtype": "Currency",
+      "label": "CGST Amount"
+    },
+    {
+      "fieldname": "sgst_rate",
+      "fieldtype": "Percent",
+      "label": "SGST Rate %"
+    },
+    {
+      "fieldname": "sgst_amount",
+      "fieldtype": "Currency",
+      "label": "SGST Amount"
+    },
+    {
+      "fieldname": "column_break_2",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "igst_rate",
+      "fieldtype": "Percent",
+      "label": "IGST Rate %"
+    },
+    {
+      "fieldname": "igst_amount",
+      "fieldtype": "Currency",
+      "label": "IGST Amount"
+    },
+    {
+      "fieldname": "total_gst",
+      "fieldtype": "Currency",
+      "in_list_view": 1,
+      "label": "Total GST",
+      "read_only": 1
+    }
+  ],
+  "grid_page_length": 50,
+  "index_web_pages_for_search": 1,
+  "istable": 1,
+  "links": [],
+  "modified": "2026-05-08 13:11:50.464687",
+  "modified_by": "Administrator",
+  "module": "Logistics Transportation",
+  "name": "FI GST Row",
+  "owner": "Administrator",
+  "permissions": [],
+  "row_format": "Dynamic",
+  "rows_threshold_for_grid_search": 20,
+  "sort_field": "modified",
+  "sort_order": "DESC",
+  "states": []
+}

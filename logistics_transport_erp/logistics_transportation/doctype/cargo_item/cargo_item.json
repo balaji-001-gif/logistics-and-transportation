@@ -1,0 +1,75 @@
+{
+  "actions": [],
+  "creation": "2024-01-01 00:00:00.000000",
+  "doctype": "DocType",
+  "editable_grid": 1,
+  "engine": "InnoDB",
+  "field_order": [
+    "description",
+    "cargo_type",
+    "quantity",
+    "column_break_1",
+    "unit",
+    "weight_kg",
+    "volume_cbm",
+    "declared_value"
+  ],
+  "fields": [
+    {
+      "fieldname": "description",
+      "fieldtype": "Data",
+      "in_list_view": 1,
+      "label": "Cargo Description",
+      "reqd": 1
+    },
+    {
+      "fieldname": "cargo_type",
+      "fieldtype": "Select",
+      "in_list_view": 1,
+      "label": "Cargo Type",
+      "options": "\nGeneral\nHazardous\nPerishable\nFragile\nOversized\nBulk\nLiquid\nTemperature-controlled"
+    },
+    {
+      "fieldname": "quantity",
+      "fieldtype": "Float",
+      "in_list_view": 1,
+      "label": "Quantity"
+    },
+    {
+      "fieldname": "column_break_1",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "unit",
+      "fieldtype": "Select",
+      "label": "Unit",
+      "options": "\nPCS\nKG\nMT\nCBM\nBAG\nCARTON\nPALLET\nDRUM"
+    },
+    {
+      "fieldname": "weight_kg",
+      "fieldtype": "Float",
+      "in_list_view": 1,
+      "label": "Weight (kg)"
+    },
+    {
+      "fieldname": "volume_cbm",
+      "fieldtype": "Float",
+      "label": "Volume (CBM)"
+    },
+    {
+      "fieldname": "declared_value",
+      "fieldtype": "Currency",
+      "label": "Declared Value (INR)"
+    }
+  ],
+  "istable": 1,
+  "links": [],
+  "modified": "2024-01-01 00:00:00.000000",
+  "modified_by": "Administrator",
+  "module": "Logistics Transportation",
+  "name": "Cargo Item",
+  "owner": "Administrator",
+  "permissions": [],
+  "sort_field": "modified",
+  "sort_order": "DESC"
+}

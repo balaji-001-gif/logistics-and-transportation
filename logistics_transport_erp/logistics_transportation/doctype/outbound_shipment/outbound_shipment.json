@@ -1,0 +1,224 @@
+{
+  "actions": [],
+  "autoname": "naming_series:",
+  "creation": "2024-01-01 00:00:00.000000",
+  "doctype": "DocType",
+  "editable_grid": 1,
+  "engine": "InnoDB",
+  "field_order": [
+    "naming_series",
+    "status",
+    "dispatch_date",
+    "column_break_1",
+    "warehouse",
+    "dock_appointment",
+    "section_break_1",
+    "freight_order",
+    "customer",
+    "column_break_2",
+    "sales_order",
+    "section_break_2",
+    "vehicle",
+    "driver",
+    "column_break_3",
+    "loading_start_time",
+    "loading_end_time",
+    "dispatch_time",
+    "section_break_3",
+    "items",
+    "section_break_4",
+    "total_ordered_qty",
+    "total_picked_qty",
+    "column_break_4",
+    "total_packed_qty",
+    "section_break_5",
+    "remarks",
+    "amended_from"
+  ],
+  "fields": [
+    {
+      "fieldname": "naming_series",
+      "fieldtype": "Series",
+      "label": "Series",
+      "options": "OUT-.YYYY.-.#####",
+      "default": "OUT-.YYYY.-.#####"
+    },
+    {
+      "fieldname": "status",
+      "fieldtype": "Select",
+      "in_list_view": 1,
+      "label": "Status",
+      "options": "\nDraft\nPicking\nPacked\nDispatched\nCancelled",
+      "default": "Draft"
+    },
+    {
+      "fieldname": "dispatch_date",
+      "fieldtype": "Date",
+      "in_list_view": 1,
+      "label": "Dispatch Date",
+      "reqd": 1
+    },
+    {
+      "fieldname": "column_break_1",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "warehouse",
+      "fieldtype": "Link",
+      "in_list_view": 1,
+      "label": "Warehouse",
+      "options": "Warehouse",
+      "reqd": 1
+    },
+    {
+      "fieldname": "dock_appointment",
+      "fieldtype": "Link",
+      "label": "Dock Appointment",
+      "options": "Dock Appointment"
+    },
+    {
+      "fieldname": "section_break_1",
+      "fieldtype": "Section Break",
+      "label": "References"
+    },
+    {
+      "fieldname": "freight_order",
+      "fieldtype": "Link",
+      "label": "Freight Order",
+      "options": "Freight Order"
+    },
+    {
+      "fieldname": "customer",
+      "fieldtype": "Link",
+      "in_list_view": 1,
+      "label": "Customer",
+      "options": "Customer"
+    },
+    {
+      "fieldname": "column_break_2",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "sales_order",
+      "fieldtype": "Link",
+      "label": "Sales Order",
+      "options": "Sales Order"
+    },
+    {
+      "fieldname": "section_break_2",
+      "fieldtype": "Section Break",
+      "label": "Vehicle & Timing"
+    },
+    {
+      "fieldname": "vehicle",
+      "fieldtype": "Link",
+      "label": "Vehicle",
+      "options": "Vehicle"
+    },
+    {
+      "fieldname": "driver",
+      "fieldtype": "Link",
+      "label": "Driver",
+      "options": "Driver"
+    },
+    {
+      "fieldname": "column_break_3",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "loading_start_time",
+      "fieldtype": "Datetime",
+      "label": "Loading Start Time"
+    },
+    {
+      "fieldname": "loading_end_time",
+      "fieldtype": "Datetime",
+      "label": "Loading End Time"
+    },
+    {
+      "fieldname": "dispatch_time",
+      "fieldtype": "Datetime",
+      "label": "Actual Dispatch Time"
+    },
+    {
+      "fieldname": "section_break_3",
+      "fieldtype": "Section Break",
+      "label": "Items"
+    },
+    {
+      "fieldname": "items",
+      "fieldtype": "Table",
+      "label": "Items",
+      "options": "Outbound Item"
+    },
+    {
+      "fieldname": "section_break_4",
+      "fieldtype": "Section Break",
+      "label": "Dispatch Summary"
+    },
+    {
+      "fieldname": "total_ordered_qty",
+      "fieldtype": "Float",
+      "label": "Total Ordered Qty",
+      "read_only": 1
+    },
+    {
+      "fieldname": "total_picked_qty",
+      "fieldtype": "Float",
+      "label": "Total Picked Qty",
+      "read_only": 1
+    },
+    {
+      "fieldname": "column_break_4",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "total_packed_qty",
+      "fieldtype": "Float",
+      "label": "Total Packed Qty",
+      "read_only": 1
+    },
+    {
+      "fieldname": "section_break_5",
+      "fieldtype": "Section Break"
+    },
+    {
+      "fieldname": "remarks",
+      "fieldtype": "Small Text",
+      "label": "Remarks"
+    },
+    {
+      "fieldname": "amended_from",
+      "fieldtype": "Link",
+      "label": "Amended From",
+      "options": "Outbound Shipment",
+      "no_copy": 1,
+      "print_hide": 1,
+      "read_only": 1
+    }
+  ],
+  "is_submittable": 1,
+  "links": [],
+  "modified": "2024-01-01 00:00:00.000000",
+  "modified_by": "Administrator",
+  "module": "Logistics Transportation",
+  "name": "Outbound Shipment",
+  "naming_rule": "By \"Naming Series\" field",
+  "owner": "Administrator",
+  "permissions": [
+    {
+      "create": 1, "delete": 1, "email": 1, "export": 1,
+      "print": 1, "read": 1, "report": 1, "submit": 1,
+      "cancel": 1, "amend": 1,
+      "role": "System Manager", "share": 1, "write": 1
+    },
+    {
+      "create": 1, "read": 1, "report": 1, "write": 1,
+      "role": "All"
+    }
+  ],
+  "sort_field": "modified",
+  "sort_order": "DESC",
+  "title_field": "name",
+  "track_changes": 1
+}

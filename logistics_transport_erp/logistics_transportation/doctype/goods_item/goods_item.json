@@ -1,0 +1,67 @@
+{
+  "actions": [],
+  "creation": "2024-01-01 00:00:00.000000",
+  "doctype": "DocType",
+  "editable_grid": 1,
+  "engine": "InnoDB",
+  "field_order": [
+    "description",
+    "packages",
+    "package_type",
+    "column_break_1",
+    "weight_kg",
+    "declared_value",
+    "remarks"
+  ],
+  "fields": [
+    {
+      "fieldname": "description",
+      "fieldtype": "Data",
+      "in_list_view": 1,
+      "label": "Goods Description",
+      "reqd": 1
+    },
+    {
+      "fieldname": "packages",
+      "fieldtype": "Int",
+      "in_list_view": 1,
+      "label": "No. of Packages"
+    },
+    {
+      "fieldname": "package_type",
+      "fieldtype": "Select",
+      "label": "Package Type",
+      "options": "\nBox\nBag\nDrum\nPallet\nCrate\nLoose\nBale"
+    },
+    {
+      "fieldname": "column_break_1",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "weight_kg",
+      "fieldtype": "Float",
+      "in_list_view": 1,
+      "label": "Weight (kg)"
+    },
+    {
+      "fieldname": "declared_value",
+      "fieldtype": "Currency",
+      "label": "Declared Value (INR)"
+    },
+    {
+      "fieldname": "remarks",
+      "fieldtype": "Data",
+      "label": "Remarks"
+    }
+  ],
+  "istable": 1,
+  "links": [],
+  "modified": "2024-01-01 00:00:00.000000",
+  "modified_by": "Administrator",
+  "module": "Logistics Transportation",
+  "name": "Goods Item",
+  "owner": "Administrator",
+  "permissions": [],
+  "sort_field": "modified",
+  "sort_order": "DESC"
+}

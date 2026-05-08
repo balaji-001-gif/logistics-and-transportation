@@ -1,0 +1,58 @@
+{
+  "actions": [],
+  "creation": "2024-01-01 00:00:00.000000",
+  "doctype": "DocType",
+  "editable_grid": 1,
+  "engine": "InnoDB",
+  "field_order": [
+    "charge_type",
+    "description",
+    "column_break_1",
+    "amount",
+    "is_billable_to_customer"
+  ],
+  "fields": [
+    {
+      "fieldname": "charge_type",
+      "fieldtype": "Select",
+      "in_list_view": 1,
+      "label": "Charge Type",
+      "options": "\nToll\nDetention\nLoading\nUnloading\nAccessorial\nOther",
+      "reqd": 1
+    },
+    {
+      "fieldname": "description",
+      "fieldtype": "Data",
+      "in_list_view": 1,
+      "label": "Description"
+    },
+    {
+      "fieldname": "column_break_1",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "amount",
+      "fieldtype": "Currency",
+      "in_list_view": 1,
+      "label": "Amount (INR)",
+      "reqd": 1
+    },
+    {
+      "fieldname": "is_billable_to_customer",
+      "fieldtype": "Check",
+      "in_list_view": 1,
+      "label": "Billable to Customer",
+      "default": "1"
+    }
+  ],
+  "istable": 1,
+  "links": [],
+  "modified": "2024-01-01 00:00:00.000000",
+  "modified_by": "Administrator",
+  "module": "Logistics Transportation",
+  "name": "Freight Charge",
+  "owner": "Administrator",
+  "permissions": [],
+  "sort_field": "modified",
+  "sort_order": "DESC"
+}

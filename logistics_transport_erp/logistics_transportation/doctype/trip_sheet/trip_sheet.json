@@ -1,0 +1,248 @@
+{
+  "actions": [],
+  "autoname": "naming_series:",
+  "creation": "2024-01-01 00:00:00.000000",
+  "doctype": "DocType",
+  "editable_grid": 1,
+  "engine": "InnoDB",
+  "field_order": [
+    "naming_series",
+    "status",
+    "trip_date",
+    "column_break_1",
+    "load_plan",
+    "vehicle",
+    "driver",
+    "section_break_1",
+    "start_odometer_km",
+    "end_odometer_km",
+    "column_break_2",
+    "distance_covered_km",
+    "departure_time",
+    "arrival_time",
+    "section_break_2",
+    "toll_entries",
+    "section_break_3",
+    "fuel_entries",
+    "section_break_4",
+    "total_toll_amount",
+    "total_fuel_amount",
+    "column_break_3",
+    "total_fuel_litres",
+    "fuel_efficiency_kmpl",
+    "section_break_5",
+    "driver_advance_given",
+    "driver_advance_recovered",
+    "column_break_4",
+    "driver_balance",
+    "section_break_6",
+    "remarks",
+    "amended_from"
+  ],
+  "fields": [
+    {
+      "fieldname": "naming_series",
+      "fieldtype": "Series",
+      "label": "Series",
+      "options": "TS-.YYYY.-.#####"
+    },
+    {
+      "fieldname": "status",
+      "fieldtype": "Select",
+      "in_list_view": 1,
+      "label": "Status",
+      "options": "\nOpen\nIn Transit\nCompleted\nCancelled",
+      "default": "Open"
+    },
+    {
+      "fieldname": "trip_date",
+      "fieldtype": "Date",
+      "in_list_view": 1,
+      "label": "Trip Date",
+      "reqd": 1
+    },
+    {
+      "fieldname": "column_break_1",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "load_plan",
+      "fieldtype": "Link",
+      "in_list_view": 1,
+      "label": "Load Plan",
+      "options": "Load Plan"
+    },
+    {
+      "fieldname": "vehicle",
+      "fieldtype": "Link",
+      "label": "Vehicle",
+      "options": "Vehicle",
+      "reqd": 1
+    },
+    {
+      "fieldname": "driver",
+      "fieldtype": "Link",
+      "label": "Driver",
+      "options": "Driver",
+      "reqd": 1
+    },
+    {
+      "fieldname": "section_break_1",
+      "fieldtype": "Section Break",
+      "label": "Odometer & Timing"
+    },
+    {
+      "fieldname": "start_odometer_km",
+      "fieldtype": "Float",
+      "label": "Start Odometer (km)",
+      "reqd": 1
+    },
+    {
+      "fieldname": "end_odometer_km",
+      "fieldtype": "Float",
+      "label": "End Odometer (km)"
+    },
+    {
+      "fieldname": "column_break_2",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "distance_covered_km",
+      "fieldtype": "Float",
+      "label": "Distance Covered (km)",
+      "read_only": 1
+    },
+    {
+      "fieldname": "departure_time",
+      "fieldtype": "Datetime",
+      "label": "Departure Time"
+    },
+    {
+      "fieldname": "arrival_time",
+      "fieldtype": "Datetime",
+      "label": "Arrival Time"
+    },
+    {
+      "fieldname": "section_break_2",
+      "fieldtype": "Section Break",
+      "label": "Toll Entries"
+    },
+    {
+      "fieldname": "toll_entries",
+      "fieldtype": "Table",
+      "label": "Toll Entries",
+      "options": "Toll Entry"
+    },
+    {
+      "fieldname": "section_break_3",
+      "fieldtype": "Section Break",
+      "label": "Fuel Entries"
+    },
+    {
+      "fieldname": "fuel_entries",
+      "fieldtype": "Table",
+      "label": "Fuel Entries",
+      "options": "Trip Fuel Entry"
+    },
+    {
+      "fieldname": "section_break_4",
+      "fieldtype": "Section Break",
+      "label": "Trip Cost Summary"
+    },
+    {
+      "fieldname": "total_toll_amount",
+      "fieldtype": "Currency",
+      "label": "Total Toll Amount (INR)",
+      "read_only": 1
+    },
+    {
+      "fieldname": "total_fuel_amount",
+      "fieldtype": "Currency",
+      "label": "Total Fuel Amount (INR)",
+      "read_only": 1
+    },
+    {
+      "fieldname": "column_break_3",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "total_fuel_litres",
+      "fieldtype": "Float",
+      "label": "Total Fuel (Litres)",
+      "read_only": 1
+    },
+    {
+      "fieldname": "fuel_efficiency_kmpl",
+      "fieldtype": "Float",
+      "label": "Fuel Efficiency (km/l)",
+      "read_only": 1
+    },
+    {
+      "fieldname": "section_break_5",
+      "fieldtype": "Section Break",
+      "label": "Driver Advance"
+    },
+    {
+      "fieldname": "driver_advance_given",
+      "fieldtype": "Currency",
+      "label": "Advance Given (INR)"
+    },
+    {
+      "fieldname": "driver_advance_recovered",
+      "fieldtype": "Currency",
+      "label": "Advance Recovered (INR)"
+    },
+    {
+      "fieldname": "column_break_4",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "driver_balance",
+      "fieldtype": "Currency",
+      "label": "Driver Balance (INR)",
+      "read_only": 1
+    },
+    {
+      "fieldname": "section_break_6",
+      "fieldtype": "Section Break"
+    },
+    {
+      "fieldname": "remarks",
+      "fieldtype": "Small Text",
+      "label": "Remarks"
+    },
+    {
+      "fieldname": "amended_from",
+      "fieldtype": "Link",
+      "label": "Amended From",
+      "options": "Trip Sheet",
+      "no_copy": 1,
+      "print_hide": 1,
+      "read_only": 1
+    }
+  ],
+  "is_submittable": 1,
+  "links": [],
+  "modified": "2024-01-01 00:00:00.000000",
+  "modified_by": "Administrator",
+  "module": "Logistics Transportation",
+  "name": "Trip Sheet",
+  "naming_rule": "By \"Naming Series\" field",
+  "owner": "Administrator",
+  "permissions": [
+    {
+      "create": 1, "delete": 1, "email": 1, "export": 1,
+      "print": 1, "read": 1, "report": 1, "submit": 1,
+      "cancel": 1, "amend": 1,
+      "role": "System Manager", "share": 1, "write": 1
+    },
+    {
+      "create": 1, "read": 1, "report": 1, "write": 1,
+      "role": "All"
+    }
+  ],
+  "sort_field": "modified",
+  "sort_order": "DESC",
+  "title_field": "name",
+  "track_changes": 1
+}

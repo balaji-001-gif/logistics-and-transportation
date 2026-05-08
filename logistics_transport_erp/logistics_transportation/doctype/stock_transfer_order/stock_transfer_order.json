@@ -1,0 +1,240 @@
+{
+  "actions": [],
+  "autoname": "naming_series:",
+  "creation": "2024-01-01 00:00:00.000000",
+  "doctype": "DocType",
+  "editable_grid": 1,
+  "engine": "InnoDB",
+  "field_order": [
+    "naming_series",
+    "status",
+    "transfer_date",
+    "column_break_1",
+    "from_warehouse",
+    "to_warehouse",
+    "section_break_1",
+    "vehicle",
+    "driver",
+    "column_break_2",
+    "freight_order",
+    "section_break_2",
+    "challan_number",
+    "challan_date",
+    "column_break_3",
+    "gst_applicable",
+    "sac_code",
+    "section_break_3",
+    "items",
+    "section_break_4",
+    "total_quantity",
+    "total_value",
+    "column_break_4",
+    "cgst_amount",
+    "sgst_amount",
+    "igst_amount",
+    "grand_total",
+    "section_break_5",
+    "remarks",
+    "amended_from"
+  ],
+  "fields": [
+    {
+      "fieldname": "naming_series",
+      "fieldtype": "Series",
+      "label": "Series",
+      "options": "STO-.YYYY.-.#####",
+      "default": "STO-.YYYY.-.#####"
+    },
+    {
+      "fieldname": "status",
+      "fieldtype": "Select",
+      "in_list_view": 1,
+      "label": "Status",
+      "options": "\nDraft\nIn Transit\nReceived\nCancelled",
+      "default": "Draft"
+    },
+    {
+      "fieldname": "transfer_date",
+      "fieldtype": "Date",
+      "in_list_view": 1,
+      "label": "Transfer Date",
+      "reqd": 1
+    },
+    {
+      "fieldname": "column_break_1",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "from_warehouse",
+      "fieldtype": "Link",
+      "in_list_view": 1,
+      "label": "From Warehouse",
+      "options": "Warehouse",
+      "reqd": 1
+    },
+    {
+      "fieldname": "to_warehouse",
+      "fieldtype": "Link",
+      "in_list_view": 1,
+      "label": "To Warehouse",
+      "options": "Warehouse",
+      "reqd": 1
+    },
+    {
+      "fieldname": "section_break_1",
+      "fieldtype": "Section Break",
+      "label": "Transport"
+    },
+    {
+      "fieldname": "vehicle",
+      "fieldtype": "Link",
+      "label": "Vehicle",
+      "options": "Vehicle"
+    },
+    {
+      "fieldname": "driver",
+      "fieldtype": "Link",
+      "label": "Driver",
+      "options": "Driver"
+    },
+    {
+      "fieldname": "column_break_2",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "freight_order",
+      "fieldtype": "Link",
+      "label": "Freight Order",
+      "options": "Freight Order"
+    },
+    {
+      "fieldname": "section_break_2",
+      "fieldtype": "Section Break",
+      "label": "GST Challan"
+    },
+    {
+      "fieldname": "challan_number",
+      "fieldtype": "Data",
+      "label": "Delivery Challan Number"
+    },
+    {
+      "fieldname": "challan_date",
+      "fieldtype": "Date",
+      "label": "Challan Date"
+    },
+    {
+      "fieldname": "column_break_3",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "gst_applicable",
+      "fieldtype": "Check",
+      "label": "GST Applicable"
+    },
+    {
+      "fieldname": "sac_code",
+      "fieldtype": "Select",
+      "label": "SAC Code",
+      "options": "\n996511\n996512\n996521\n996531",
+      "depends_on": "eval:doc.gst_applicable"
+    },
+    {
+      "fieldname": "section_break_3",
+      "fieldtype": "Section Break",
+      "label": "Items"
+    },
+    {
+      "fieldname": "items",
+      "fieldtype": "Table",
+      "label": "Items",
+      "options": "Stock Transfer Item"
+    },
+    {
+      "fieldname": "section_break_4",
+      "fieldtype": "Section Break",
+      "label": "Value Summary"
+    },
+    {
+      "fieldname": "total_quantity",
+      "fieldtype": "Float",
+      "label": "Total Quantity",
+      "read_only": 1
+    },
+    {
+      "fieldname": "total_value",
+      "fieldtype": "Currency",
+      "label": "Total Value (INR)",
+      "read_only": 1
+    },
+    {
+      "fieldname": "column_break_4",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "cgst_amount",
+      "fieldtype": "Currency",
+      "label": "CGST Amount",
+      "read_only": 1
+    },
+    {
+      "fieldname": "sgst_amount",
+      "fieldtype": "Currency",
+      "label": "SGST Amount",
+      "read_only": 1
+    },
+    {
+      "fieldname": "igst_amount",
+      "fieldtype": "Currency",
+      "label": "IGST Amount",
+      "read_only": 1
+    },
+    {
+      "fieldname": "grand_total",
+      "fieldtype": "Currency",
+      "label": "Grand Total (INR)",
+      "read_only": 1
+    },
+    {
+      "fieldname": "section_break_5",
+      "fieldtype": "Section Break"
+    },
+    {
+      "fieldname": "remarks",
+      "fieldtype": "Small Text",
+      "label": "Remarks"
+    },
+    {
+      "fieldname": "amended_from",
+      "fieldtype": "Link",
+      "label": "Amended From",
+      "options": "Stock Transfer Order",
+      "no_copy": 1,
+      "print_hide": 1,
+      "read_only": 1
+    }
+  ],
+  "is_submittable": 1,
+  "links": [],
+  "modified": "2024-01-01 00:00:00.000000",
+  "modified_by": "Administrator",
+  "module": "Logistics Transportation",
+  "name": "Stock Transfer Order",
+  "naming_rule": "By \"Naming Series\" field",
+  "owner": "Administrator",
+  "permissions": [
+    {
+      "create": 1, "delete": 1, "email": 1, "export": 1,
+      "print": 1, "read": 1, "report": 1, "submit": 1,
+      "cancel": 1, "amend": 1,
+      "role": "System Manager", "share": 1, "write": 1
+    },
+    {
+      "create": 1, "read": 1, "report": 1, "write": 1,
+      "role": "All"
+    }
+  ],
+  "sort_field": "modified",
+  "sort_order": "DESC",
+  "title_field": "name",
+  "track_changes": 1
+}

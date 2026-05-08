@@ -1,0 +1,66 @@
+{
+  "actions": [],
+  "creation": "2024-01-01 00:00:00.000000",
+  "doctype": "DocType",
+  "editable_grid": 1,
+  "engine": "InnoDB",
+  "field_order": [
+    "fuel_station",
+    "location",
+    "column_break_1",
+    "quantity_litres",
+    "rate_per_litre",
+    "amount",
+    "odometer_reading"
+  ],
+  "fields": [
+    {
+      "fieldname": "fuel_station",
+      "fieldtype": "Data",
+      "in_list_view": 1,
+      "label": "Fuel Station",
+      "reqd": 1
+    },
+    {
+      "fieldname": "location",
+      "fieldtype": "Data",
+      "label": "Location"
+    },
+    {
+      "fieldname": "column_break_1",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "quantity_litres",
+      "fieldtype": "Float",
+      "in_list_view": 1,
+      "label": "Quantity (Litres)"
+    },
+    {
+      "fieldname": "rate_per_litre",
+      "fieldtype": "Currency",
+      "label": "Rate per Litre"
+    },
+    {
+      "fieldname": "amount",
+      "fieldtype": "Currency",
+      "in_list_view": 1,
+      "label": "Amount (INR)"
+    },
+    {
+      "fieldname": "odometer_reading",
+      "fieldtype": "Float",
+      "label": "Odometer Reading (km)"
+    }
+  ],
+  "istable": 1,
+  "links": [],
+  "modified": "2024-01-01 00:00:00.000000",
+  "modified_by": "Administrator",
+  "module": "Logistics Transportation",
+  "name": "Trip Fuel Entry",
+  "owner": "Administrator",
+  "permissions": [],
+  "sort_field": "modified",
+  "sort_order": "DESC"
+}

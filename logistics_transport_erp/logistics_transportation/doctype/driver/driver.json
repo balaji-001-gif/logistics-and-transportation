@@ -1,0 +1,201 @@
+{
+  "actions": [],
+  "autoname": "naming_series:",
+  "creation": "2024-01-01 00:00:00.000000",
+  "doctype": "DocType",
+  "editable_grid": 1,
+  "engine": "InnoDB",
+  "field_order": [
+    "naming_series",
+    "full_name",
+    "status",
+    "column_break_1",
+    "employee",
+    "home_warehouse",
+    "section_break_1",
+    "mobile_number",
+    "alternate_phone",
+    "column_break_2",
+    "date_of_birth",
+    "blood_group",
+    "section_break_2",
+    "primary_dl_number",
+    "dl_expiry_date",
+    "column_break_3",
+    "dl_class",
+    "dl_issuing_rto",
+    "section_break_3",
+    "licence_history",
+    "section_break_4",
+    "address",
+    "emergency_contact_name",
+    "column_break_4",
+    "emergency_contact_phone",
+    "notes"
+  ],
+  "fields": [
+    {
+      "fieldname": "naming_series",
+      "fieldtype": "Series",
+      "label": "Series",
+      "options": "DRV-.YYYY.-"
+    },
+    {
+      "fieldname": "full_name",
+      "fieldtype": "Data",
+      "in_list_view": 1,
+      "label": "Full Name",
+      "reqd": 1
+    },
+    {
+      "fieldname": "status",
+      "fieldtype": "Select",
+      "in_list_view": 1,
+      "label": "Status",
+      "options": "\nActive\nOn Leave\nSuspended\nTerminated",
+      "default": "Active"
+    },
+    {
+      "fieldname": "column_break_1",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "employee",
+      "fieldtype": "Link",
+      "label": "Linked Employee",
+      "options": "Employee"
+    },
+    {
+      "fieldname": "home_warehouse",
+      "fieldtype": "Link",
+      "label": "Home Warehouse",
+      "options": "Warehouse"
+    },
+    {
+      "fieldname": "section_break_1",
+      "fieldtype": "Section Break",
+      "label": "Contact Details"
+    },
+    {
+      "fieldname": "mobile_number",
+      "fieldtype": "Data",
+      "in_list_view": 1,
+      "label": "Mobile Number",
+      "reqd": 1
+    },
+    {
+      "fieldname": "alternate_phone",
+      "fieldtype": "Data",
+      "label": "Alternate Phone"
+    },
+    {
+      "fieldname": "column_break_2",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "date_of_birth",
+      "fieldtype": "Date",
+      "label": "Date of Birth"
+    },
+    {
+      "fieldname": "blood_group",
+      "fieldtype": "Select",
+      "label": "Blood Group",
+      "options": "\nA+\nA-\nB+\nB-\nAB+\nAB-\nO+\nO-"
+    },
+    {
+      "fieldname": "section_break_2",
+      "fieldtype": "Section Break",
+      "label": "Driving Licence"
+    },
+    {
+      "fieldname": "primary_dl_number",
+      "fieldtype": "Data",
+      "in_list_view": 1,
+      "label": "DL Number"
+    },
+    {
+      "fieldname": "dl_expiry_date",
+      "fieldtype": "Date",
+      "in_list_view": 1,
+      "label": "DL Expiry Date"
+    },
+    {
+      "fieldname": "column_break_3",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "dl_class",
+      "fieldtype": "Select",
+      "label": "DL Class",
+      "options": "\nLMV\nHMV\nHGMV\nHPMV\nHTV\nMGV\nLMV-TR"
+    },
+    {
+      "fieldname": "dl_issuing_rto",
+      "fieldtype": "Data",
+      "label": "Issuing RTO"
+    },
+    {
+      "fieldname": "section_break_3",
+      "fieldtype": "Section Break",
+      "label": "Licence & Certification History"
+    },
+    {
+      "fieldname": "licence_history",
+      "fieldtype": "Table",
+      "label": "Licence History",
+      "options": "Driver Licence Row"
+    },
+    {
+      "fieldname": "section_break_4",
+      "fieldtype": "Section Break",
+      "label": "Address & Emergency"
+    },
+    {
+      "fieldname": "address",
+      "fieldtype": "Small Text",
+      "label": "Residential Address"
+    },
+    {
+      "fieldname": "emergency_contact_name",
+      "fieldtype": "Data",
+      "label": "Emergency Contact Name"
+    },
+    {
+      "fieldname": "column_break_4",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "emergency_contact_phone",
+      "fieldtype": "Data",
+      "label": "Emergency Contact Phone"
+    },
+    {
+      "fieldname": "notes",
+      "fieldtype": "Small Text",
+      "label": "Notes"
+    }
+  ],
+  "links": [],
+  "modified": "2024-01-01 00:00:00.000000",
+  "modified_by": "Administrator",
+  "module": "Logistics Transportation",
+  "name": "Driver",
+  "naming_rule": "By \"Naming Series\" field",
+  "owner": "Administrator",
+  "permissions": [
+    {
+      "create": 1, "delete": 1, "email": 1, "export": 1,
+      "print": 1, "read": 1, "report": 1,
+      "role": "System Manager", "share": 1, "write": 1
+    },
+    {
+      "create": 1, "read": 1, "report": 1,
+      "role": "All", "write": 1
+    }
+  ],
+  "sort_field": "modified",
+  "sort_order": "DESC",
+  "title_field": "full_name",
+  "track_changes": 1
+}

@@ -1,0 +1,191 @@
+{
+  "actions": [],
+  "autoname": "field:warehouse_name",
+  "creation": "2024-01-01 00:00:00.000000",
+  "doctype": "DocType",
+  "editable_grid": 1,
+  "engine": "InnoDB",
+  "field_order": [
+    "warehouse_name",
+    "warehouse_type",
+    "column_break_1",
+    "is_active",
+    "section_break_1",
+    "address_line_1",
+    "address_line_2",
+    "city",
+    "column_break_2",
+    "state",
+    "pincode",
+    "country",
+    "section_break_2",
+    "gstin",
+    "pan_number",
+    "column_break_3",
+    "contact_person",
+    "contact_phone",
+    "section_break_3",
+    "total_area_sqft",
+    "usable_area_sqft",
+    "column_break_4",
+    "zones",
+    "section_break_4",
+    "notes"
+  ],
+  "fields": [
+    {
+      "fieldname": "warehouse_name",
+      "fieldtype": "Data",
+      "in_list_view": 1,
+      "label": "Warehouse Name",
+      "reqd": 1,
+      "unique": 1
+    },
+    {
+      "fieldname": "warehouse_type",
+      "fieldtype": "Select",
+      "in_list_view": 1,
+      "label": "Warehouse Type",
+      "options": "\nOwned\nLeased\n3PL\nCross-Dock\nCold Storage\nBonded"
+    },
+    {
+      "fieldname": "column_break_1",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "is_active",
+      "fieldtype": "Check",
+      "label": "Is Active",
+      "default": "1",
+      "in_list_view": 1
+    },
+    {
+      "fieldname": "section_break_1",
+      "fieldtype": "Section Break",
+      "label": "Address"
+    },
+    {
+      "fieldname": "address_line_1",
+      "fieldtype": "Data",
+      "label": "Address Line 1",
+      "reqd": 1
+    },
+    {
+      "fieldname": "address_line_2",
+      "fieldtype": "Data",
+      "label": "Address Line 2"
+    },
+    {
+      "fieldname": "city",
+      "fieldtype": "Data",
+      "label": "City",
+      "reqd": 1,
+      "in_list_view": 1
+    },
+    {
+      "fieldname": "column_break_2",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "state",
+      "fieldtype": "Data",
+      "label": "State",
+      "reqd": 1
+    },
+    {
+      "fieldname": "pincode",
+      "fieldtype": "Data",
+      "label": "Pincode"
+    },
+    {
+      "fieldname": "country",
+      "fieldtype": "Data",
+      "label": "Country",
+      "default": "India"
+    },
+    {
+      "fieldname": "section_break_2",
+      "fieldtype": "Section Break",
+      "label": "GST & Compliance"
+    },
+    {
+      "fieldname": "gstin",
+      "fieldtype": "Data",
+      "label": "GSTIN"
+    },
+    {
+      "fieldname": "pan_number",
+      "fieldtype": "Data",
+      "label": "PAN Number"
+    },
+    {
+      "fieldname": "column_break_3",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "contact_person",
+      "fieldtype": "Data",
+      "label": "Contact Person"
+    },
+    {
+      "fieldname": "contact_phone",
+      "fieldtype": "Data",
+      "label": "Contact Phone"
+    },
+    {
+      "fieldname": "section_break_3",
+      "fieldtype": "Section Break",
+      "label": "Capacity"
+    },
+    {
+      "fieldname": "total_area_sqft",
+      "fieldtype": "Float",
+      "label": "Total Area (Sq Ft)"
+    },
+    {
+      "fieldname": "usable_area_sqft",
+      "fieldtype": "Float",
+      "label": "Usable Area (Sq Ft)"
+    },
+    {
+      "fieldname": "column_break_4",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "zones",
+      "fieldtype": "Small Text",
+      "label": "Zones (comma separated)"
+    },
+    {
+      "fieldname": "section_break_4",
+      "fieldtype": "Section Break"
+    },
+    {
+      "fieldname": "notes",
+      "fieldtype": "Small Text",
+      "label": "Notes"
+    }
+  ],
+  "links": [],
+  "modified": "2024-01-01 00:00:00.000000",
+  "modified_by": "Administrator",
+  "module": "Logistics Transportation",
+  "name": "Warehouse",
+  "naming_rule": "By fieldname",
+  "owner": "Administrator",
+  "permissions": [
+    {
+      "create": 1, "delete": 1, "email": 1, "export": 1,
+      "print": 1, "read": 1, "report": 1,
+      "role": "System Manager", "share": 1, "write": 1
+    },
+    {
+      "create": 1, "read": 1, "report": 1,
+      "role": "All", "write": 1
+    }
+  ],
+  "sort_field": "warehouse_name",
+  "sort_order": "ASC",
+  "title_field": "warehouse_name",
+  "track_changes": 1
+}

@@ -1,0 +1,19 @@
+{
+  "attach_print": 0,
+  "channel": "Email",
+  "condition": "doc.next_service_date",
+  "creation": "2024-01-01 00:00:00.000000",
+  "days_in_advance": 7,
+  "doctype": "Notification",
+  "document_type": "Vehicle",
+  "enabled": 1,
+  "event": "Days Before",
+  "message": "<p>Dear Team,</p><p>Vehicle <b>{{ doc.registration_number }}</b> is due for service.</p><p><b>Vehicle Type:</b> {{ doc.vehicle_type }}<br><b>Next Service Date:</b> {{ doc.next_service_date }}<br><b>Current Odometer:</b> {{ doc.current_odometer_km }} km<br><b>Next Service at:</b> {{ doc.next_service_km }} km</p><p>Please schedule the service to avoid breakdown.</p>",
+  "modified": "2024-01-01 00:00:00.000000",
+  "modified_by": "Administrator",
+  "name": "Vehicle Maintenance Due",
+  "owner": "Administrator",
+  "send_system_notification": 1,
+  "send_to_all_assignees": 0,
+  "subject": "Vehicle Service Due: {{ doc.registration_number }} on {{ doc.next_service_date }}"
+}

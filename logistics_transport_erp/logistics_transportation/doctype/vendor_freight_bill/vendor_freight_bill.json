@@ -1,0 +1,235 @@
+{
+  "actions": [],
+  "autoname": "naming_series:",
+  "creation": "2024-01-01 00:00:00.000000",
+  "doctype": "DocType",
+  "editable_grid": 1,
+  "engine": "InnoDB",
+  "field_order": [
+    "naming_series",
+    "status",
+    "bill_date",
+    "column_break_1",
+    "transporter_name",
+    "transporter_gstin",
+    "due_date",
+    "section_break_1",
+    "freight_order",
+    "trip_sheet",
+    "column_break_2",
+    "vehicle",
+    "driver",
+    "section_break_2",
+    "base_freight_amount",
+    "tds_rate",
+    "tds_amount",
+    "column_break_3",
+    "is_rcm",
+    "igst_amount",
+    "net_payable",
+    "section_break_3",
+    "purchase_invoice",
+    "payment_reference",
+    "column_break_4",
+    "amount_paid",
+    "balance_due",
+    "section_break_4",
+    "remarks",
+    "amended_from"
+  ],
+  "fields": [
+    {
+      "fieldname": "naming_series",
+      "fieldtype": "Series",
+      "label": "Series",
+      "options": "VFB-.YYYY.-.#####",
+      "default": "VFB-.YYYY.-.#####"
+    },
+    {
+      "fieldname": "status",
+      "fieldtype": "Select",
+      "in_list_view": 1,
+      "label": "Status",
+      "options": "\nDraft\nPending Approval\nApproved\nPaid\nCancelled",
+      "default": "Draft"
+    },
+    {
+      "fieldname": "bill_date",
+      "fieldtype": "Date",
+      "in_list_view": 1,
+      "label": "Bill Date",
+      "reqd": 1
+    },
+    {
+      "fieldname": "column_break_1",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "transporter_name",
+      "fieldtype": "Data",
+      "in_list_view": 1,
+      "label": "Transporter Name",
+      "reqd": 1
+    },
+    {
+      "fieldname": "transporter_gstin",
+      "fieldtype": "Data",
+      "label": "Transporter GSTIN"
+    },
+    {
+      "fieldname": "due_date",
+      "fieldtype": "Date",
+      "label": "Due Date"
+    },
+    {
+      "fieldname": "section_break_1",
+      "fieldtype": "Section Break",
+      "label": "Trip References"
+    },
+    {
+      "fieldname": "freight_order",
+      "fieldtype": "Link",
+      "label": "Freight Order",
+      "options": "Freight Order"
+    },
+    {
+      "fieldname": "trip_sheet",
+      "fieldtype": "Link",
+      "label": "Trip Sheet",
+      "options": "Trip Sheet"
+    },
+    {
+      "fieldname": "column_break_2",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "vehicle",
+      "fieldtype": "Link",
+      "label": "Vehicle",
+      "options": "Vehicle"
+    },
+    {
+      "fieldname": "driver",
+      "fieldtype": "Link",
+      "label": "Driver",
+      "options": "Driver"
+    },
+    {
+      "fieldname": "section_break_2",
+      "fieldtype": "Section Break",
+      "label": "Amount & Tax (194C TDS)"
+    },
+    {
+      "fieldname": "base_freight_amount",
+      "fieldtype": "Currency",
+      "label": "Base Freight Amount (INR)",
+      "reqd": 1
+    },
+    {
+      "fieldname": "tds_rate",
+      "fieldtype": "Percent",
+      "label": "TDS Rate % (194C)",
+      "default": "2"
+    },
+    {
+      "fieldname": "tds_amount",
+      "fieldtype": "Currency",
+      "label": "TDS Amount (INR)",
+      "read_only": 1
+    },
+    {
+      "fieldname": "column_break_3",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "is_rcm",
+      "fieldtype": "Check",
+      "label": "RCM Applicable (GST)"
+    },
+    {
+      "fieldname": "igst_amount",
+      "fieldtype": "Currency",
+      "label": "IGST Amount (RCM)",
+      "depends_on": "eval:doc.is_rcm"
+    },
+    {
+      "fieldname": "net_payable",
+      "fieldtype": "Currency",
+      "label": "Net Payable (INR)",
+      "read_only": 1
+    },
+    {
+      "fieldname": "section_break_3",
+      "fieldtype": "Section Break",
+      "label": "Payment"
+    },
+    {
+      "fieldname": "purchase_invoice",
+      "fieldtype": "Link",
+      "label": "ERPNext Purchase Invoice",
+      "options": "Purchase Invoice"
+    },
+    {
+      "fieldname": "payment_reference",
+      "fieldtype": "Data",
+      "label": "Payment Reference"
+    },
+    {
+      "fieldname": "column_break_4",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "amount_paid",
+      "fieldtype": "Currency",
+      "label": "Amount Paid (INR)"
+    },
+    {
+      "fieldname": "balance_due",
+      "fieldtype": "Currency",
+      "label": "Balance Due (INR)",
+      "read_only": 1
+    },
+    {
+      "fieldname": "section_break_4",
+      "fieldtype": "Section Break"
+    },
+    {
+      "fieldname": "remarks",
+      "fieldtype": "Small Text",
+      "label": "Remarks"
+    },
+    {
+      "fieldname": "amended_from",
+      "fieldtype": "Link",
+      "label": "Amended From",
+      "options": "Vendor Freight Bill",
+      "no_copy": 1,
+      "print_hide": 1,
+      "read_only": 1
+    }
+  ],
+  "is_submittable": 1,
+  "links": [],
+  "modified": "2024-01-01 00:00:00.000000",
+  "modified_by": "Administrator",
+  "module": "Logistics Transportation",
+  "name": "Vendor Freight Bill",
+  "naming_rule": "By \"Naming Series\" field",
+  "owner": "Administrator",
+  "permissions": [
+    {
+      "create": 1, "delete": 1, "email": 1, "export": 1,
+      "print": 1, "read": 1, "report": 1, "submit": 1,
+      "cancel": 1, "amend": 1,
+      "role": "System Manager", "share": 1, "write": 1
+    },
+    {
+      "create": 1, "read": 1, "report": 1, "write": 1,
+      "role": "All"
+    }
+  ],
+  "sort_field": "modified",
+  "sort_order": "DESC",
+  "title_field": "transporter_name",
+  "track_changes": 1
+}

@@ -1,0 +1,216 @@
+{
+  "actions": [],
+  "autoname": "naming_series:",
+  "creation": "2024-01-01 00:00:00.000000",
+  "doctype": "DocType",
+  "editable_grid": 1,
+  "engine": "InnoDB",
+  "field_order": [
+    "naming_series",
+    "status",
+    "request_type",
+    "column_break_1",
+    "vehicle",
+    "raised_by_driver",
+    "trip_sheet",
+    "section_break_1",
+    "request_date",
+    "priority",
+    "column_break_2",
+    "scheduled_service_date",
+    "completed_date",
+    "section_break_2",
+    "odometer_at_request_km",
+    "complaint_description",
+    "section_break_3",
+    "parts_used",
+    "section_break_4",
+    "labour_cost",
+    "total_parts_cost",
+    "column_break_3",
+    "total_maintenance_cost",
+    "service_vendor",
+    "section_break_5",
+    "resolution_notes",
+    "amended_from"
+  ],
+  "fields": [
+    {
+      "fieldname": "naming_series",
+      "fieldtype": "Series",
+      "label": "Series",
+      "options": "VMR-.YYYY.-.#####"
+    },
+    {
+      "fieldname": "status",
+      "fieldtype": "Select",
+      "in_list_view": 1,
+      "label": "Status",
+      "options": "\nOpen\nIn Progress\nCompleted\nCancelled",
+      "default": "Open"
+    },
+    {
+      "fieldname": "request_type",
+      "fieldtype": "Select",
+      "in_list_view": 1,
+      "label": "Request Type",
+      "options": "\nPreventive Maintenance\nBreakdown\nAccident Repair\nTyre Change\nBattery\nOther"
+    },
+    {
+      "fieldname": "column_break_1",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "vehicle",
+      "fieldtype": "Link",
+      "in_list_view": 1,
+      "label": "Vehicle",
+      "options": "Vehicle",
+      "reqd": 1
+    },
+    {
+      "fieldname": "raised_by_driver",
+      "fieldtype": "Link",
+      "label": "Raised By (Driver)",
+      "options": "Driver"
+    },
+    {
+      "fieldname": "trip_sheet",
+      "fieldtype": "Link",
+      "label": "Trip Sheet (if mid-trip breakdown)",
+      "options": "Trip Sheet"
+    },
+    {
+      "fieldname": "section_break_1",
+      "fieldtype": "Section Break",
+      "label": "Schedule"
+    },
+    {
+      "fieldname": "request_date",
+      "fieldtype": "Date",
+      "label": "Request Date",
+      "reqd": 1
+    },
+    {
+      "fieldname": "priority",
+      "fieldtype": "Select",
+      "label": "Priority",
+      "options": "\nLow\nMedium\nHigh\nCritical",
+      "default": "Medium"
+    },
+    {
+      "fieldname": "column_break_2",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "scheduled_service_date",
+      "fieldtype": "Date",
+      "label": "Scheduled Service Date"
+    },
+    {
+      "fieldname": "completed_date",
+      "fieldtype": "Date",
+      "label": "Completed Date"
+    },
+    {
+      "fieldname": "section_break_2",
+      "fieldtype": "Section Break",
+      "label": "Issue Details"
+    },
+    {
+      "fieldname": "odometer_at_request_km",
+      "fieldtype": "Float",
+      "label": "Odometer at Request (km)"
+    },
+    {
+      "fieldname": "complaint_description",
+      "fieldtype": "Text",
+      "label": "Complaint / Issue Description",
+      "reqd": 1
+    },
+    {
+      "fieldname": "section_break_3",
+      "fieldtype": "Section Break",
+      "label": "Parts Used"
+    },
+    {
+      "fieldname": "parts_used",
+      "fieldtype": "Table",
+      "label": "Parts Used",
+      "options": "Part Line"
+    },
+    {
+      "fieldname": "section_break_4",
+      "fieldtype": "Section Break",
+      "label": "Cost Summary"
+    },
+    {
+      "fieldname": "labour_cost",
+      "fieldtype": "Currency",
+      "label": "Labour Cost (INR)"
+    },
+    {
+      "fieldname": "total_parts_cost",
+      "fieldtype": "Currency",
+      "label": "Total Parts Cost (INR)",
+      "read_only": 1
+    },
+    {
+      "fieldname": "column_break_3",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "total_maintenance_cost",
+      "fieldtype": "Currency",
+      "label": "Total Maintenance Cost (INR)",
+      "read_only": 1
+    },
+    {
+      "fieldname": "service_vendor",
+      "fieldtype": "Data",
+      "label": "Service Vendor / Workshop"
+    },
+    {
+      "fieldname": "section_break_5",
+      "fieldtype": "Section Break"
+    },
+    {
+      "fieldname": "resolution_notes",
+      "fieldtype": "Text",
+      "label": "Resolution Notes"
+    },
+    {
+      "fieldname": "amended_from",
+      "fieldtype": "Link",
+      "label": "Amended From",
+      "options": "Vehicle Maintenance Request",
+      "no_copy": 1,
+      "print_hide": 1,
+      "read_only": 1
+    }
+  ],
+  "is_submittable": 1,
+  "links": [],
+  "modified": "2024-01-01 00:00:00.000000",
+  "modified_by": "Administrator",
+  "module": "Logistics Transportation",
+  "name": "Vehicle Maintenance Request",
+  "naming_rule": "By \"Naming Series\" field",
+  "owner": "Administrator",
+  "permissions": [
+    {
+      "create": 1, "delete": 1, "email": 1, "export": 1,
+      "print": 1, "read": 1, "report": 1, "submit": 1,
+      "cancel": 1, "amend": 1,
+      "role": "System Manager", "share": 1, "write": 1
+    },
+    {
+      "create": 1, "read": 1, "report": 1, "write": 1,
+      "role": "All"
+    }
+  ],
+  "sort_field": "modified",
+  "sort_order": "DESC",
+  "title_field": "name",
+  "track_changes": 1
+}

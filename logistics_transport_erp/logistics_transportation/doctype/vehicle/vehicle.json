@@ -1,0 +1,218 @@
+{
+  "actions": [],
+  "autoname": "field:registration_number",
+  "creation": "2024-01-01 00:00:00.000000",
+  "doctype": "DocType",
+  "editable_grid": 1,
+  "engine": "InnoDB",
+  "field_order": [
+    "registration_number",
+    "vehicle_type",
+    "status",
+    "column_break_1",
+    "make",
+    "model",
+    "year_of_manufacture",
+    "section_break_1",
+    "payload_capacity_kg",
+    "volume_capacity_cbm",
+    "column_break_2",
+    "fuel_type",
+    "fuel_tank_capacity_litres",
+    "section_break_2",
+    "default_driver",
+    "home_warehouse",
+    "column_break_3",
+    "ownership_type",
+    "vendor_name",
+    "section_break_3",
+    "current_odometer_km",
+    "last_service_km",
+    "column_break_4",
+    "next_service_km",
+    "next_service_date",
+    "section_break_4",
+    "documents",
+    "section_break_5",
+    "notes"
+  ],
+  "fields": [
+    {
+      "fieldname": "registration_number",
+      "fieldtype": "Data",
+      "in_list_view": 1,
+      "label": "Registration Number",
+      "reqd": 1,
+      "unique": 1
+    },
+    {
+      "fieldname": "vehicle_type",
+      "fieldtype": "Link",
+      "in_list_view": 1,
+      "label": "Vehicle Type",
+      "options": "Vehicle Type",
+      "reqd": 1
+    },
+    {
+      "fieldname": "status",
+      "fieldtype": "Select",
+      "in_list_view": 1,
+      "label": "Status",
+      "options": "\nAvailable\nOn Trip\nUnder Maintenance\nOff Road\nDecommissioned",
+      "default": "Available"
+    },
+    {
+      "fieldname": "column_break_1",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "make",
+      "fieldtype": "Data",
+      "label": "Make (Brand)"
+    },
+    {
+      "fieldname": "model",
+      "fieldtype": "Data",
+      "label": "Model"
+    },
+    {
+      "fieldname": "year_of_manufacture",
+      "fieldtype": "Int",
+      "label": "Year of Manufacture"
+    },
+    {
+      "fieldname": "section_break_1",
+      "fieldtype": "Section Break",
+      "label": "Capacity"
+    },
+    {
+      "fieldname": "payload_capacity_kg",
+      "fieldtype": "Float",
+      "label": "Payload Capacity (kg)"
+    },
+    {
+      "fieldname": "volume_capacity_cbm",
+      "fieldtype": "Float",
+      "label": "Volume Capacity (CBM)"
+    },
+    {
+      "fieldname": "column_break_2",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "fuel_type",
+      "fieldtype": "Select",
+      "label": "Fuel Type",
+      "options": "\nDiesel\nPetrol\nCNG\nElectric\nHybrid"
+    },
+    {
+      "fieldname": "fuel_tank_capacity_litres",
+      "fieldtype": "Float",
+      "label": "Fuel Tank Capacity (Litres)"
+    },
+    {
+      "fieldname": "section_break_2",
+      "fieldtype": "Section Break",
+      "label": "Assignment"
+    },
+    {
+      "fieldname": "default_driver",
+      "fieldtype": "Link",
+      "label": "Default Driver",
+      "options": "Driver"
+    },
+    {
+      "fieldname": "home_warehouse",
+      "fieldtype": "Link",
+      "label": "Home Warehouse",
+      "options": "Warehouse"
+    },
+    {
+      "fieldname": "column_break_3",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "ownership_type",
+      "fieldtype": "Select",
+      "label": "Ownership Type",
+      "options": "\nOwned\nLeased\nHired (Market Vehicle)"
+    },
+    {
+      "fieldname": "vendor_name",
+      "fieldtype": "Data",
+      "label": "Vendor / Lessor Name",
+      "depends_on": "eval:doc.ownership_type != 'Owned'"
+    },
+    {
+      "fieldname": "section_break_3",
+      "fieldtype": "Section Break",
+      "label": "Odometer & Service"
+    },
+    {
+      "fieldname": "current_odometer_km",
+      "fieldtype": "Float",
+      "label": "Current Odometer (km)"
+    },
+    {
+      "fieldname": "last_service_km",
+      "fieldtype": "Float",
+      "label": "Last Service at (km)"
+    },
+    {
+      "fieldname": "column_break_4",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "next_service_km",
+      "fieldtype": "Float",
+      "label": "Next Service at (km)"
+    },
+    {
+      "fieldname": "next_service_date",
+      "fieldtype": "Date",
+      "label": "Next Service Date"
+    },
+    {
+      "fieldname": "section_break_4",
+      "fieldtype": "Section Break",
+      "label": "Documents"
+    },
+    {
+      "fieldname": "documents",
+      "fieldtype": "Table",
+      "label": "Vehicle Documents",
+      "options": "Vehicle Document"
+    },
+    {
+      "fieldname": "section_break_5",
+      "fieldtype": "Section Break"
+    },
+    {
+      "fieldname": "notes",
+      "fieldtype": "Small Text",
+      "label": "Notes"
+    }
+  ],
+  "links": [],
+  "modified": "2024-01-01 00:00:00.000000",
+  "modified_by": "Administrator",
+  "module": "Logistics Transportation",
+  "name": "Vehicle",
+  "naming_rule": "By fieldname",
+  "owner": "Administrator",
+  "permissions": [
+    {
+      "create": 1, "delete": 1, "email": 1, "export": 1,
+      "print": 1, "read": 1, "report": 1,
+      "role": "System Manager", "share": 1, "write": 1
+    },
+    {
+      "create": 1, "read": 1, "report": 1,
+      "role": "All", "write": 1
+    }
+  ],
+  "sort_field": "registration_number",
+  "sort_order": "ASC",
+  "title_field": "registration_number",
+  "track_changes": 1
+}

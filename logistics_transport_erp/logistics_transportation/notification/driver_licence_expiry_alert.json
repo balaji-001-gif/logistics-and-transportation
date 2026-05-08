@@ -1,0 +1,19 @@
+{
+  "attach_print": 0,
+  "channel": "Email",
+  "condition": "doc.dl_expiry_date and doc.status == 'Active'",
+  "creation": "2024-01-01 00:00:00.000000",
+  "days_in_advance": 30,
+  "doctype": "Notification",
+  "document_type": "Driver",
+  "enabled": 1,
+  "event": "Days Before",
+  "message": "<p>Dear Team,</p><p>Driver Licence for <b>{{ doc.full_name }}</b> is expiring soon.</p><p><b>DL Number:</b> {{ doc.primary_dl_number }}<br><b>DL Class:</b> {{ doc.dl_class }}<br><b>Expiry Date:</b> {{ doc.dl_expiry_date }}<br><b>Issuing RTO:</b> {{ doc.dl_issuing_rto }}</p><p>Please initiate renewal process immediately.</p>",
+  "modified": "2024-01-01 00:00:00.000000",
+  "modified_by": "Administrator",
+  "name": "Driver Licence Expiry Alert",
+  "owner": "Administrator",
+  "send_system_notification": 1,
+  "send_to_all_assignees": 0,
+  "subject": "Driver Licence Expiring: {{ doc.full_name }} - {{ doc.dl_expiry_date }}"
+}

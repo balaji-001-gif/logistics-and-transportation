@@ -1,0 +1,62 @@
+{
+  "actions": [],
+  "creation": "2024-01-01 00:00:00.000000",
+  "doctype": "DocType",
+  "editable_grid": 1,
+  "engine": "InnoDB",
+  "field_order": [
+    "route",
+    "vehicle_type",
+    "column_break_1",
+    "rate_type",
+    "contracted_rate",
+    "minimum_charge"
+  ],
+  "fields": [
+    {
+      "fieldname": "route",
+      "fieldtype": "Link",
+      "in_list_view": 1,
+      "label": "Route",
+      "options": "Route Master"
+    },
+    {
+      "fieldname": "vehicle_type",
+      "fieldtype": "Link",
+      "in_list_view": 1,
+      "label": "Vehicle Type",
+      "options": "Vehicle Type"
+    },
+    {
+      "fieldname": "column_break_1",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "rate_type",
+      "fieldtype": "Select",
+      "label": "Rate Type",
+      "options": "\nPer KG\nPer CBM\nPer Trip (FTL)\nPer Unit"
+    },
+    {
+      "fieldname": "contracted_rate",
+      "fieldtype": "Currency",
+      "in_list_view": 1,
+      "label": "Contracted Rate (INR)"
+    },
+    {
+      "fieldname": "minimum_charge",
+      "fieldtype": "Currency",
+      "label": "Minimum Charge (INR)"
+    }
+  ],
+  "istable": 1,
+  "links": [],
+  "modified": "2024-01-01 00:00:00.000000",
+  "modified_by": "Administrator",
+  "module": "Logistics Transportation",
+  "name": "Customer Contract Rate Slab",
+  "owner": "Administrator",
+  "permissions": [],
+  "sort_field": "modified",
+  "sort_order": "DESC"
+}

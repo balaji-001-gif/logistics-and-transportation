@@ -1,0 +1,19 @@
+{
+  "attach_print": 0,
+  "channel": "Email",
+  "condition": "doc.expiry_date",
+  "creation": "2024-01-01 00:00:00.000000",
+  "days_in_advance": 30,
+  "doctype": "Notification",
+  "document_type": "Vehicle Document",
+  "enabled": 1,
+  "event": "Days Before",
+  "message": "<p>Dear Team,</p><p>The following vehicle document is expiring soon:</p><p><b>Document Type:</b> {{ doc.document_type }}<br><b>Document Number:</b> {{ doc.document_number }}<br><b>Expiry Date:</b> {{ doc.expiry_date }}</p><p>Please renew before the expiry date to ensure compliance.</p>",
+  "modified": "2024-01-01 00:00:00.000000",
+  "modified_by": "Administrator",
+  "name": "Vehicle Document Expiry Alert",
+  "owner": "Administrator",
+  "send_system_notification": 1,
+  "send_to_all_assignees": 0,
+  "subject": "Vehicle Document Expiring: {{ doc.document_type }} - {{ doc.document_number }}"
+}

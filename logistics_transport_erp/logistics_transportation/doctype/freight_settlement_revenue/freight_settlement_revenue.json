@@ -1,0 +1,62 @@
+{
+  "actions": [],
+  "creation": "2024-01-01 00:00:00.000000",
+  "doctype": "DocType",
+  "editable_grid": 1,
+  "engine": "InnoDB",
+  "field_order": [
+    "freight_invoice",
+    "freight_order",
+    "column_break_1",
+    "invoice_amount",
+    "gst_amount",
+    "net_revenue"
+  ],
+  "fields": [
+    {
+      "fieldname": "freight_invoice",
+      "fieldtype": "Link",
+      "in_list_view": 1,
+      "label": "Freight Invoice",
+      "options": "Freight Invoice"
+    },
+    {
+      "fieldname": "freight_order",
+      "fieldtype": "Link",
+      "in_list_view": 1,
+      "label": "Freight Order",
+      "options": "Freight Order"
+    },
+    {
+      "fieldname": "column_break_1",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "invoice_amount",
+      "fieldtype": "Currency",
+      "in_list_view": 1,
+      "label": "Invoice Amount (INR)"
+    },
+    {
+      "fieldname": "gst_amount",
+      "fieldtype": "Currency",
+      "label": "GST Amount (INR)"
+    },
+    {
+      "fieldname": "net_revenue",
+      "fieldtype": "Currency",
+      "in_list_view": 1,
+      "label": "Net Revenue (INR)"
+    }
+  ],
+  "istable": 1,
+  "links": [],
+  "modified": "2024-01-01 00:00:00.000000",
+  "modified_by": "Administrator",
+  "module": "Logistics Transportation",
+  "name": "Freight Settlement Revenue",
+  "owner": "Administrator",
+  "permissions": [],
+  "sort_field": "modified",
+  "sort_order": "DESC"
+}

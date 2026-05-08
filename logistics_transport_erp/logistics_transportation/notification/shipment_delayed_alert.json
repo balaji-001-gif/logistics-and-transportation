@@ -1,0 +1,18 @@
+{
+  "attach_print": 0,
+  "channel": "Email",
+  "condition": "doc.expected_delivery_date and doc.status not in ('Delivered', 'Cancelled') and frappe.utils.getdate(doc.expected_delivery_date) < frappe.utils.getdate(frappe.utils.today())",
+  "creation": "2024-01-01 00:00:00.000000",
+  "doctype": "Notification",
+  "document_type": "Freight Order",
+  "enabled": 1,
+  "event": "Save",
+  "message": "<p>Dear Team,</p><p>Freight Order <b>{{ doc.name }}</b> is delayed.</p><p><b>Customer:</b> {{ doc.customer }}<br><b>Expected Delivery:</b> {{ doc.expected_delivery_date }}<br><b>Current Status:</b> {{ doc.status }}<br><b>Vehicle:</b> {{ doc.vehicle }}<br><b>Driver:</b> {{ doc.driver }}</p><p>Please take immediate action.</p>",
+  "modified": "2024-01-01 00:00:00.000000",
+  "modified_by": "Administrator",
+  "name": "Shipment Delayed Alert",
+  "owner": "Administrator",
+  "send_system_notification": 1,
+  "send_to_all_assignees": 0,
+  "subject": "Shipment Delayed: {{ doc.name }} for {{ doc.customer }}"
+}
