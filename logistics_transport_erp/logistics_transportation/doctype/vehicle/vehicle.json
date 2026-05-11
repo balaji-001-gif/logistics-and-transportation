@@ -33,7 +33,15 @@
     "next_service_date",
     "section_break_4",
     "documents",
+    "section_break_rc",
+    "rc_status",
+    "rc_fitness_upto",
+    "column_break_rc",
+    "rc_owner_name",
+    "rc_verified_on",
     "section_break_5",
+    "maintenance_alert_sent_on",
+    "section_break_6",
     "notes"
   ],
   "fields": [
@@ -184,7 +192,52 @@
       "options": "Vehicle Document"
     },
     {
+      "fieldname": "section_break_rc",
+      "fieldtype": "Section Break",
+      "label": "RC Verification (Vahan)"
+    },
+    {
+      "fieldname": "rc_status",
+      "fieldtype": "Data",
+      "in_list_view": 1,
+      "label": "RC Status",
+      "read_only": 1
+    },
+    {
+      "fieldname": "rc_fitness_upto",
+      "fieldtype": "Date",
+      "label": "RC Fitness Upto",
+      "read_only": 1
+    },
+    {
+      "fieldname": "column_break_rc",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "rc_owner_name",
+      "fieldtype": "Data",
+      "label": "RC Owner Name",
+      "read_only": 1
+    },
+    {
+      "fieldname": "rc_verified_on",
+      "fieldtype": "Datetime",
+      "label": "Last Verified On",
+      "read_only": 1
+    },
+    {
       "fieldname": "section_break_5",
+      "fieldtype": "Section Break"
+    },
+    {
+      "fieldname": "maintenance_alert_sent_on",
+      "fieldtype": "Date",
+      "label": "Maintenance Alert Last Sent",
+      "read_only": 1,
+      "hidden": 1
+    },
+    {
+      "fieldname": "section_break_6",
       "fieldtype": "Section Break"
     },
     {

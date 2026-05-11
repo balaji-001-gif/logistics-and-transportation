@@ -12,6 +12,7 @@
     "column_break_1",
     "employee",
     "home_warehouse",
+    "current_vehicle",
     "section_break_1",
     "mobile_number",
     "alternate_phone",
@@ -31,6 +32,12 @@
     "emergency_contact_name",
     "column_break_4",
     "emergency_contact_phone",
+    "section_break_dl_verify",
+    "dl_verified_status",
+    "dl_valid_upto",
+    "column_break_dl",
+    "dl_verified_class",
+    "dl_verified_on",
     "notes"
   ],
   "fields": [
@@ -70,6 +77,13 @@
       "fieldtype": "Link",
       "label": "Home Warehouse",
       "options": "Warehouse"
+    },
+    {
+      "fieldname": "current_vehicle",
+      "fieldtype": "Link",
+      "label": "Current Vehicle",
+      "options": "Vehicle",
+      "read_only": 1
     },
     {
       "fieldname": "section_break_1",
@@ -174,6 +188,40 @@
       "fieldname": "notes",
       "fieldtype": "Small Text",
       "label": "Notes"
+    },
+    {
+      "fieldname": "section_break_dl_verify",
+      "fieldtype": "Section Break",
+      "label": "DL Verification (Sarathi)"
+    },
+    {
+      "fieldname": "dl_verified_status",
+      "fieldtype": "Data",
+      "in_list_view": 1,
+      "label": "DL Verified Status",
+      "read_only": 1
+    },
+    {
+      "fieldname": "dl_valid_upto",
+      "fieldtype": "Date",
+      "label": "DL Valid Upto (Sarathi)",
+      "read_only": 1
+    },
+    {
+      "fieldname": "column_break_dl",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "dl_verified_class",
+      "fieldtype": "Data",
+      "label": "DL Class (Sarathi)",
+      "read_only": 1
+    },
+    {
+      "fieldname": "dl_verified_on",
+      "fieldtype": "Datetime",
+      "label": "Last DL Verified On",
+      "read_only": 1
     }
   ],
   "links": [],

@@ -1,4 +1,48 @@
 frappe.ui.form.on("Trip Sheet", {
+    refresh(frm) {
+        // Render route map if load plan is set
+        if (!frm.is_new() && frm.doc.load_plan) {
+            frappe.db.get_value("Load Plan", frm.doc.load_plan, "freight_orders", lp => {
+                const orders = lp.freight_orders || [];
+                if (orders.length > 0) {
+                    // For now, use the first order's route
+                    frappe.db.get_value("Freight Order", orders[0].freight_order, "route", fo => {
+                        if (fo.route) {
+                            frappe.db.get_doc("Route Master", fo.route).then(route => {
+                                if (route.lat_origin && route.lat_destination) {
+                                    const origin = `${route.lat_origin},${route.lng_origin}`;
+                                    const destination = `${route.lat_destination},${route.lng_destination}`;
+                                    
+                                    // Fetch tracking events for pins across all orders in the trip
+                                    const order_names = orders.map(o => o.freight_order);
+                                    frappe.call({
+                                        method: "frappe.client.get_list",
+                                        args: {
+                                            doctype: "Shipment Tracking Event",
+                                            filters: { freight_order: ["in", order_names] },
+                                            fields: ["latitude", "longitude", "event_type", "location_description"]
+                                        },
+                                        callback(r) {
+                                            const pins = (r.message || []).map(p => ({
+                                                lat: p.latitude,
+                                                lng: p.longitude,
+                                                event_type: p.event_type,
+                                                label: p.location_description
+                                            }));
+                                            if (window.LogisticsRouteMap) {
+                                                window.LogisticsRouteMap.render(frm, { origin, destination, trackingPins: pins });
+                                            }
+                                        }
+                                    });
+                                }
+                            });
+                        }
+                    });
+                }
+            });
+        }
+    },
+
     load_plan(frm) {
         if (frm.doc.load_plan) {
             frappe.db.get_doc("Load Plan", frm.doc.load_plan).then(lp => {

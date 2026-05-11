@@ -57,6 +57,7 @@
     "total_gst_amount",
     "grand_total",
     "section_break_9",
+    "route_map_html",
     "special_instructions",
     "amended_from"
   ],
@@ -351,6 +352,11 @@
     {
       "fieldname": "section_break_9",
       "fieldtype": "Section Break"
+    },
+    {
+      "fieldname": "route_map_html",
+      "fieldtype": "HTML",
+      "label": "Route Map"
     },
     {
       "fieldname": "special_instructions",

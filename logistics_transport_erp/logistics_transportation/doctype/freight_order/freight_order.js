@@ -27,6 +27,37 @@ frappe.ui.form.on("Freight Order", {
         if (frm.doc.status) {
             frm.page.set_indicator(frm.doc.status, colors[frm.doc.status] || "gray");
         }
+
+        // Render route map if route is set
+        if (!frm.is_new() && frm.doc.route) {
+            frappe.db.get_doc("Route Master", frm.doc.route).then(route => {
+                if (route.lat_origin && route.lat_destination) {
+                    const origin = `${route.lat_origin},${route.lng_origin}`;
+                    const destination = `${route.lat_destination},${route.lng_destination}`;
+                    
+                    // Fetch tracking events for pins
+                    frappe.call({
+                        method: "frappe.client.get_list",
+                        args: {
+                            doctype: "Shipment Tracking Event",
+                            filters: { freight_order: frm.doc.name },
+                            fields: ["latitude", "longitude", "event_type", "location_description"]
+                        },
+                        callback(r) {
+                            const pins = (r.message || []).map(p => ({
+                                lat: p.latitude,
+                                lng: p.longitude,
+                                event_type: p.event_type,
+                                label: p.location_description
+                            }));
+                            if (window.LogisticsRouteMap) {
+                                window.LogisticsRouteMap.render(frm, { origin, destination, trackingPins: pins });
+                            }
+                        }
+                    });
+                }
+            });
+        }
     },
 
     driver(frm) {

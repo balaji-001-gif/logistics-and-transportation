@@ -36,6 +36,7 @@
     "column_break_4",
     "driver_balance",
     "section_break_6",
+    "route_map_html",
     "remarks",
     "amended_from"
   ],
@@ -205,6 +206,11 @@
     {
       "fieldname": "section_break_6",
       "fieldtype": "Section Break"
+    },
+    {
+      "fieldname": "route_map_html",
+      "fieldtype": "HTML",
+      "label": "Route Map"
     },
     {
       "fieldname": "remarks",

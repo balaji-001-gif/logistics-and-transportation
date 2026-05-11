@@ -12,8 +12,41 @@ class TripSheet(Document):
         self.calculate_driver_balance()
 
     def on_submit(self):
+        self.check_compliance_before_dispatch()
         self.db_set("status", "Completed")
         self.update_vehicle_odometer()
+        self.update_driver_status()
+
+    def update_driver_status(self):
+        """Update driver's current vehicle link."""
+        if self.driver and self.vehicle:
+            frappe.db.set_value("Driver", self.driver, "current_vehicle", self.vehicle)
+
+
+    def check_compliance_before_dispatch(self):
+        """Block trip submission if Vehicle RC or Driver DL failed Vahan/Sarathi verification."""
+        settings = frappe.get_single("Logistics Settings")
+        if not settings.vahan_api_enabled:
+            return  # Validation not enforced when API is disabled
+
+        if self.vehicle:
+            rc_status = frappe.db.get_value("Vehicle", self.vehicle, "rc_status")
+            if rc_status and rc_status not in ("Active", "API Disabled"):
+                frappe.throw(
+                    _("Vehicle {0} RC status is '{1}'. Please verify RC via Vahan before dispatching.").format(
+                        self.vehicle, rc_status
+                    )
+                )
+
+        if self.driver:
+            dl_status = frappe.db.get_value("Driver", self.driver, "dl_verified_status")
+            if dl_status and dl_status not in ("Active", "API Disabled"):
+                frappe.throw(
+                    _("Driver {0} DL status is '{1}'. Please verify DL via Sarathi before dispatching.").format(
+                        self.driver, dl_status
+                    )
+                )
+
 
     def on_cancel(self):
         self.db_set("status", "Cancelled")

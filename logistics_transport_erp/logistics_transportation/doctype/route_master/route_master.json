@@ -22,7 +22,14 @@
     "is_interstate",
     "column_break_3",
     "is_active",
-    "notes"
+    "notes",
+    "section_break_gps",
+    "lat_origin",
+    "lng_origin",
+    "column_break_gps",
+    "lat_destination",
+    "lng_destination",
+    "route_map_html"
   ],
   "fields": [
     {
@@ -115,6 +122,48 @@
       "fieldname": "notes",
       "fieldtype": "Small Text",
       "label": "Notes"
+    },
+    {
+      "fieldname": "section_break_gps",
+      "fieldtype": "Section Break",
+      "label": "GPS Coordinates (Auto-filled by Maps API)"
+    },
+    {
+      "fieldname": "lat_origin",
+      "fieldtype": "Float",
+      "label": "Origin Latitude",
+      "read_only": 1,
+      "precision": "6"
+    },
+    {
+      "fieldname": "lng_origin",
+      "fieldtype": "Float",
+      "label": "Origin Longitude",
+      "read_only": 1,
+      "precision": "6"
+    },
+    {
+      "fieldname": "column_break_gps",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "lat_destination",
+      "fieldtype": "Float",
+      "label": "Destination Latitude",
+      "read_only": 1,
+      "precision": "6"
+    },
+    {
+      "fieldname": "lng_destination",
+      "fieldtype": "Float",
+      "label": "Destination Longitude",
+      "read_only": 1,
+      "precision": "6"
+    },
+    {
+      "fieldname": "route_map_html",
+      "fieldtype": "HTML",
+      "label": "Route Map"
     }
   ],
   "links": [],

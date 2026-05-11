@@ -1,0 +1,63 @@
+<div id="driver-portal-container" class="container-fluid">
+    <!-- Header -->
+    <div class="dp-header">
+        <div class="dp-user-info">
+            <h2 id="dp-driver-name">Loading...</h2>
+            <p id="dp-vehicle-info">Vehicle: --</p>
+        </div>
+        <div class="dp-status-badge" id="dp-driver-status">--</div>
+    </div>
+
+    <!-- Active Trip Card -->
+    <div id="dp-active-trip-section">
+        <h3>Active Trip</h3>
+        <div id="dp-trip-card" class="dp-card">
+            <div class="dp-card-body">
+                <h4 id="dp-trip-id">--</h4>
+                <p id="dp-trip-status">Status: --</p>
+                <hr>
+                <div class="dp-actions">
+                    <button class="btn btn-primary btn-lg btn-block" id="btn-update-status">
+                        <i class="fa fa-map-marker"></i> Update Status
+                    </button>
+                    <button class="btn btn-outline-secondary btn-block" id="btn-log-expense">
+                        <i class="fa fa-money"></i> Log Expense
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Recent Trips -->
+    <div class="dp-section">
+        <h3>Recent Trips</h3>
+        <div id="dp-trip-list">
+            <!-- List items will be injected here -->
+        </div>
+    </div>
+</div>
+
+<!-- Status Update Modal -->
+<div id="modal-status" class="dp-modal" style="display:none;">
+    <div class="dp-modal-content">
+        <h4>Update Trip Status</h4>
+        <div class="form-group">
+            <label>Current Status</label>
+            <select id="sel-event-type" class="form-control">
+                <option value="In Transit">In Transit</option>
+                <option value="At Hub">At Hub</option>
+                <option value="Out for Delivery">Out for Delivery</option>
+                <option value="Delivered">Delivered</option>
+                <option value="Delay">Delay / Traffic</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label>Remarks</label>
+            <textarea id="txt-remarks" class="form-control" rows="3"></textarea>
+        </div>
+        <div class="dp-modal-footer">
+            <button class="btn btn-secondary" onclick="$('#modal-status').hide()">Cancel</button>
+            <button class="btn btn-primary" id="btn-submit-status">Submit</button>
+        </div>
+    </div>
+</div>

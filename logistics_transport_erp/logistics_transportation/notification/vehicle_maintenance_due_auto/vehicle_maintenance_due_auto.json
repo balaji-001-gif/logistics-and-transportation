@@ -1,0 +1,23 @@
+{
+  "attach_print": 0,
+  "channel": "Email",
+  "creation": "2024-01-01 00:00:00.000000",
+  "doctype": "Notification",
+  "document_type": "Vehicle Maintenance Request",
+  "enabled": 1,
+  "is_standard": 1,
+  "message": "Dear Fleet Manager,\n\nA maintenance request has been automatically created for vehicle {doc.vehicle} as it is approaching its service threshold.\n\nDetails:\n{doc.issue_description}\n\nPlease review and schedule the service.\n\nThanks,\nLogistics ERP",
+  "modified": "2024-01-01 00:00:00.000000",
+  "modified_by": "Administrator",
+  "module": "Logistics Transportation",
+  "name": "Vehicle Maintenance Due Auto",
+  "owner": "Administrator",
+  "recipients": [
+    {
+      "condition": "",
+      "receiver_by_role": "Fleet Manager"
+    }
+  ],
+  "send_system_notification": 1,
+  "subject": "Auto-Maintenance Alert: {doc.vehicle}"
+}

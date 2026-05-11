@@ -1,0 +1,148 @@
+{
+  "actions": [],
+  "autoname": "Logistics Settings",
+  "creation": "2024-01-01 00:00:00.000000",
+  "doctype": "DocType",
+  "editable_grid": 0,
+  "engine": "InnoDB",
+  "issingle": 1,
+  "field_order": [
+    "nic_section",
+    "nic_api_environment",
+    "nic_gstin",
+    "column_break_1",
+    "nic_username",
+    "nic_password",
+    "vahan_section",
+    "vahan_api_key",
+    "column_break_2",
+    "vahan_api_enabled",
+    "maps_section",
+    "google_maps_api_key",
+    "column_break_3",
+    "maps_enabled",
+    "alerts_section",
+    "maintenance_alert_days",
+    "maintenance_alert_km",
+    "column_break_4",
+    "ewb_expiry_alert_hours"
+  ],
+  "fields": [
+    {
+      "fieldname": "nic_section",
+      "fieldtype": "Section Break",
+      "label": "NIC E-Way Bill API"
+    },
+    {
+      "fieldname": "nic_api_environment",
+      "fieldtype": "Select",
+      "label": "API Environment",
+      "options": "Sandbox\nProduction",
+      "default": "Sandbox"
+    },
+    {
+      "fieldname": "nic_gstin",
+      "fieldtype": "Data",
+      "label": "GSTIN"
+    },
+    {
+      "fieldname": "column_break_1",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "nic_username",
+      "fieldtype": "Data",
+      "label": "NIC Portal Username"
+    },
+    {
+      "fieldname": "nic_password",
+      "fieldtype": "Password",
+      "label": "NIC Portal Password"
+    },
+    {
+      "fieldname": "vahan_section",
+      "fieldtype": "Section Break",
+      "label": "Vahan / Sarathi API"
+    },
+    {
+      "fieldname": "vahan_api_key",
+      "fieldtype": "Password",
+      "label": "Vahan API Key"
+    },
+    {
+      "fieldname": "column_break_2",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "vahan_api_enabled",
+      "fieldtype": "Check",
+      "label": "Enable Vahan/Sarathi Validation",
+      "default": "0"
+    },
+    {
+      "fieldname": "maps_section",
+      "fieldtype": "Section Break",
+      "label": "Google Maps"
+    },
+    {
+      "fieldname": "google_maps_api_key",
+      "fieldtype": "Password",
+      "label": "Google Maps API Key"
+    },
+    {
+      "fieldname": "column_break_3",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "maps_enabled",
+      "fieldtype": "Check",
+      "label": "Enable Map on Forms",
+      "default": "0"
+    },
+    {
+      "fieldname": "alerts_section",
+      "fieldtype": "Section Break",
+      "label": "Alert Thresholds"
+    },
+    {
+      "fieldname": "maintenance_alert_days",
+      "fieldtype": "Int",
+      "label": "Maintenance Alert — Days Before Due",
+      "default": "7",
+      "description": "Auto-create VMR this many days before next service date."
+    },
+    {
+      "fieldname": "maintenance_alert_km",
+      "fieldtype": "Int",
+      "label": "Maintenance Alert — KM Before Due",
+      "default": "500",
+      "description": "Auto-create VMR when odometer is within this many km of next service km."
+    },
+    {
+      "fieldname": "column_break_4",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "ewb_expiry_alert_hours",
+      "fieldtype": "Int",
+      "label": "E-Way Bill Expiry Alert (Hours)",
+      "default": "6",
+      "description": "Send alert this many hours before E-Way Bill expiry."
+    }
+  ],
+  "links": [],
+  "modified": "2024-01-01 00:00:00.000000",
+  "modified_by": "Administrator",
+  "module": "Logistics Transportation",
+  "name": "Logistics Settings",
+  "owner": "Administrator",
+  "permissions": [
+    {
+      "create": 1, "delete": 0, "email": 0, "export": 0,
+      "print": 0, "read": 1, "report": 0,
+      "role": "System Manager", "share": 0, "write": 1
+    }
+  ],
+  "sort_field": "modified",
+  "sort_order": "DESC"
+}
