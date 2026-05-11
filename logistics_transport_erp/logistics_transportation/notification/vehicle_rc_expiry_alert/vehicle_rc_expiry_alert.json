@@ -1,0 +1,23 @@
+{
+  "attach_print": 0,
+  "channel": "Email",
+  "creation": "2024-01-01 00:00:00.000000",
+  "doctype": "Notification",
+  "document_type": "Vehicle",
+  "enabled": 1,
+  "is_standard": 1,
+  "message": "Dear Fleet Manager,\n\nThe RC/Fitness for vehicle {doc.registration_number} is set to expire on {doc.rc_fitness_upto}.\n\nPlease initiate the renewal process soon to avoid operational disruption.\n\nThanks,\nLogistics ERP",
+  "modified": "2024-01-01 00:00:00.000000",
+  "modified_by": "Administrator",
+  "module": "Logistics Transportation",
+  "name": "Vehicle RC Expiry Alert",
+  "owner": "Administrator",
+  "recipients": [
+    {
+      "receiver_by_role": "Fleet Manager"
+    }
+  ],
+  "send_system_notification": 1,
+  "subject": "RC Expiry Alert: {doc.registration_number}",
+  "value_changed": "rc_fitness_upto"
+}

@@ -35,6 +35,7 @@ fixtures = [
         "Vehicle Maintenance Request",
     ]]]},
     {"dt": "Report", "filters": [["module", "=", "Logistics Transportation"]]},
+    {"dt": "Workspace", "filters": [["module", "=", "Logistics Transportation"]]},
 ]
 
 website_route_rules = [

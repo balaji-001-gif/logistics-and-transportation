@@ -1,0 +1,11 @@
+{
+  "add_total_row": 1,
+  "creation": "2024-01-01 00:00:00.000000",
+  "doctype": "Report",
+  "is_standard": "Yes",
+  "module": "Logistics Transportation",
+  "name": "Driver Trip Summary",
+  "ref_doctype": "Driver",
+  "report_name": "Driver Trip Summary",
+  "report_type": "Script Report"
+}
