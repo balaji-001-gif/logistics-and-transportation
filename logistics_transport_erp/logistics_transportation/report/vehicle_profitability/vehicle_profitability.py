@@ -49,7 +49,7 @@ def get_data(filters):
         maint_cost = frappe.db.get_value(
             "Vehicle Maintenance Request",
             {"vehicle": v.name, "status": "Completed"},
-            "sum(maintenance_cost)" # Assuming this field exists or adding it
+            "sum(total_maintenance_cost)"
         ) or 0
 
         profit = revenue - (fuel_cost + toll_cost + maint_cost)
