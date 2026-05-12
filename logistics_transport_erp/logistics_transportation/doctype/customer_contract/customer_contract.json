@@ -36,7 +36,8 @@
       "fieldname": "naming_series",
       "fieldtype": "Series",
       "label": "Series",
-      "options": "CCON-.YYYY.-.####"
+      "options": "CCON-.YYYY.-.####",
+      "default": "CCON-.YYYY.-.####"
     },
     {
       "fieldname": "contract_name",
@@ -172,13 +173,23 @@
   "owner": "Administrator",
   "permissions": [
     {
-      "create": 1, "delete": 1, "email": 1, "export": 1,
-      "print": 1, "read": 1, "report": 1,
-      "role": "System Manager", "share": 1, "write": 1
+      "create": 1,
+      "delete": 1,
+      "email": 1,
+      "export": 1,
+      "print": 1,
+      "read": 1,
+      "report": 1,
+      "role": "System Manager",
+      "share": 1,
+      "write": 1
     },
     {
-      "create": 1, "read": 1, "report": 1,
-      "role": "All", "write": 1
+      "create": 1,
+      "read": 1,
+      "report": 1,
+      "role": "All",
+      "write": 1
     }
   ],
   "sort_field": "modified",
