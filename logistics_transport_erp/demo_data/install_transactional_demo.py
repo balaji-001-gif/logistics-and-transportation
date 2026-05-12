@@ -154,6 +154,7 @@ def install_transactional_demo():
         doc.insert(ignore_permissions=True)
         fo_names.append(doc.name)
     frappe.db.commit()
+    print(f"   Generated Freight Orders: {fo_names}")
 
     # ── Consignment Notes (LR) ──────────────────────────────────────────────
     cns = [
@@ -191,6 +192,7 @@ def install_transactional_demo():
         doc.insert(ignore_permissions=True)
         ts_names.append(doc.name)
     frappe.db.commit()
+    print(f"   Generated Trip Sheets: {ts_names}")
 
     # ── PODs ────────────────────────────────────────────────────────────────
     pods = [
