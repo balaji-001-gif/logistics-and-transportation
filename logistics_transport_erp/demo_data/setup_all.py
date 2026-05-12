@@ -37,3 +37,7 @@ def run_all():
     print("  Outbound Shipment    → OUT-.YYYY.-.#####")
     print("  Stock Transfer Order → STO-.YYYY.-.#####")
     print("  Toll & Detention     → TDC-.YYYY.-.#####")
+
+def clear_all():
+    from logistics_transport_erp.demo_data.clear_demo_data import run
+    run()
