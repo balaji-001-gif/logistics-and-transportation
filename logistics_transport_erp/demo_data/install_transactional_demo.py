@@ -198,7 +198,7 @@ def install_transactional_demo():
     complaints = [
         {"naming_series": "CC-.YYYY.-.#####", "freight_order": fo_names[0],
          "customer": _cust("Acme Electronics Pvt Ltd"),
-         "complaint_type": "Delivery Delay", "resolution_status": "Resolved",
+         "complaint_type": "Delay", "resolution_status": "Resolved",
          "complaint_date": add_days(today(), -3),
          "complaint_description": "Consignment reached 4 hours late. SLA breach.",
          "resolution_notes": "Traffic jam on NH-44. Compensated with discount on next order."},
@@ -209,7 +209,7 @@ def install_transactional_demo():
          "complaint_description": "Two chemical drums found damaged on arrival at Mumbai Hub."},
         {"naming_series": "CC-.YYYY.-.#####", "freight_order": fo_names[1],
          "customer": _cust("Bharat Pharma Distributors"),
-         "complaint_type": "Documentation Error", "resolution_status": "Under Review",
+         "complaint_type": "Missing Documents", "resolution_status": "Under Review",
          "complaint_date": add_days(today(), -1),
          "complaint_description": "E-Way Bill details do not match invoice."},
     ]
