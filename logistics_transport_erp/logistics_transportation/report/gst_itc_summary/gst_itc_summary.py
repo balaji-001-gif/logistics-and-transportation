@@ -31,11 +31,12 @@ def get_data(filters):
     output = frappe.db.sql(f"""
         SELECT
             DATE_FORMAT(fi.invoice_date, '%%Y-%%m') as month,
-            SUM(fi.total_gst_amount) as output_gst,
-            SUM(fi.cgst_amount) as cgst_output,
-            SUM(fi.sgst_amount) as sgst_output,
-            SUM(fi.igst_amount) as igst_output
+            SUM(gst.total_gst) as output_gst,
+            SUM(gst.cgst_amount) as cgst_output,
+            SUM(gst.sgst_amount) as sgst_output,
+            SUM(gst.igst_amount) as igst_output
         FROM `tabFreight Invoice` fi
+        JOIN `tabFI GST Row` gst ON gst.parent = fi.name
         {conditions}
         GROUP BY DATE_FORMAT(fi.invoice_date, '%%Y-%%m')
         ORDER BY month DESC

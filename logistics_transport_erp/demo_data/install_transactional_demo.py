@@ -207,6 +207,10 @@ def install_transactional_demo():
     for inv in invoices:
         doc = frappe.get_doc({"doctype": "Freight Invoice", **inv})
         doc.append("lr_references", {"freight_order": fo_names[0], "amount": 45000})
+        doc.append("gst_details", {
+            "sac_code": "996511", "taxable_amount": 45000,
+            "igst_rate": 18, "igst_amount": 8100, "total_gst": 8100
+        })
         doc.insert(ignore_permissions=True)
 
     # ── Freight Settlements ─────────────────────────────────────────────────
