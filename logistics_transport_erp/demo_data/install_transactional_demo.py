@@ -168,6 +168,7 @@ def install_transactional_demo():
     ]
     for cn in cns:
         frappe.get_doc({"doctype": "Consignment Note", **cn}).insert(ignore_permissions=True)
+    frappe.db.commit()
 
     # ── Trip Sheets ─────────────────────────────────────────────────────────
     trip_sheets = [
@@ -185,6 +186,7 @@ def install_transactional_demo():
         doc = frappe.get_doc({"doctype": "Trip Sheet", **ts})
         doc.insert(ignore_permissions=True)
         ts_names.append(doc.name)
+    frappe.db.commit()
 
     # ── PODs ────────────────────────────────────────────────────────────────
     pods = [
@@ -197,6 +199,7 @@ def install_transactional_demo():
     ]
     for p in pods:
         frappe.get_doc({"doctype": "POD", **p}).insert(ignore_permissions=True)
+    frappe.db.commit()
 
     # ── Freight Invoices ────────────────────────────────────────────────────
     invoices = [
