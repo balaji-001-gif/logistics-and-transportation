@@ -11,14 +11,14 @@ def install_transactional_demo():
 
     # ── Ensure demo customers exist in ERPNext ──────────────────────────────
     demo_customers = [
-        {"name": "Acme Electronics Pvt Ltd", "customer_group": "Commercial", "territory": "India"},
-        {"name": "Bharat Pharma Distributors", "customer_group": "Commercial", "territory": "India"},
-        {"name": "Sunrise FMCG Ltd", "customer_group": "Commercial", "territory": "India"},
-        {"name": "Chennai Auto Parts Co", "customer_group": "Commercial", "territory": "India"},
-        {"name": "Global Textile Exports", "customer_group": "Commercial", "territory": "India"},
+        {"customer_name": "Acme Electronics Pvt Ltd", "customer_group": "Commercial", "territory": "India"},
+        {"customer_name": "Bharat Pharma Distributors", "customer_group": "Commercial", "territory": "India"},
+        {"customer_name": "Sunrise FMCG Ltd", "customer_group": "Commercial", "territory": "India"},
+        {"customer_name": "Chennai Auto Parts Co", "customer_group": "Commercial", "territory": "India"},
+        {"customer_name": "Global Textile Exports", "customer_group": "Commercial", "territory": "India"},
     ]
     for c in demo_customers:
-        if not frappe.db.exists("Customer", c["name"]):
+        if not frappe.db.exists("Customer", {"customer_name": c["customer_name"]}):
             cust = frappe.get_doc({"doctype": "Customer", **c})
             cust.insert(ignore_permissions=True)
 
@@ -29,7 +29,7 @@ def install_transactional_demo():
             "status": "Delivered", "transport_mode": "Road FTL",
             "origin_warehouse": "Mumbai Hub", "destination_warehouse": "Delhi Gateway",
             "route": "Mumbai - Delhi",
-            "customer": "Acme Electronics Pvt Ltd",
+            "customer": _cust("Acme Electronics Pvt Ltd"),
             "vehicle": "MH-12-AB-1234", "driver": _drv("Ramesh Kumar Singh"),
             "scheduled_dispatch_date": add_days(today(), -5),
             "expected_delivery_date": add_days(today(), -3),
@@ -46,7 +46,7 @@ def install_transactional_demo():
             "status": "In Transit", "transport_mode": "Road FTL",
             "origin_warehouse": "Delhi Gateway", "destination_warehouse": "Bengaluru Cross-Dock",
             "route": "Delhi - Bengaluru",
-            "customer": "Bharat Pharma Distributors",
+            "customer": _cust("Bharat Pharma Distributors"),
             "vehicle": "DL-01-GH-5678", "driver": _drv("Suresh Prasad Yadav"),
             "scheduled_dispatch_date": add_days(today(), -2),
             "expected_delivery_date": add_days(today(), 1),
@@ -62,7 +62,7 @@ def install_transactional_demo():
             "status": "Dispatched", "transport_mode": "Road LTL",
             "origin_warehouse": "Mumbai Hub", "destination_warehouse": "Pune Spoke",
             "route": "Mumbai - Pune",
-            "customer": "Sunrise FMCG Ltd",
+            "customer": _cust("Sunrise FMCG Ltd"),
             "vehicle": "MH-14-IJ-7890", "driver": _drv("Arun Gawde"),
             "scheduled_dispatch_date": today(),
             "expected_delivery_date": today(),
@@ -78,7 +78,7 @@ def install_transactional_demo():
             "status": "Booked", "transport_mode": "Road FTL",
             "origin_warehouse": "Chennai Port Facility", "destination_warehouse": "Hyderabad Spoke",
             "route": "Chennai - Hyderabad",
-            "customer": "Chennai Auto Parts Co",
+            "customer": _cust("Chennai Auto Parts Co"),
             "vehicle": "TN-22-EF-3456", "driver": _drv("Muthu Selvam"),
             "scheduled_dispatch_date": add_days(today(), 1),
             "expected_delivery_date": add_days(today(), 2),
@@ -94,7 +94,7 @@ def install_transactional_demo():
             "status": "Cancelled", "transport_mode": "Road FTL",
             "origin_warehouse": "Bengaluru Cross-Dock", "destination_warehouse": "Mumbai Hub",
             "route": "Bengaluru - Mumbai",
-            "customer": "Global Textile Exports",
+            "customer": _cust("Global Textile Exports"),
             "vehicle": "KA-09-CD-9012", "driver": _drv("Vijay Krishnamurthy"),
             "scheduled_dispatch_date": add_days(today(), -3),
             "expected_delivery_date": add_days(today(), -1),
@@ -110,7 +110,7 @@ def install_transactional_demo():
             "status": "Delivered", "transport_mode": "Road FTL",
             "origin_warehouse": "Hyderabad Spoke", "destination_warehouse": "Mumbai Hub",
             "route": "Hyderabad - Pune",
-            "customer": "Acme Electronics Pvt Ltd",
+            "customer": _cust("Acme Electronics Pvt Ltd"),
             "vehicle": "MH-12-AB-1234", "driver": _drv("Ramesh Kumar Singh"),
             "scheduled_dispatch_date": add_days(today(), -10),
             "expected_delivery_date": add_days(today(), -8),
@@ -197,18 +197,18 @@ def install_transactional_demo():
     # ── Customer Complaints — required: complaint_type, customer, complaint_date, complaint_description
     complaints = [
         {"naming_series": "CC-.YYYY.-.#####", "freight_order": fo_names[0],
-         "customer": "Acme Electronics Pvt Ltd",
+         "customer": _cust("Acme Electronics Pvt Ltd"),
          "complaint_type": "Delivery Delay", "resolution_status": "Resolved",
          "complaint_date": add_days(today(), -3),
          "complaint_description": "Consignment reached 4 hours late. SLA breach.",
          "resolution_notes": "Traffic jam on NH-44. Compensated with discount on next order."},
         {"naming_series": "CC-.YYYY.-.#####", "freight_order": fo_names[5],
-         "customer": "Acme Electronics Pvt Ltd",
+         "customer": _cust("Acme Electronics Pvt Ltd"),
          "complaint_type": "Damaged Goods", "resolution_status": "Open",
          "complaint_date": add_days(today(), -8),
          "complaint_description": "Two chemical drums found damaged on arrival at Mumbai Hub."},
         {"naming_series": "CC-.YYYY.-.#####", "freight_order": fo_names[1],
-         "customer": "Bharat Pharma Distributors",
+         "customer": _cust("Bharat Pharma Distributors"),
          "complaint_type": "Documentation Error", "resolution_status": "Under Review",
          "complaint_date": add_days(today(), -1),
          "complaint_description": "E-Way Bill details do not match invoice."},
@@ -319,3 +319,7 @@ def install_transactional_demo():
 
 def _drv(full_name):
     return frappe.db.get_value("Driver", {"full_name": full_name}, "name") or full_name
+
+
+def _cust(customer_name):
+    return frappe.db.get_value("Customer", {"customer_name": customer_name}, "name") or customer_name
