@@ -7,8 +7,8 @@ import frappe
 
 
 def run_all():
-    from logistics_transport_erp.logistics_transportation.demo_data.install_demo_data import install_demo_data
-    from logistics_transport_erp.logistics_transportation.demo_data.install_transactional_demo import install_transactional_demo
+    from logistics_transport_erp.demo_data.install_demo_data import install_demo_data
+    from logistics_transport_erp.demo_data.install_transactional_demo import install_transactional_demo
 
     print("🚀 Installing Logistics ERP Demo Data...")
     install_demo_data()
