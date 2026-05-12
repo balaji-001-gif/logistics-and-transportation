@@ -37,7 +37,7 @@ def install_transactional_demo():
             "base_freight_amount": 45000, "is_interstate": 1,
             "igst_rate": 18, "sac_code": "996511",
             "cargo_items": [
-                {"item_description": "Electronic Components", "quantity": 50,
+                {"description": "Electronic Components", "quantity": 50,
                  "uom": "Nos", "weight_kg": 1200, "volume_cbm": 4.5}
             ],
         },
@@ -53,7 +53,7 @@ def install_transactional_demo():
             "base_freight_amount": 68000, "is_interstate": 1,
             "igst_rate": 18, "sac_code": "996511",
             "cargo_items": [
-                {"item_description": "Pharmaceutical Products", "quantity": 200,
+                {"description": "Pharmaceutical Products", "quantity": 200,
                  "uom": "Boxes", "weight_kg": 3500, "volume_cbm": 12}
             ],
         },
@@ -69,7 +69,7 @@ def install_transactional_demo():
             "base_freight_amount": 4500, "is_interstate": 0,
             "cgst_rate": 9, "sgst_rate": 9, "sac_code": "996511",
             "cargo_items": [
-                {"item_description": "FMCG Goods", "quantity": 30,
+                {"description": "FMCG Goods", "quantity": 30,
                  "uom": "Cartons", "weight_kg": 450, "volume_cbm": 2.1}
             ],
         },
@@ -85,7 +85,7 @@ def install_transactional_demo():
             "base_freight_amount": 22000, "is_interstate": 1,
             "igst_rate": 18, "sac_code": "996511",
             "cargo_items": [
-                {"item_description": "Automotive Parts", "quantity": 80,
+                {"description": "Automotive Parts", "quantity": 80,
                  "uom": "Nos", "weight_kg": 2800, "volume_cbm": 8}
             ],
         },
@@ -101,7 +101,7 @@ def install_transactional_demo():
             "base_freight_amount": 32000, "is_interstate": 1,
             "igst_rate": 18, "sac_code": "996511",
             "cargo_items": [
-                {"item_description": "Textile Products", "quantity": 150,
+                {"description": "Textile Products", "quantity": 150,
                  "uom": "Bundles", "weight_kg": 5000, "volume_cbm": 18}
             ],
         },
@@ -118,7 +118,7 @@ def install_transactional_demo():
             "base_freight_amount": 19500, "is_interstate": 1,
             "igst_rate": 18, "sac_code": "996511",
             "cargo_items": [
-                {"item_description": "Chemical Drums", "quantity": 20,
+                {"description": "Chemical Drums", "quantity": 20,
                  "uom": "Drums", "weight_kg": 4000, "volume_cbm": 10}
             ],
         },
