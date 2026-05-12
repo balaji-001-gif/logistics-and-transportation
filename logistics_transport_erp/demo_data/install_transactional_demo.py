@@ -187,7 +187,7 @@ def install_transactional_demo():
     for ts in trip_sheets:
         doc = frappe.get_doc({"doctype": "Trip Sheet", **ts})
         doc.append("fuel_entries", {"fuel_station": "Reliance Petrol Pump", "quantity_litres": 120, "rate_per_litre": 95, "amount": 11400})
-        doc.append("toll_entries", {"location": "Khed-Shivapur Toll", "amount": 120})
+        doc.append("toll_entries", {"toll_plaza_name": "Khed-Shivapur Toll", "amount": 120})
         doc.insert(ignore_permissions=True)
         ts_names.append(doc.name)
     frappe.db.commit()
