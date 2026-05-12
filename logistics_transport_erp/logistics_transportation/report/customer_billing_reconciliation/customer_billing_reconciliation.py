@@ -32,7 +32,7 @@ def get_data(filters):
             WHERE customer = %s AND docstatus = 1
               AND status = 'Delivered'
               AND name NOT IN (
-                  SELECT IFNULL(freight_order, '') FROM `tabFreight Invoice LR Row`
+                  SELECT IFNULL(freight_order, '') FROM `tabFI LR Row`
               )
         """, c.name, as_dict=True)[0]
 
