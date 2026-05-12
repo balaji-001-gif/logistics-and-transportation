@@ -171,8 +171,8 @@ def install_demo_data():
     for rc in rate_cards:
         if not frappe.db.exists("Freight Rate Card", {"card_name": rc["card_name"]}):
             doc = frappe.get_doc({"doctype": "Freight Rate Card", **rc})
-            doc.append("rate_slabs", {"origin": "Mumbai", "destination": "Delhi", "transport_mode": "Road FTL", "rate_amount": 45000})
-            doc.append("rate_slabs", {"origin": "Delhi", "destination": "Bengaluru", "transport_mode": "Road FTL", "rate_amount": 68000})
+            doc.append("rates", {"origin": "Mumbai", "destination": "Delhi", "transport_mode": "Road FTL", "rate_amount": 45000})
+            doc.append("rates", {"origin": "Delhi", "destination": "Bengaluru", "transport_mode": "Road FTL", "rate_amount": 68000})
             doc.insert(ignore_permissions=True)
 
     # 7. Vehicle Maintenance Requests
