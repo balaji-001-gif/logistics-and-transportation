@@ -167,7 +167,9 @@ def install_transactional_demo():
          "origin_address": "NH-44, Kundli", "destination_address": "Hoskote Industrial Area"},
     ]
     for cn in cns:
-        frappe.get_doc({"doctype": "Consignment Note", **cn}).insert(ignore_permissions=True)
+        doc = frappe.get_doc({"doctype": "Consignment Note", **cn})
+        doc.append("goods_items", {"description": "Electronics", "quantity": 50, "unit": "PCS", "weight_kg": 1200})
+        doc.insert(ignore_permissions=True)
     frappe.db.commit()
 
     # ── Trip Sheets ─────────────────────────────────────────────────────────
@@ -184,6 +186,8 @@ def install_transactional_demo():
     ts_names = []
     for ts in trip_sheets:
         doc = frappe.get_doc({"doctype": "Trip Sheet", **ts})
+        doc.append("fuel_entries", {"fuel_station": "Reliance Petrol Pump", "quantity_litres": 120, "rate_per_litre": 95, "amount": 11400})
+        doc.append("toll_entries", {"location": "Khed-Shivapur Toll", "amount": 120})
         doc.insert(ignore_permissions=True)
         ts_names.append(doc.name)
     frappe.db.commit()

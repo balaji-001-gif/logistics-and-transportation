@@ -76,7 +76,11 @@ def install_demo_data():
     ]
     for v in vehicles:
         if not frappe.db.exists("Vehicle", v["registration_number"]):
-            frappe.get_doc({"doctype": "Vehicle", **v}).insert(ignore_permissions=True)
+            doc = frappe.get_doc({"doctype": "Vehicle", **v})
+            doc.append("documents", {"document_type": "Registration Certificate", "expiry_date": add_days(today(), 365)})
+            doc.append("documents", {"document_type": "Insurance Policy", "expiry_date": add_days(today(), 180)})
+            doc.append("documents", {"document_type": "Fitness Certificate", "expiry_date": add_days(today(), 240)})
+            doc.insert(ignore_permissions=True)
 
     # 4. Drivers
     drivers = [
@@ -166,7 +170,10 @@ def install_demo_data():
     ]
     for rc in rate_cards:
         if not frappe.db.exists("Freight Rate Card", {"card_name": rc["card_name"]}):
-            frappe.get_doc({"doctype": "Freight Rate Card", **rc}).insert(ignore_permissions=True)
+            doc = frappe.get_doc({"doctype": "Freight Rate Card", **rc})
+            doc.append("rate_slabs", {"origin": "Mumbai", "destination": "Delhi", "transport_mode": "Road FTL", "rate_amount": 45000})
+            doc.append("rate_slabs", {"origin": "Delhi", "destination": "Bengaluru", "transport_mode": "Road FTL", "rate_amount": 68000})
+            doc.insert(ignore_permissions=True)
 
     # 7. Vehicle Maintenance Requests
     vmrs = [
