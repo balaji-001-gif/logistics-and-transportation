@@ -59,7 +59,7 @@ def install_transactional_demo():
             "igst_rate": 18, "sac_code": "996511",
             "cargo_items": [
                 {"description": "Electronic Components", "quantity": 50,
-                 "uom": "Nos", "weight_kg": 1200, "volume_cbm": 4.5}
+                 "unit": "PCS", "weight_kg": 1200, "volume_cbm": 4.5}
             ],
         },
         {
@@ -75,7 +75,7 @@ def install_transactional_demo():
             "igst_rate": 18, "sac_code": "996511",
             "cargo_items": [
                 {"description": "Pharmaceutical Products", "quantity": 200,
-                 "uom": "Boxes", "weight_kg": 3500, "volume_cbm": 12}
+                 "unit": "CARTON", "weight_kg": 3500, "volume_cbm": 12}
             ],
         },
         {
@@ -91,7 +91,7 @@ def install_transactional_demo():
             "cgst_rate": 9, "sgst_rate": 9, "sac_code": "996511",
             "cargo_items": [
                 {"description": "FMCG Goods", "quantity": 30,
-                 "uom": "Cartons", "weight_kg": 450, "volume_cbm": 2.1}
+                 "unit": "CARTON", "weight_kg": 450, "volume_cbm": 2.1}
             ],
         },
         {
@@ -107,7 +107,7 @@ def install_transactional_demo():
             "igst_rate": 18, "sac_code": "996511",
             "cargo_items": [
                 {"description": "Automotive Parts", "quantity": 80,
-                 "uom": "Nos", "weight_kg": 2800, "volume_cbm": 8}
+                 "unit": "PCS", "weight_kg": 2800, "volume_cbm": 8}
             ],
         },
         {
@@ -123,7 +123,7 @@ def install_transactional_demo():
             "igst_rate": 18, "sac_code": "996511",
             "cargo_items": [
                 {"description": "Textile Products", "quantity": 150,
-                 "uom": "Bundles", "weight_kg": 5000, "volume_cbm": 18}
+                 "unit": "PALLET", "weight_kg": 5000, "volume_cbm": 18}
             ],
         },
         {
@@ -140,7 +140,7 @@ def install_transactional_demo():
             "igst_rate": 18, "sac_code": "996511",
             "cargo_items": [
                 {"description": "Chemical Drums", "quantity": 20,
-                 "uom": "Drums", "weight_kg": 4000, "volume_cbm": 10}
+                 "unit": "DRUM", "weight_kg": 4000, "volume_cbm": 10}
             ],
         },
     ]
@@ -236,7 +236,7 @@ def install_transactional_demo():
     ]
     for sto in stos:
         doc = frappe.get_doc({"doctype": "Stock Transfer Order", **sto})
-        doc.append("items", {"item_description": "Safety Vests & Helmets", "quantity": 100, "uom": "Nos"})
+        doc.append("items", {"item_description": "Safety Vests & Helmets", "quantity": 100, "uom": "PCS"})
         doc.insert(ignore_permissions=True)
 
     # ── Shipments (Inbound/Outbound) ────────────────────────────────────────
