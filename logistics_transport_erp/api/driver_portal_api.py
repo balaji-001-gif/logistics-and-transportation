@@ -100,6 +100,6 @@ def _get_current_driver():
         driver_name = frappe.db.get_value("Driver", {"full_name": frappe.user.full_name}, "name")
     
     if not driver_name:
-        frappe.throw(_("User is not linked to any Driver record. Please contact administrator."))
+        frappe.throw(_("User is not linked to any Driver record. Please contact administrator."), frappe.PermissionError)
     
     return frappe.get_doc("Driver", driver_name)

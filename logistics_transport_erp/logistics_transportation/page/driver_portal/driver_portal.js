@@ -1,33 +1,21 @@
-frappe.pages['driver-portal'].on_page_load = function(wrapper) {
-    var page = frappe.ui.make_app_page({
-        parent: wrapper,
-        title: 'Driver Portal',
-        single_column: true
-    });
-
-    // Load the HTML content directly into the wrapper
-    frappe.model.with_doctype('Driver', () => {
-        $(wrapper).find('.layout-main-section').html(frappe.render_template('driver_portal', {}));
-        LogisticsDriverPortal.init(wrapper);
-    });
-}
-
 var LogisticsDriverPortal = {
     init: function(wrapper) {
         this.wrapper = wrapper;
+        this.$wrapper = $(wrapper);
         this.load_info();
         this.load_trips();
         this.bind_events();
     },
 
     load_info: function() {
+        var me = this;
         frappe.call({
             method: 'logistics_transport_erp.api.driver_portal_api.get_driver_info',
             callback: function(r) {
                 if(r.message) {
-                    $('#dp-driver-name').text(r.message.name);
-                    $('#dp-vehicle-info').text('Vehicle: ' + (r.message.vehicle || '--'));
-                    $('#dp-driver-status').text(r.message.status);
+                    me.$wrapper.find('#dp-driver-name').text(r.message.name);
+                    me.$wrapper.find('#dp-vehicle-info').text('Vehicle: ' + (r.message.vehicle || '--'));
+                    me.$wrapper.find('#dp-driver-status').text(r.message.status);
                 }
             }
         });
@@ -42,11 +30,12 @@ var LogisticsDriverPortal = {
                 var activeTrip = trips.find(t => t.status !== 'Completed');
                 
                 if (activeTrip) {
-                    $('#dp-trip-id').text(activeTrip.name);
-                    $('#dp-trip-status').text('Status: ' + activeTrip.status);
+                    me.$wrapper.find('#dp-trip-id').text(activeTrip.name);
+                    me.$wrapper.find('#dp-trip-status').text('Status: ' + activeTrip.status);
+                    me.$wrapper.find('#dp-active-trip-section').show();
                     me.active_trip = activeTrip.name;
                 } else {
-                    $('#dp-active-trip-section').hide();
+                    me.$wrapper.find('#dp-active-trip-section').hide();
                 }
 
                 var listHtml = trips.map(t => `
@@ -58,20 +47,24 @@ var LogisticsDriverPortal = {
                         <span class="badge ${t.status === 'Completed' ? 'badge-success' : 'badge-warning'}">${t.status}</span>
                     </div>
                 `).join('');
-                $('#dp-trip-list').html(listHtml || '<p>No recent trips.</p>');
+                me.$wrapper.find('#dp-trip-list').html(listHtml || '<p>No recent trips.</p>');
             }
         });
     },
 
     bind_events: function() {
         var me = this;
-        $('#btn-update-status').on('click', function() {
-            $('#modal-status').show();
+        me.$wrapper.on('click', '#btn-update-status', function() {
+            me.$wrapper.find('#modal-status').css('display', 'flex');
         });
 
-        $('#btn-submit-status').on('click', function() {
-            var event_type = $('#sel-event-type').val();
-            var remarks = $('#txt-remarks').val();
+        me.$wrapper.on('click', '#btn-close-modal', function() {
+            me.$wrapper.find('#modal-status').hide();
+        });
+
+        me.$wrapper.on('click', '#btn-submit-status', function() {
+            var event_type = me.$wrapper.find('#sel-event-type').val();
+            var remarks = me.$wrapper.find('#txt-remarks').val();
             
             // Get GPS coordinates
             if (navigator.geolocation) {
@@ -99,12 +92,22 @@ var LogisticsDriverPortal = {
                 remarks: remarks
             },
             callback: function(r) {
-                if (r.message.status === 'success') {
+                if (r.message && r.message.status === 'success') {
                     frappe.show_alert({message: 'Status Updated!', indicator: 'green'});
-                    $('#modal-status').hide();
+                    me.$wrapper.find('#modal-status').hide();
                     me.load_trips();
                 }
             }
         });
     }
+}
+
+frappe.pages['driver-portal'].on_page_load = function(wrapper) {
+    var page = frappe.ui.make_app_page({
+        parent: wrapper,
+        title: 'Driver Portal',
+        single_column: true
+    });
+
+    LogisticsDriverPortal.init(wrapper);
 }
