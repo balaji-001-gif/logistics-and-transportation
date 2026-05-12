@@ -1,0 +1,268 @@
+"""
+Freight Order + Trip Sheet + Tracking + EWB + POD + Complaint Demo Data
+Called after install_demo_data.py (depends on vehicles, drivers, routes existing)
+"""
+import frappe
+from frappe.utils import today, add_days, nowdate, now_datetime
+
+
+def install_transactional_demo():
+    frappe.set_user("Administrator")
+
+    # ── Freight Orders ──────────────────────────────────────────────────────
+    freight_orders = [
+        {
+            "naming_series": "FO-.YYYY.-.#####",
+            "status": "Delivered", "transport_mode": "Road FTL",
+            "origin_warehouse": "Mumbai Hub", "destination_warehouse": "Delhi Gateway",
+            "route": "Mumbai - Delhi",
+            "vehicle": "MH-12-AB-1234", "driver": _drv("Ramesh Kumar Singh"),
+            "scheduled_dispatch_date": add_days(today(), -5),
+            "expected_delivery_date": add_days(today(), -3),
+            "actual_delivery_date": add_days(today(), -3),
+            "base_freight_amount": 45000, "is_interstate": 1,
+            "igst_rate": 18, "sac_code": "996511",
+            "cargo_items": [
+                {"item_description": "Electronic Components", "quantity": 50,
+                 "uom": "Nos", "weight_kg": 1200, "volume_cbm": 4.5}
+            ],
+        },
+        {
+            "naming_series": "FO-.YYYY.-.#####",
+            "status": "In Transit", "transport_mode": "Road FTL",
+            "origin_warehouse": "Delhi Gateway", "destination_warehouse": "Bengaluru Cross-Dock",
+            "route": "Delhi - Bengaluru",
+            "vehicle": "DL-01-GH-5678", "driver": _drv("Suresh Prasad Yadav"),
+            "scheduled_dispatch_date": add_days(today(), -2),
+            "expected_delivery_date": add_days(today(), 1),
+            "base_freight_amount": 68000, "is_interstate": 1,
+            "igst_rate": 18, "sac_code": "996511",
+            "cargo_items": [
+                {"item_description": "Pharmaceutical Products", "quantity": 200,
+                 "uom": "Boxes", "weight_kg": 3500, "volume_cbm": 12}
+            ],
+        },
+        {
+            "naming_series": "FO-.YYYY.-.#####",
+            "status": "Dispatched", "transport_mode": "Road LTL",
+            "origin_warehouse": "Mumbai Hub", "destination_warehouse": "Pune Spoke",
+            "route": "Mumbai - Pune",
+            "vehicle": "MH-14-IJ-7890", "driver": _drv("Arun Gawde"),
+            "scheduled_dispatch_date": today(),
+            "expected_delivery_date": today(),
+            "base_freight_amount": 4500, "is_interstate": 0,
+            "cgst_rate": 9, "sgst_rate": 9, "sac_code": "996511",
+            "cargo_items": [
+                {"item_description": "FMCG Goods", "quantity": 30,
+                 "uom": "Cartons", "weight_kg": 450, "volume_cbm": 2.1}
+            ],
+        },
+        {
+            "naming_series": "FO-.YYYY.-.#####",
+            "status": "Booked", "transport_mode": "Road FTL",
+            "origin_warehouse": "Chennai Port Facility", "destination_warehouse": "Hyderabad Spoke",
+            "route": "Chennai - Hyderabad",
+            "vehicle": "TN-22-EF-3456", "driver": _drv("Muthu Selvam"),
+            "scheduled_dispatch_date": add_days(today(), 1),
+            "expected_delivery_date": add_days(today(), 2),
+            "base_freight_amount": 22000, "is_interstate": 1,
+            "igst_rate": 18, "sac_code": "996511",
+            "cargo_items": [
+                {"item_description": "Automotive Parts", "quantity": 80,
+                 "uom": "Nos", "weight_kg": 2800, "volume_cbm": 8}
+            ],
+        },
+        {
+            "naming_series": "FO-.YYYY.-.#####",
+            "status": "Cancelled", "transport_mode": "Road FTL",
+            "origin_warehouse": "Bengaluru Cross-Dock", "destination_warehouse": "Mumbai Hub",
+            "route": "Bengaluru - Mumbai",
+            "vehicle": "KA-09-CD-9012", "driver": _drv("Vijay Krishnamurthy"),
+            "scheduled_dispatch_date": add_days(today(), -3),
+            "expected_delivery_date": add_days(today(), -1),
+            "base_freight_amount": 32000, "is_interstate": 1,
+            "igst_rate": 18, "sac_code": "996511",
+            "cargo_items": [
+                {"item_description": "Textile Products", "quantity": 150,
+                 "uom": "Bundles", "weight_kg": 5000, "volume_cbm": 18}
+            ],
+        },
+        {
+            "naming_series": "FO-.YYYY.-.#####",
+            "status": "Delivered", "transport_mode": "Road FTL",
+            "origin_warehouse": "Hyderabad Spoke", "destination_warehouse": "Mumbai Hub",
+            "route": "Hyderabad - Pune",
+            "vehicle": "MH-12-AB-1234", "driver": _drv("Ramesh Kumar Singh"),
+            "scheduled_dispatch_date": add_days(today(), -10),
+            "expected_delivery_date": add_days(today(), -8),
+            "actual_delivery_date": add_days(today(), -8),
+            "base_freight_amount": 19500, "is_interstate": 1,
+            "igst_rate": 18, "sac_code": "996511",
+            "cargo_items": [
+                {"item_description": "Chemical Drums", "quantity": 20,
+                 "uom": "Drums", "weight_kg": 4000, "volume_cbm": 10}
+            ],
+        },
+    ]
+
+    fo_names = []
+    for fo_data in freight_orders:
+        cargo = fo_data.pop("cargo_items")
+        doc = frappe.get_doc({"doctype": "Freight Order", **fo_data})
+        for c in cargo:
+            doc.append("cargo_items", c)
+        doc.insert(ignore_permissions=True)
+        fo_names.append(doc.name)
+    frappe.db.commit()
+
+    # ── Shipment Tracking Events ────────────────────────────────────────────
+    fo_del = fo_names[0]   # Delivered order
+    fo_it  = fo_names[1]   # In Transit order
+    tracking_events = [
+        {"freight_order": fo_del, "event_type": "Dispatched",
+         "event_datetime": f"{add_days(today(),-5)} 08:30:00",
+         "location_description": "Mumbai Hub", "city": "Mumbai", "state": "Maharashtra",
+         "latitude": "19.0760", "longitude": "72.8777"},
+        {"freight_order": fo_del, "event_type": "At Hub",
+         "event_datetime": f"{add_days(today(),-4)} 14:00:00",
+         "location_description": "Nashik Toll", "city": "Nashik", "state": "Maharashtra",
+         "latitude": "19.9975", "longitude": "73.7898"},
+        {"freight_order": fo_del, "event_type": "In Transit",
+         "event_datetime": f"{add_days(today(),-4)} 22:00:00",
+         "location_description": "Bhopal Bypass", "city": "Bhopal", "state": "Madhya Pradesh",
+         "latitude": "23.2599", "longitude": "77.4126"},
+        {"freight_order": fo_del, "event_type": "Delivered",
+         "event_datetime": f"{add_days(today(),-3)} 16:45:00",
+         "location_description": "Delhi Gateway Warehouse", "city": "New Delhi", "state": "Delhi",
+         "latitude": "28.6139", "longitude": "77.2090"},
+        {"freight_order": fo_it, "event_type": "Dispatched",
+         "event_datetime": f"{add_days(today(),-2)} 07:00:00",
+         "location_description": "Delhi Gateway", "city": "New Delhi", "state": "Delhi",
+         "latitude": "28.6139", "longitude": "77.2090"},
+        {"freight_order": fo_it, "event_type": "In Transit",
+         "event_datetime": f"{add_days(today(),-1)} 10:30:00",
+         "location_description": "Nagpur Ring Road", "city": "Nagpur", "state": "Maharashtra",
+         "latitude": "21.1458", "longitude": "79.0882"},
+    ]
+    for te in tracking_events:
+        frappe.get_doc({"doctype": "Shipment Tracking Event",
+                        "naming_series": "STE-.YYYY.-.#####", **te}).insert(ignore_permissions=True)
+
+    # ── E-Way Bills ─────────────────────────────────────────────────────────
+    ewbs = [
+        {"naming_series": "EWB-.YYYY.-.#####", "freight_order": fo_names[0],
+         "status": "Delivered", "ewb_number": "1234567890001",
+         "generated_date": add_days(today(), -5),
+         "valid_upto": add_days(today(), -3),
+         "vehicle_number": "MH12AB1234", "hsn_code": "8541",
+         "goods_description": "Electronic Components", "invoice_value": 450000,
+         "igst_amount": 81000, "transport_mode": "1"},
+        {"naming_series": "EWB-.YYYY.-.#####", "freight_order": fo_names[1],
+         "status": "Active", "ewb_number": "1234567890002",
+         "generated_date": add_days(today(), -2),
+         "valid_upto": add_days(today(), 1),
+         "vehicle_number": "DL01GH5678", "hsn_code": "3004",
+         "goods_description": "Pharmaceutical Products", "invoice_value": 680000,
+         "igst_amount": 122400, "transport_mode": "1"},
+        {"naming_series": "EWB-.YYYY.-.#####", "freight_order": fo_names[5],
+         "status": "Delivered", "ewb_number": "1234567890003",
+         "generated_date": add_days(today(), -10),
+         "valid_upto": add_days(today(), -8),
+         "vehicle_number": "MH12AB1234", "hsn_code": "2814",
+         "goods_description": "Chemical Drums", "invoice_value": 195000,
+         "igst_amount": 35100, "transport_mode": "1"},
+    ]
+    for ewb in ewbs:
+        frappe.get_doc({"doctype": "E Way Bill", **ewb}).insert(ignore_permissions=True)
+
+    # ── Customer Complaints ─────────────────────────────────────────────────
+    complaints = [
+        {"naming_series": "CC-.YYYY.-.#####", "freight_order": fo_names[0],
+         "complaint_type": "Delivery Delay", "status": "Resolved",
+         "complaint_date": add_days(today(), -3),
+         "complaint_description": "Consignment reached 4 hours late.",
+         "resolution_notes": "Traffic jam on NH-44. Compensated with discount on next order."},
+        {"naming_series": "CC-.YYYY.-.#####", "freight_order": fo_names[5],
+         "complaint_type": "Damaged Goods", "status": "Open",
+         "complaint_date": add_days(today(), -8),
+         "complaint_description": "Two chemical drums found damaged on arrival."},
+    ]
+    for cc in complaints:
+        frappe.get_doc({"doctype": "Customer Complaint", **cc}).insert(ignore_permissions=True)
+
+    # ── Fuel Logs ───────────────────────────────────────────────────────────
+    fuel_logs = [
+        {"naming_series": "FL-.YYYY.-.#####", "vehicle": "MH-12-AB-1234",
+         "driver": _drv("Ramesh Kumar Singh"), "log_date": add_days(today(), -5),
+         "fuel_station": "Indian Oil, Nasik", "quantity_litres": 180,
+         "rate_per_litre": 95.50, "odometer_km": 48000},
+        {"naming_series": "FL-.YYYY.-.#####", "vehicle": "DL-01-GH-5678",
+         "driver": _drv("Suresh Prasad Yadav"), "log_date": add_days(today(), -2),
+         "fuel_station": "HP Petrol, Agra Highway", "quantity_litres": 240,
+         "rate_per_litre": 96.00, "odometer_km": 81200},
+        {"naming_series": "FL-.YYYY.-.#####", "vehicle": "MH-14-IJ-7890",
+         "driver": _drv("Arun Gawde"), "log_date": today(),
+         "fuel_station": "BPCL, Lonavala", "quantity_litres": 35,
+         "rate_per_litre": 95.80, "odometer_km": 8850},
+        {"naming_series": "FL-.YYYY.-.#####", "vehicle": "TN-22-EF-3456",
+         "driver": _drv("Muthu Selvam"), "log_date": add_days(today(), -1),
+         "fuel_station": "Indian Oil, Vellore", "quantity_litres": 120,
+         "rate_per_litre": 94.50, "odometer_km": 55100},
+    ]
+    for fl in fuel_logs:
+        frappe.get_doc({"doctype": "Fuel Log", **fl}).insert(ignore_permissions=True)
+
+    # ── Advance Payment Requests ─────────────────────────────────────────────
+    aprs = [
+        {"naming_series": "APR-.YYYY.-.#####", "driver": _drv("Ramesh Kumar Singh"),
+         "vehicle": "MH-12-AB-1234", "request_date": add_days(today(), -5),
+         "amount_requested": 8000, "purpose": "Fuel & Toll for Mumbai-Delhi run",
+         "status": "Approved", "amount_approved": 8000,
+         "approved_date": add_days(today(), -5)},
+        {"naming_series": "APR-.YYYY.-.#####", "driver": _drv("Suresh Prasad Yadav"),
+         "vehicle": "DL-01-GH-5678", "request_date": add_days(today(), -2),
+         "amount_requested": 12000, "purpose": "Fuel, Toll, Driver allowance",
+         "status": "Approved", "amount_approved": 10000,
+         "approved_date": add_days(today(), -2)},
+        {"naming_series": "APR-.YYYY.-.#####", "driver": _drv("Arun Gawde"),
+         "vehicle": "MH-14-IJ-7890", "request_date": today(),
+         "amount_requested": 2500, "purpose": "Mumbai-Pune run expenses",
+         "status": "Pending"},
+    ]
+    for apr in aprs:
+        frappe.get_doc({"doctype": "Advance Payment Request", **apr}).insert(ignore_permissions=True)
+
+    # ── Dock Appointments ────────────────────────────────────────────────────
+    docks = [
+        {"naming_series": "DA-.YYYY.-.#####", "warehouse": "Mumbai Hub",
+         "vehicle": "MH-12-AB-1234", "driver": _drv("Ramesh Kumar Singh"),
+         "appointment_date": add_days(today(), 1), "slot_time": "09:00:00",
+         "appointment_type": "Loading", "status": "Scheduled",
+         "dock_number": "Dock-3", "estimated_duration_hours": 2},
+        {"naming_series": "DA-.YYYY.-.#####", "warehouse": "Delhi Gateway",
+         "vehicle": "DL-01-GH-5678", "driver": _drv("Suresh Prasad Yadav"),
+         "appointment_date": add_days(today(), 1), "slot_time": "14:00:00",
+         "appointment_type": "Unloading", "status": "Scheduled",
+         "dock_number": "Dock-1", "estimated_duration_hours": 3},
+        {"naming_series": "DA-.YYYY.-.#####", "warehouse": "Bengaluru Cross-Dock",
+         "vehicle": "KA-09-CD-9012", "driver": _drv("Vijay Krishnamurthy"),
+         "appointment_date": today(), "slot_time": "11:00:00",
+         "appointment_type": "Loading", "status": "In Progress",
+         "dock_number": "Dock-2", "estimated_duration_hours": 2},
+    ]
+    for da in docks:
+        frappe.get_doc({"doctype": "Dock Appointment", **da}).insert(ignore_permissions=True)
+
+    frappe.db.commit()
+    print("✅ Transactional demo data installed successfully!")
+    print(f"   Freight Orders:      {len(fo_names)}")
+    print(f"   Tracking Events:     {len(tracking_events)}")
+    print(f"   E-Way Bills:         {len(ewbs)}")
+    print(f"   Complaints:          {len(complaints)}")
+    print(f"   Fuel Logs:           {len(fuel_logs)}")
+    print(f"   Advance Payments:    {len(aprs)}")
+    print(f"   Dock Appointments:   {len(docks)}")
+
+
+def _drv(full_name):
+    return frappe.db.get_value("Driver", {"full_name": full_name}, "name") or full_name

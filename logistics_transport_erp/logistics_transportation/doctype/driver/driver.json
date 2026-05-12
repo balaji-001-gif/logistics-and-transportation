@@ -45,7 +45,7 @@
       "fieldname": "naming_series",
       "fieldtype": "Series",
       "label": "Series",
-      "options": "DRV-.YYYY.-"
+      "options": "DRV-.YYYY.-.####"
     },
     {
       "fieldname": "full_name",

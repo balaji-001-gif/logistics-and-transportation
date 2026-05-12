@@ -23,7 +23,7 @@
       "fieldname": "naming_series",
       "fieldtype": "Series",
       "label": "Series",
-      "options": "FRC-.YYYY.-"
+      "options": "FRC-.YYYY.-.####"
     },
     {
       "fieldname": "card_name",
