@@ -1,186 +1,186 @@
 {
-  "actions": [],
-  "autoname": "naming_series:",
-  "creation": "2024-01-01 00:00:00.000000",
-  "doctype": "DocType",
-  "editable_grid": 1,
-  "engine": "InnoDB",
-  "field_order": [
-    "naming_series",
-    "status",
-    "settlement_date",
-    "column_break_1",
-    "trip_sheet",
-    "load_plan",
-    "vendor_bill",
-    "section_break_1",
-    "revenue_lines",
-    "section_break_2",
-    "cost_lines",
-    "section_break_3",
-    "total_revenue",
-    "total_cost",
-    "column_break_2",
-    "gross_margin",
-    "margin_percent",
-    "section_break_4",
-    "remarks",
-    "amended_from"
-  ],
-  "fields": [
-    {
-      "fieldname": "naming_series",
-      "fieldtype": "Series",
-      "label": "Series",
-      "options": "FS-.YYYY.-.#####",
-      "default": "FS-.YYYY.-.#####"
-    },
-    {
-      "fieldname": "status",
-      "fieldtype": "Select",
-      "in_list_view": 1,
-      "label": "Status",
-      "options": "\nDraft\nSubmitted\nCancelled",
-      "default": "Draft"
-    },
-    {
-      "fieldname": "settlement_date",
-      "fieldtype": "Date",
-      "in_list_view": 1,
-      "label": "Settlement Date",
-      "reqd": 1
-    },
-    {
-      "fieldname": "column_break_1",
-      "fieldtype": "Column Break"
-    },
-    {
-      "fieldname": "trip_sheet",
-      "fieldtype": "Link",
-      "in_list_view": 1,
-      "label": "Trip Sheet",
-      "options": "Trip Sheet"
-    },
-    {
-      "fieldname": "load_plan",
-      "fieldtype": "Link",
-      "label": "Load Plan",
-      "options": "Load Plan"
-    },
-    {
-      "fieldname": "vendor_bill",
-      "fieldtype": "Link",
-      "label": "Vendor Freight Bill",
-      "options": "Vendor Freight Bill"
-    },
-    {
-      "fieldname": "section_break_1",
-      "fieldtype": "Section Break",
-      "label": "Revenue Lines"
-    },
-    {
-      "fieldname": "revenue_lines",
-      "fieldtype": "Table",
-      "label": "Revenue Lines",
-      "options": "Freight Settlement Revenue"
-    },
-    {
-      "fieldname": "section_break_2",
-      "fieldtype": "Section Break",
-      "label": "Cost Lines"
-    },
-    {
-      "fieldname": "cost_lines",
-      "fieldtype": "Table",
-      "label": "Cost Lines",
-      "options": "Freight Settlement Cost"
-    },
-    {
-      "fieldname": "section_break_3",
-      "fieldtype": "Section Break",
-      "label": "Profitability"
-    },
-    {
-      "fieldname": "total_revenue",
-      "fieldtype": "Currency",
-      "label": "Total Revenue (INR)",
-      "read_only": 1
-    },
-    {
-      "fieldname": "total_cost",
-      "fieldtype": "Currency",
-      "label": "Total Cost (INR)",
-      "read_only": 1
-    },
-    {
-      "fieldname": "column_break_2",
-      "fieldtype": "Column Break"
-    },
-    {
-      "fieldname": "gross_margin",
-      "fieldtype": "Currency",
-      "label": "Gross Margin (INR)",
-      "read_only": 1
-    },
-    {
-      "fieldname": "margin_percent",
-      "fieldtype": "Percent",
-      "label": "Margin %",
-      "read_only": 1
-    },
-    {
-      "fieldname": "section_break_4",
-      "fieldtype": "Section Break"
-    },
-    {
-      "fieldname": "remarks",
-      "fieldtype": "Small Text",
-      "label": "Remarks"
-    },
-    {
-      "fieldname": "amended_from",
-      "fieldtype": "Link",
-      "label": "Amended From",
-      "options": "Freight Settlement",
-      "no_copy": 1,
-      "print_hide": 1,
-      "read_only": 1
-    }
-  ],
-  "is_submittable": 1,
-  "links": [],
-  "modified": "2024-01-01 00:00:00.000000",
-  "modified_by": "Administrator",
-  "module": "Logistics Transportation",
-  "name": "Freight Settlement",
-  "naming_rule": "By \"Naming Series\" field",
-  "owner": "Administrator",
-  "permissions": [
-    {
-      "create": 1,
-      "delete": 1,
-      "email": 1,
-      "export": 1,
-      "print": 1,
-      "read": 1,
-      "report": 1,
-      "submit": 1,
-      "cancel": 1,
-      "amend": 1,
-      "role": "System Manager",
-      "share": 1,
-      "write": 1
-    },
-    {
-      "create": 1,
-      "read": 1,
-      "report": 1,
-      "write": 1,
-      "role": "All"
-    }
-  ],
-  "sort_field": "modified",
-  "sort_order": "DESC",
-  "title_field": "name",
-  "track_changes": 1
+ "actions": [],
+ "autoname": "naming_series:",
+ "creation": "2024-01-01 00:00:00.000000",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "naming_series",
+  "status",
+  "settlement_date",
+  "column_break_1",
+  "trip_sheet",
+  "load_plan",
+  "vendor_bill",
+  "section_break_1",
+  "revenue_lines",
+  "section_break_2",
+  "cost_lines",
+  "section_break_3",
+  "total_revenue",
+  "total_cost",
+  "column_break_2",
+  "gross_margin",
+  "margin_percent",
+  "section_break_4",
+  "remarks",
+  "amended_from"
+ ],
+ "fields": [
+  {
+   "default": "FS-.YYYY.-.#####",
+   "fieldname": "naming_series",
+   "fieldtype": "Series",
+   "label": "Series",
+   "options": "FS-.YYYY.-.#####"
+  },
+  {
+   "default": "Draft",
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Status",
+   "options": "\nDraft\nSubmitted\nCancelled"
+  },
+  {
+   "fieldname": "settlement_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Settlement Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "trip_sheet",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Trip Sheet",
+   "options": "Trip Sheet"
+  },
+  {
+   "fieldname": "load_plan",
+   "fieldtype": "Link",
+   "label": "Load Plan",
+   "options": "Load Plan"
+  },
+  {
+   "fieldname": "vendor_bill",
+   "fieldtype": "Link",
+   "label": "Vendor Freight Bill",
+   "options": "Vendor Freight Bill"
+  },
+  {
+   "fieldname": "section_break_1",
+   "fieldtype": "Section Break",
+   "label": "Revenue Lines"
+  },
+  {
+   "fieldname": "revenue_lines",
+   "fieldtype": "Table",
+   "label": "Revenue Lines",
+   "options": "Freight Settlement Revenue"
+  },
+  {
+   "fieldname": "section_break_2",
+   "fieldtype": "Section Break",
+   "label": "Cost Lines"
+  },
+  {
+   "fieldname": "cost_lines",
+   "fieldtype": "Table",
+   "label": "Cost Lines",
+   "options": "Freight Settlement Cost"
+  },
+  {
+   "fieldname": "section_break_3",
+   "fieldtype": "Section Break",
+   "label": "Profitability"
+  },
+  {
+   "fieldname": "total_revenue",
+   "fieldtype": "Currency",
+   "label": "Total Revenue (INR)",
+   "read_only": 1
+  },
+  {
+   "fieldname": "total_cost",
+   "fieldtype": "Currency",
+   "label": "Total Cost (INR)",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_2",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "gross_margin",
+   "fieldtype": "Currency",
+   "label": "Gross Margin (INR)",
+   "read_only": 1
+  },
+  {
+   "fieldname": "margin_percent",
+   "fieldtype": "Percent",
+   "label": "Margin %",
+   "read_only": 1
+  },
+  {
+   "fieldname": "section_break_4",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "remarks",
+   "fieldtype": "Small Text",
+   "label": "Remarks"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Freight Settlement",
+   "print_hide": 1,
+   "read_only": 1
+  }
+ ],
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2024-01-01 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Logistics Transportation",
+ "name": "Freight Settlement",
+ "naming_rule": "By \"Naming Series\" field",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "amend": 1,
+   "cancel": 1,
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "read": 1,
+   "report": 1,
+   "role": "All",
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "title_field": "",
+ "track_changes": 1
 }

@@ -39,7 +39,7 @@ fixtures = [
 ]
 
 website_route_rules = [
-    {"from_route": "/driver-portal", "to_route": "driver-portal"},
+    {"from_route": "/driver-portal", "to_route": "driver_portal"},
 ]
 
 before_migrate = "logistics_transport_erp.install.before_migrate"

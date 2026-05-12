@@ -1,260 +1,260 @@
 {
-  "actions": [],
-  "autoname": "naming_series:",
-  "creation": "2024-01-01 00:00:00.000000",
-  "doctype": "DocType",
-  "editable_grid": 1,
-  "engine": "InnoDB",
-  "field_order": [
-    "naming_series",
-    "lr_date",
-    "status",
-    "column_break_1",
-    "freight_order",
-    "vehicle",
-    "driver",
-    "section_break_1",
-    "consignor_name",
-    "consignor_address",
-    "consignor_gstin",
-    "column_break_2",
-    "consignee_name",
-    "consignee_address",
-    "consignee_gstin",
-    "section_break_2",
-    "origin_city",
-    "destination_city",
-    "column_break_3",
-    "distance_km",
-    "payment_type",
-    "section_break_3",
-    "goods_items",
-    "section_break_4",
-    "total_packages",
-    "total_weight_kg",
-    "column_break_4",
-    "freight_amount",
-    "said_to_contain",
-    "section_break_5",
-    "special_instructions",
-    "amended_from"
-  ],
-  "fields": [
-    {
-      "fieldname": "naming_series",
-      "fieldtype": "Series",
-      "label": "Series",
-      "options": "CN-.YYYY.-.#####",
-      "default": "CN-.YYYY.-.#####"
-    },
-    {
-      "fieldname": "lr_date",
-      "fieldtype": "Date",
-      "in_list_view": 1,
-      "label": "LR Date",
-      "reqd": 1
-    },
-    {
-      "fieldname": "status",
-      "fieldtype": "Select",
-      "in_list_view": 1,
-      "label": "Status",
-      "options": "\nDraft\nIn Transit\nDelivered\nCancelled",
-      "default": "Draft"
-    },
-    {
-      "fieldname": "column_break_1",
-      "fieldtype": "Column Break"
-    },
-    {
-      "fieldname": "freight_order",
-      "fieldtype": "Link",
-      "in_list_view": 1,
-      "label": "Freight Order",
-      "options": "Freight Order"
-    },
-    {
-      "fieldname": "vehicle",
-      "fieldtype": "Link",
-      "label": "Vehicle",
-      "options": "Vehicle"
-    },
-    {
-      "fieldname": "driver",
-      "fieldtype": "Link",
-      "label": "Driver",
-      "options": "Driver"
-    },
-    {
-      "fieldname": "section_break_1",
-      "fieldtype": "Section Break",
-      "label": "Consignor & Consignee"
-    },
-    {
-      "fieldname": "consignor_name",
-      "fieldtype": "Data",
-      "in_list_view": 1,
-      "label": "Consignor Name",
-      "reqd": 1
-    },
-    {
-      "fieldname": "consignor_address",
-      "fieldtype": "Small Text",
-      "label": "Consignor Address"
-    },
-    {
-      "fieldname": "consignor_gstin",
-      "fieldtype": "Data",
-      "label": "Consignor GSTIN"
-    },
-    {
-      "fieldname": "column_break_2",
-      "fieldtype": "Column Break"
-    },
-    {
-      "fieldname": "consignee_name",
-      "fieldtype": "Data",
-      "in_list_view": 1,
-      "label": "Consignee Name",
-      "reqd": 1
-    },
-    {
-      "fieldname": "consignee_address",
-      "fieldtype": "Small Text",
-      "label": "Consignee Address"
-    },
-    {
-      "fieldname": "consignee_gstin",
-      "fieldtype": "Data",
-      "label": "Consignee GSTIN"
-    },
-    {
-      "fieldname": "section_break_2",
-      "fieldtype": "Section Break",
-      "label": "Route"
-    },
-    {
-      "fieldname": "origin_city",
-      "fieldtype": "Data",
-      "label": "Origin City",
-      "reqd": 1
-    },
-    {
-      "fieldname": "destination_city",
-      "fieldtype": "Data",
-      "label": "Destination City",
-      "reqd": 1
-    },
-    {
-      "fieldname": "column_break_3",
-      "fieldtype": "Column Break"
-    },
-    {
-      "fieldname": "distance_km",
-      "fieldtype": "Float",
-      "label": "Distance (km)"
-    },
-    {
-      "fieldname": "payment_type",
-      "fieldtype": "Select",
-      "label": "Payment Type",
-      "options": "\nToBill\nPaid\nTo Pay\nAccount"
-    },
-    {
-      "fieldname": "section_break_3",
-      "fieldtype": "Section Break",
-      "label": "Goods Details"
-    },
-    {
-      "fieldname": "goods_items",
-      "fieldtype": "Table",
-      "label": "Goods",
-      "options": "Goods Item"
-    },
-    {
-      "fieldname": "section_break_4",
-      "fieldtype": "Section Break",
-      "label": "Summary"
-    },
-    {
-      "fieldname": "total_packages",
-      "fieldtype": "Int",
-      "label": "Total Packages",
-      "read_only": 1
-    },
-    {
-      "fieldname": "total_weight_kg",
-      "fieldtype": "Float",
-      "label": "Total Weight (kg)",
-      "read_only": 1
-    },
-    {
-      "fieldname": "column_break_4",
-      "fieldtype": "Column Break"
-    },
-    {
-      "fieldname": "freight_amount",
-      "fieldtype": "Currency",
-      "label": "Freight Amount (INR)"
-    },
-    {
-      "fieldname": "said_to_contain",
-      "fieldtype": "Small Text",
-      "label": "Said to Contain"
-    },
-    {
-      "fieldname": "section_break_5",
-      "fieldtype": "Section Break"
-    },
-    {
-      "fieldname": "special_instructions",
-      "fieldtype": "Small Text",
-      "label": "Special Instructions"
-    },
-    {
-      "fieldname": "amended_from",
-      "fieldtype": "Link",
-      "label": "Amended From",
-      "options": "Consignment Note",
-      "no_copy": 1,
-      "print_hide": 1,
-      "read_only": 1
-    }
-  ],
-  "is_submittable": 1,
-  "links": [],
-  "modified": "2024-01-01 00:00:00.000000",
-  "modified_by": "Administrator",
-  "module": "Logistics Transportation",
-  "name": "Consignment Note",
-  "naming_rule": "By \"Naming Series\" field",
-  "owner": "Administrator",
-  "permissions": [
-    {
-      "create": 1,
-      "delete": 1,
-      "email": 1,
-      "export": 1,
-      "print": 1,
-      "read": 1,
-      "report": 1,
-      "submit": 1,
-      "cancel": 1,
-      "amend": 1,
-      "role": "System Manager",
-      "share": 1,
-      "write": 1
-    },
-    {
-      "create": 1,
-      "read": 1,
-      "report": 1,
-      "write": 1,
-      "role": "All"
-    }
-  ],
-  "sort_field": "modified",
-  "sort_order": "DESC",
-  "title_field": "name",
-  "track_changes": 1
+ "actions": [],
+ "autoname": "naming_series:",
+ "creation": "2024-01-01 00:00:00.000000",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "naming_series",
+  "lr_date",
+  "status",
+  "column_break_1",
+  "freight_order",
+  "vehicle",
+  "driver",
+  "section_break_1",
+  "consignor_name",
+  "consignor_address",
+  "consignor_gstin",
+  "column_break_2",
+  "consignee_name",
+  "consignee_address",
+  "consignee_gstin",
+  "section_break_2",
+  "origin_city",
+  "destination_city",
+  "column_break_3",
+  "distance_km",
+  "payment_type",
+  "section_break_3",
+  "goods_items",
+  "section_break_4",
+  "total_packages",
+  "total_weight_kg",
+  "column_break_4",
+  "freight_amount",
+  "said_to_contain",
+  "section_break_5",
+  "special_instructions",
+  "amended_from"
+ ],
+ "fields": [
+  {
+   "default": "CN-.YYYY.-.#####",
+   "fieldname": "naming_series",
+   "fieldtype": "Series",
+   "label": "Series",
+   "options": "CN-.YYYY.-.#####"
+  },
+  {
+   "fieldname": "lr_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "LR Date",
+   "reqd": 1
+  },
+  {
+   "default": "Draft",
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Status",
+   "options": "\nDraft\nIn Transit\nDelivered\nCancelled"
+  },
+  {
+   "fieldname": "column_break_1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "freight_order",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Freight Order",
+   "options": "Freight Order"
+  },
+  {
+   "fieldname": "vehicle",
+   "fieldtype": "Link",
+   "label": "Vehicle",
+   "options": "Vehicle"
+  },
+  {
+   "fieldname": "driver",
+   "fieldtype": "Link",
+   "label": "Driver",
+   "options": "Driver"
+  },
+  {
+   "fieldname": "section_break_1",
+   "fieldtype": "Section Break",
+   "label": "Consignor & Consignee"
+  },
+  {
+   "fieldname": "consignor_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Consignor Name",
+   "reqd": 1
+  },
+  {
+   "fieldname": "consignor_address",
+   "fieldtype": "Small Text",
+   "label": "Consignor Address"
+  },
+  {
+   "fieldname": "consignor_gstin",
+   "fieldtype": "Data",
+   "label": "Consignor GSTIN"
+  },
+  {
+   "fieldname": "column_break_2",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "consignee_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Consignee Name",
+   "reqd": 1
+  },
+  {
+   "fieldname": "consignee_address",
+   "fieldtype": "Small Text",
+   "label": "Consignee Address"
+  },
+  {
+   "fieldname": "consignee_gstin",
+   "fieldtype": "Data",
+   "label": "Consignee GSTIN"
+  },
+  {
+   "fieldname": "section_break_2",
+   "fieldtype": "Section Break",
+   "label": "Route"
+  },
+  {
+   "fieldname": "origin_city",
+   "fieldtype": "Data",
+   "label": "Origin City",
+   "reqd": 1
+  },
+  {
+   "fieldname": "destination_city",
+   "fieldtype": "Data",
+   "label": "Destination City",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_3",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "distance_km",
+   "fieldtype": "Float",
+   "label": "Distance (km)"
+  },
+  {
+   "fieldname": "payment_type",
+   "fieldtype": "Select",
+   "label": "Payment Type",
+   "options": "\nToBill\nPaid\nTo Pay\nAccount"
+  },
+  {
+   "fieldname": "section_break_3",
+   "fieldtype": "Section Break",
+   "label": "Goods Details"
+  },
+  {
+   "fieldname": "goods_items",
+   "fieldtype": "Table",
+   "label": "Goods",
+   "options": "Goods Item"
+  },
+  {
+   "fieldname": "section_break_4",
+   "fieldtype": "Section Break",
+   "label": "Summary"
+  },
+  {
+   "fieldname": "total_packages",
+   "fieldtype": "Int",
+   "label": "Total Packages",
+   "read_only": 1
+  },
+  {
+   "fieldname": "total_weight_kg",
+   "fieldtype": "Float",
+   "label": "Total Weight (kg)",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_4",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "freight_amount",
+   "fieldtype": "Currency",
+   "label": "Freight Amount (INR)"
+  },
+  {
+   "fieldname": "said_to_contain",
+   "fieldtype": "Small Text",
+   "label": "Said to Contain"
+  },
+  {
+   "fieldname": "section_break_5",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "special_instructions",
+   "fieldtype": "Small Text",
+   "label": "Special Instructions"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Consignment Note",
+   "print_hide": 1,
+   "read_only": 1
+  }
+ ],
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2024-01-01 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Logistics Transportation",
+ "name": "Consignment Note",
+ "naming_rule": "By \"Naming Series\" field",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "amend": 1,
+   "cancel": 1,
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "read": 1,
+   "report": 1,
+   "role": "All",
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "title_field": "",
+ "track_changes": 1
 }

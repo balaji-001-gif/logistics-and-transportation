@@ -1,220 +1,220 @@
 {
-  "actions": [],
-  "autoname": "naming_series:",
-  "creation": "2024-01-01 00:00:00.000000",
-  "doctype": "DocType",
-  "editable_grid": 1,
-  "engine": "InnoDB",
-  "field_order": [
-    "naming_series",
-    "status",
-    "delivery_datetime",
-    "column_break_1",
-    "freight_order",
-    "consignment_note",
-    "driver",
-    "section_break_1",
-    "receiver_name",
-    "receiver_designation",
-    "column_break_2",
-    "receiver_phone",
-    "relationship_to_consignee",
-    "section_break_2",
-    "signature_image",
-    "delivery_photo",
-    "column_break_3",
-    "is_partial_delivery",
-    "partial_delivery_notes",
-    "section_break_3",
-    "exception_type",
-    "exception_notes",
-    "column_break_4",
-    "credit_note_required",
-    "credit_note",
-    "section_break_4",
-    "remarks"
-  ],
-  "fields": [
-    {
-      "fieldname": "naming_series",
-      "fieldtype": "Series",
-      "label": "Series",
-      "options": "POD-.YYYY.-.#####",
-      "default": "POD-.YYYY.-.#####"
-    },
-    {
-      "fieldname": "status",
-      "fieldtype": "Select",
-      "in_list_view": 1,
-      "label": "Status",
-      "options": "\nPending\nDelivered\nPartial\nException\nReturned",
-      "default": "Pending"
-    },
-    {
-      "fieldname": "delivery_datetime",
-      "fieldtype": "Datetime",
-      "in_list_view": 1,
-      "label": "Delivery Date & Time",
-      "reqd": 1
-    },
-    {
-      "fieldname": "column_break_1",
-      "fieldtype": "Column Break"
-    },
-    {
-      "fieldname": "freight_order",
-      "fieldtype": "Link",
-      "in_list_view": 1,
-      "label": "Freight Order",
-      "options": "Freight Order",
-      "reqd": 1
-    },
-    {
-      "fieldname": "consignment_note",
-      "fieldtype": "Link",
-      "label": "Consignment Note",
-      "options": "Consignment Note"
-    },
-    {
-      "fieldname": "driver",
-      "fieldtype": "Link",
-      "label": "Driver",
-      "options": "Driver"
-    },
-    {
-      "fieldname": "section_break_1",
-      "fieldtype": "Section Break",
-      "label": "Receiver Details"
-    },
-    {
-      "fieldname": "receiver_name",
-      "fieldtype": "Data",
-      "in_list_view": 1,
-      "label": "Receiver Name",
-      "reqd": 1
-    },
-    {
-      "fieldname": "receiver_designation",
-      "fieldtype": "Data",
-      "label": "Designation"
-    },
-    {
-      "fieldname": "column_break_2",
-      "fieldtype": "Column Break"
-    },
-    {
-      "fieldname": "receiver_phone",
-      "fieldtype": "Data",
-      "label": "Receiver Phone"
-    },
-    {
-      "fieldname": "relationship_to_consignee",
-      "fieldtype": "Select",
-      "label": "Relationship to Consignee",
-      "options": "\nSelf\nEmployee\nAuthorised Agent\nSecurity\nOther"
-    },
-    {
-      "fieldname": "section_break_2",
-      "fieldtype": "Section Break",
-      "label": "Proof"
-    },
-    {
-      "fieldname": "signature_image",
-      "fieldtype": "Attach Image",
-      "label": "Signature / Photo"
-    },
-    {
-      "fieldname": "delivery_photo",
-      "fieldtype": "Attach Image",
-      "label": "Delivery Photo"
-    },
-    {
-      "fieldname": "column_break_3",
-      "fieldtype": "Column Break"
-    },
-    {
-      "fieldname": "is_partial_delivery",
-      "fieldtype": "Check",
-      "label": "Partial Delivery"
-    },
-    {
-      "fieldname": "partial_delivery_notes",
-      "fieldtype": "Small Text",
-      "label": "Partial Delivery Notes",
-      "depends_on": "eval:doc.is_partial_delivery"
-    },
-    {
-      "fieldname": "section_break_3",
-      "fieldtype": "Section Break",
-      "label": "Exceptions"
-    },
-    {
-      "fieldname": "exception_type",
-      "fieldtype": "Select",
-      "label": "Exception Type",
-      "options": "\nDamaged Goods\nShort Delivery\nWrong Delivery\nRefused\nOther"
-    },
-    {
-      "fieldname": "exception_notes",
-      "fieldtype": "Small Text",
-      "label": "Exception Notes"
-    },
-    {
-      "fieldname": "column_break_4",
-      "fieldtype": "Column Break"
-    },
-    {
-      "fieldname": "credit_note_required",
-      "fieldtype": "Check",
-      "label": "Credit Note Required"
-    },
-    {
-      "fieldname": "credit_note",
-      "fieldtype": "Link",
-      "label": "Credit Note",
-      "options": "Sales Invoice",
-      "depends_on": "eval:doc.credit_note_required"
-    },
-    {
-      "fieldname": "section_break_4",
-      "fieldtype": "Section Break"
-    },
-    {
-      "fieldname": "remarks",
-      "fieldtype": "Small Text",
-      "label": "Remarks"
-    }
-  ],
-  "links": [],
-  "modified": "2024-01-01 00:00:00.000000",
-  "modified_by": "Administrator",
-  "module": "Logistics Transportation",
-  "name": "POD",
-  "naming_rule": "By \"Naming Series\" field",
-  "owner": "Administrator",
-  "permissions": [
-    {
-      "create": 1,
-      "delete": 1,
-      "email": 1,
-      "export": 1,
-      "print": 1,
-      "read": 1,
-      "report": 1,
-      "role": "System Manager",
-      "share": 1,
-      "write": 1
-    },
-    {
-      "create": 1,
-      "read": 1,
-      "report": 1,
-      "write": 1,
-      "role": "All"
-    }
-  ],
-  "sort_field": "modified",
-  "sort_order": "DESC",
-  "title_field": "name",
-  "track_changes": 1
+ "actions": [],
+ "autoname": "naming_series:",
+ "creation": "2024-01-01 00:00:00.000000",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "naming_series",
+  "status",
+  "delivery_datetime",
+  "column_break_1",
+  "freight_order",
+  "consignment_note",
+  "driver",
+  "section_break_1",
+  "receiver_name",
+  "receiver_designation",
+  "column_break_2",
+  "receiver_phone",
+  "relationship_to_consignee",
+  "section_break_2",
+  "signature_image",
+  "delivery_photo",
+  "column_break_3",
+  "is_partial_delivery",
+  "partial_delivery_notes",
+  "section_break_3",
+  "exception_type",
+  "exception_notes",
+  "column_break_4",
+  "credit_note_required",
+  "credit_note",
+  "section_break_4",
+  "remarks"
+ ],
+ "fields": [
+  {
+   "default": "POD-.YYYY.-.#####",
+   "fieldname": "naming_series",
+   "fieldtype": "Series",
+   "label": "Series",
+   "options": "POD-.YYYY.-.#####"
+  },
+  {
+   "default": "Pending",
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Status",
+   "options": "\nPending\nDelivered\nPartial\nException\nReturned"
+  },
+  {
+   "fieldname": "delivery_datetime",
+   "fieldtype": "Datetime",
+   "in_list_view": 1,
+   "label": "Delivery Date & Time",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "freight_order",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Freight Order",
+   "options": "Freight Order",
+   "reqd": 1
+  },
+  {
+   "fieldname": "consignment_note",
+   "fieldtype": "Link",
+   "label": "Consignment Note",
+   "options": "Consignment Note"
+  },
+  {
+   "fieldname": "driver",
+   "fieldtype": "Link",
+   "label": "Driver",
+   "options": "Driver"
+  },
+  {
+   "fieldname": "section_break_1",
+   "fieldtype": "Section Break",
+   "label": "Receiver Details"
+  },
+  {
+   "fieldname": "receiver_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Receiver Name",
+   "reqd": 1
+  },
+  {
+   "fieldname": "receiver_designation",
+   "fieldtype": "Data",
+   "label": "Designation"
+  },
+  {
+   "fieldname": "column_break_2",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "receiver_phone",
+   "fieldtype": "Data",
+   "label": "Receiver Phone"
+  },
+  {
+   "fieldname": "relationship_to_consignee",
+   "fieldtype": "Select",
+   "label": "Relationship to Consignee",
+   "options": "\nSelf\nEmployee\nAuthorised Agent\nSecurity\nOther"
+  },
+  {
+   "fieldname": "section_break_2",
+   "fieldtype": "Section Break",
+   "label": "Proof"
+  },
+  {
+   "fieldname": "signature_image",
+   "fieldtype": "Attach Image",
+   "label": "Signature / Photo"
+  },
+  {
+   "fieldname": "delivery_photo",
+   "fieldtype": "Attach Image",
+   "label": "Delivery Photo"
+  },
+  {
+   "fieldname": "column_break_3",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "is_partial_delivery",
+   "fieldtype": "Check",
+   "label": "Partial Delivery"
+  },
+  {
+   "depends_on": "eval:doc.is_partial_delivery",
+   "fieldname": "partial_delivery_notes",
+   "fieldtype": "Small Text",
+   "label": "Partial Delivery Notes"
+  },
+  {
+   "fieldname": "section_break_3",
+   "fieldtype": "Section Break",
+   "label": "Exceptions"
+  },
+  {
+   "fieldname": "exception_type",
+   "fieldtype": "Select",
+   "label": "Exception Type",
+   "options": "\nDamaged Goods\nShort Delivery\nWrong Delivery\nRefused\nOther"
+  },
+  {
+   "fieldname": "exception_notes",
+   "fieldtype": "Small Text",
+   "label": "Exception Notes"
+  },
+  {
+   "fieldname": "column_break_4",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "credit_note_required",
+   "fieldtype": "Check",
+   "label": "Credit Note Required"
+  },
+  {
+   "depends_on": "eval:doc.credit_note_required",
+   "fieldname": "credit_note",
+   "fieldtype": "Link",
+   "label": "Credit Note",
+   "options": "Sales Invoice"
+  },
+  {
+   "fieldname": "section_break_4",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "remarks",
+   "fieldtype": "Small Text",
+   "label": "Remarks"
+  }
+ ],
+ "links": [],
+ "modified": "2024-01-01 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Logistics Transportation",
+ "name": "POD",
+ "naming_rule": "By \"Naming Series\" field",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "read": 1,
+   "report": 1,
+   "role": "All",
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "title_field": "",
+ "track_changes": 1
 }

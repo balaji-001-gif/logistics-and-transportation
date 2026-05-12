@@ -1,249 +1,249 @@
 {
-  "actions": [],
-  "autoname": "naming_series:",
-  "creation": "2024-01-01 00:00:00.000000",
-  "doctype": "DocType",
-  "editable_grid": 1,
-  "engine": "InnoDB",
-  "field_order": [
-    "naming_series",
-    "status",
-    "receipt_date",
-    "column_break_1",
-    "warehouse",
-    "dock_appointment",
-    "section_break_1",
-    "freight_order",
-    "consignment_note",
-    "column_break_2",
-    "supplier",
-    "purchase_order",
-    "section_break_2",
-    "vehicle",
-    "driver",
-    "column_break_3",
-    "vehicle_arrival_time",
-    "unloading_start_time",
-    "unloading_end_time",
-    "section_break_3",
-    "items",
-    "section_break_4",
-    "total_expected_qty",
-    "total_received_qty",
-    "column_break_4",
-    "shortage_qty",
-    "damage_count",
-    "section_break_5",
-    "remarks",
-    "amended_from"
-  ],
-  "fields": [
-    {
-      "fieldname": "naming_series",
-      "fieldtype": "Series",
-      "label": "Series",
-      "options": "INB-.YYYY.-.#####",
-      "default": "INB-.YYYY.-.#####"
-    },
-    {
-      "fieldname": "status",
-      "fieldtype": "Select",
-      "in_list_view": 1,
-      "label": "Status",
-      "options": "\nDraft\nReceived\nPutaway\nCancelled",
-      "default": "Draft"
-    },
-    {
-      "fieldname": "receipt_date",
-      "fieldtype": "Date",
-      "in_list_view": 1,
-      "label": "Receipt Date",
-      "reqd": 1
-    },
-    {
-      "fieldname": "column_break_1",
-      "fieldtype": "Column Break"
-    },
-    {
-      "fieldname": "warehouse",
-      "fieldtype": "Link",
-      "in_list_view": 1,
-      "label": "Warehouse",
-      "options": "Warehouse",
-      "reqd": 1
-    },
-    {
-      "fieldname": "dock_appointment",
-      "fieldtype": "Link",
-      "label": "Dock Appointment",
-      "options": "Dock Appointment"
-    },
-    {
-      "fieldname": "section_break_1",
-      "fieldtype": "Section Break",
-      "label": "References"
-    },
-    {
-      "fieldname": "freight_order",
-      "fieldtype": "Link",
-      "label": "Freight Order",
-      "options": "Freight Order"
-    },
-    {
-      "fieldname": "consignment_note",
-      "fieldtype": "Link",
-      "label": "Consignment Note",
-      "options": "Consignment Note"
-    },
-    {
-      "fieldname": "column_break_2",
-      "fieldtype": "Column Break"
-    },
-    {
-      "fieldname": "supplier",
-      "fieldtype": "Link",
-      "label": "Supplier",
-      "options": "Supplier"
-    },
-    {
-      "fieldname": "purchase_order",
-      "fieldtype": "Link",
-      "label": "Purchase Order",
-      "options": "Purchase Order"
-    },
-    {
-      "fieldname": "section_break_2",
-      "fieldtype": "Section Break",
-      "label": "Vehicle & Timing"
-    },
-    {
-      "fieldname": "vehicle",
-      "fieldtype": "Link",
-      "label": "Vehicle",
-      "options": "Vehicle"
-    },
-    {
-      "fieldname": "driver",
-      "fieldtype": "Link",
-      "label": "Driver",
-      "options": "Driver"
-    },
-    {
-      "fieldname": "column_break_3",
-      "fieldtype": "Column Break"
-    },
-    {
-      "fieldname": "vehicle_arrival_time",
-      "fieldtype": "Datetime",
-      "label": "Vehicle Arrival Time"
-    },
-    {
-      "fieldname": "unloading_start_time",
-      "fieldtype": "Datetime",
-      "label": "Unloading Start Time"
-    },
-    {
-      "fieldname": "unloading_end_time",
-      "fieldtype": "Datetime",
-      "label": "Unloading End Time"
-    },
-    {
-      "fieldname": "section_break_3",
-      "fieldtype": "Section Break",
-      "label": "Items"
-    },
-    {
-      "fieldname": "items",
-      "fieldtype": "Table",
-      "label": "Items",
-      "options": "Inbound Item"
-    },
-    {
-      "fieldname": "section_break_4",
-      "fieldtype": "Section Break",
-      "label": "Receipt Summary"
-    },
-    {
-      "fieldname": "total_expected_qty",
-      "fieldtype": "Float",
-      "label": "Total Expected Qty",
-      "read_only": 1
-    },
-    {
-      "fieldname": "total_received_qty",
-      "fieldtype": "Float",
-      "label": "Total Received Qty",
-      "read_only": 1
-    },
-    {
-      "fieldname": "column_break_4",
-      "fieldtype": "Column Break"
-    },
-    {
-      "fieldname": "shortage_qty",
-      "fieldtype": "Float",
-      "label": "Shortage Qty",
-      "read_only": 1
-    },
-    {
-      "fieldname": "damage_count",
-      "fieldtype": "Int",
-      "label": "Damaged Items Count",
-      "read_only": 1
-    },
-    {
-      "fieldname": "section_break_5",
-      "fieldtype": "Section Break"
-    },
-    {
-      "fieldname": "remarks",
-      "fieldtype": "Small Text",
-      "label": "Remarks"
-    },
-    {
-      "fieldname": "amended_from",
-      "fieldtype": "Link",
-      "label": "Amended From",
-      "options": "Inbound Shipment",
-      "no_copy": 1,
-      "print_hide": 1,
-      "read_only": 1
-    }
-  ],
-  "is_submittable": 1,
-  "links": [],
-  "modified": "2024-01-01 00:00:00.000000",
-  "modified_by": "Administrator",
-  "module": "Logistics Transportation",
-  "name": "Inbound Shipment",
-  "naming_rule": "By \"Naming Series\" field",
-  "owner": "Administrator",
-  "permissions": [
-    {
-      "create": 1,
-      "delete": 1,
-      "email": 1,
-      "export": 1,
-      "print": 1,
-      "read": 1,
-      "report": 1,
-      "submit": 1,
-      "cancel": 1,
-      "amend": 1,
-      "role": "System Manager",
-      "share": 1,
-      "write": 1
-    },
-    {
-      "create": 1,
-      "read": 1,
-      "report": 1,
-      "write": 1,
-      "role": "All"
-    }
-  ],
-  "sort_field": "modified",
-  "sort_order": "DESC",
-  "title_field": "name",
-  "track_changes": 1
+ "actions": [],
+ "autoname": "naming_series:",
+ "creation": "2024-01-01 00:00:00.000000",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "naming_series",
+  "status",
+  "receipt_date",
+  "column_break_1",
+  "warehouse",
+  "dock_appointment",
+  "section_break_1",
+  "freight_order",
+  "consignment_note",
+  "column_break_2",
+  "supplier",
+  "purchase_order",
+  "section_break_2",
+  "vehicle",
+  "driver",
+  "column_break_3",
+  "vehicle_arrival_time",
+  "unloading_start_time",
+  "unloading_end_time",
+  "section_break_3",
+  "items",
+  "section_break_4",
+  "total_expected_qty",
+  "total_received_qty",
+  "column_break_4",
+  "shortage_qty",
+  "damage_count",
+  "section_break_5",
+  "remarks",
+  "amended_from"
+ ],
+ "fields": [
+  {
+   "default": "INB-.YYYY.-.#####",
+   "fieldname": "naming_series",
+   "fieldtype": "Series",
+   "label": "Series",
+   "options": "INB-.YYYY.-.#####"
+  },
+  {
+   "default": "Draft",
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Status",
+   "options": "\nDraft\nReceived\nPutaway\nCancelled"
+  },
+  {
+   "fieldname": "receipt_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Receipt Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "warehouse",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Warehouse",
+   "options": "Warehouse",
+   "reqd": 1
+  },
+  {
+   "fieldname": "dock_appointment",
+   "fieldtype": "Link",
+   "label": "Dock Appointment",
+   "options": "Dock Appointment"
+  },
+  {
+   "fieldname": "section_break_1",
+   "fieldtype": "Section Break",
+   "label": "References"
+  },
+  {
+   "fieldname": "freight_order",
+   "fieldtype": "Link",
+   "label": "Freight Order",
+   "options": "Freight Order"
+  },
+  {
+   "fieldname": "consignment_note",
+   "fieldtype": "Link",
+   "label": "Consignment Note",
+   "options": "Consignment Note"
+  },
+  {
+   "fieldname": "column_break_2",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "supplier",
+   "fieldtype": "Link",
+   "label": "Supplier",
+   "options": "Supplier"
+  },
+  {
+   "fieldname": "purchase_order",
+   "fieldtype": "Link",
+   "label": "Purchase Order",
+   "options": "Purchase Order"
+  },
+  {
+   "fieldname": "section_break_2",
+   "fieldtype": "Section Break",
+   "label": "Vehicle & Timing"
+  },
+  {
+   "fieldname": "vehicle",
+   "fieldtype": "Link",
+   "label": "Vehicle",
+   "options": "Vehicle"
+  },
+  {
+   "fieldname": "driver",
+   "fieldtype": "Link",
+   "label": "Driver",
+   "options": "Driver"
+  },
+  {
+   "fieldname": "column_break_3",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "vehicle_arrival_time",
+   "fieldtype": "Datetime",
+   "label": "Vehicle Arrival Time"
+  },
+  {
+   "fieldname": "unloading_start_time",
+   "fieldtype": "Datetime",
+   "label": "Unloading Start Time"
+  },
+  {
+   "fieldname": "unloading_end_time",
+   "fieldtype": "Datetime",
+   "label": "Unloading End Time"
+  },
+  {
+   "fieldname": "section_break_3",
+   "fieldtype": "Section Break",
+   "label": "Items"
+  },
+  {
+   "fieldname": "items",
+   "fieldtype": "Table",
+   "label": "Items",
+   "options": "Inbound Item"
+  },
+  {
+   "fieldname": "section_break_4",
+   "fieldtype": "Section Break",
+   "label": "Receipt Summary"
+  },
+  {
+   "fieldname": "total_expected_qty",
+   "fieldtype": "Float",
+   "label": "Total Expected Qty",
+   "read_only": 1
+  },
+  {
+   "fieldname": "total_received_qty",
+   "fieldtype": "Float",
+   "label": "Total Received Qty",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_4",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "shortage_qty",
+   "fieldtype": "Float",
+   "label": "Shortage Qty",
+   "read_only": 1
+  },
+  {
+   "fieldname": "damage_count",
+   "fieldtype": "Int",
+   "label": "Damaged Items Count",
+   "read_only": 1
+  },
+  {
+   "fieldname": "section_break_5",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "remarks",
+   "fieldtype": "Small Text",
+   "label": "Remarks"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Inbound Shipment",
+   "print_hide": 1,
+   "read_only": 1
+  }
+ ],
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2024-01-01 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Logistics Transportation",
+ "name": "Inbound Shipment",
+ "naming_rule": "By \"Naming Series\" field",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "amend": 1,
+   "cancel": 1,
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "read": 1,
+   "report": 1,
+   "role": "All",
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "title_field": "",
+ "track_changes": 1
 }

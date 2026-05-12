@@ -1,412 +1,412 @@
 {
-  "actions": [],
-  "autoname": "naming_series:",
-  "creation": "2024-01-01 00:00:00.000000",
-  "doctype": "DocType",
-  "editable_grid": 1,
-  "engine": "InnoDB",
-  "field_order": [
-    "naming_series",
-    "status",
-    "transport_mode",
-    "column_break_1",
-    "customer",
-    "customer_contract",
-    "rate_card",
-    "section_break_1",
-    "origin_warehouse",
-    "origin_address",
-    "column_break_2",
-    "destination_warehouse",
-    "destination_address",
-    "section_break_2",
-    "route",
-    "scheduled_dispatch_date",
-    "column_break_3",
-    "expected_delivery_date",
-    "actual_delivery_date",
-    "section_break_3",
-    "vehicle",
-    "driver",
-    "column_break_4",
-    "driver_mobile",
-    "section_break_4",
-    "cargo_items",
-    "section_break_5",
-    "total_weight_kg",
-    "total_volume_cbm",
-    "column_break_5",
-    "base_freight_amount",
-    "total_charges",
-    "total_amount",
-    "section_break_6",
-    "charges",
-    "section_break_7",
-    "gst_section",
-    "sac_code",
-    "is_interstate",
-    "column_break_6",
-    "cgst_rate",
-    "sgst_rate",
-    "igst_rate",
-    "section_break_8",
-    "cgst_amount",
-    "sgst_amount",
-    "igst_amount",
-    "column_break_7",
-    "total_gst_amount",
-    "grand_total",
-    "section_break_9",
-    "route_map_html",
-    "special_instructions",
-    "amended_from"
-  ],
-  "fields": [
-    {
-      "fieldname": "naming_series",
-      "fieldtype": "Series",
-      "label": "Series",
-      "options": "FO-.YYYY.-.#####",
-      "default": "FO-.YYYY.-.#####"
-    },
-    {
-      "fieldname": "status",
-      "fieldtype": "Select",
-      "in_list_view": 1,
-      "label": "Status",
-      "options": "\nBooked\nDispatched\nIn Transit\nAt Destination\nDelivered\nCancelled",
-      "default": "Booked",
-      "reqd": 1
-    },
-    {
-      "fieldname": "transport_mode",
-      "fieldtype": "Select",
-      "in_list_view": 1,
-      "label": "Transport Mode",
-      "options": "\nRoad FTL\nRoad LTL\nRail\nAir\nMulti-modal",
-      "default": "Road FTL"
-    },
-    {
-      "fieldname": "column_break_1",
-      "fieldtype": "Column Break"
-    },
-    {
-      "fieldname": "customer",
-      "fieldtype": "Link",
-      "in_list_view": 1,
-      "label": "Customer",
-      "options": "Customer",
-      "reqd": 1
-    },
-    {
-      "fieldname": "customer_contract",
-      "fieldtype": "Link",
-      "label": "Customer Contract",
-      "options": "Customer Contract"
-    },
-    {
-      "fieldname": "rate_card",
-      "fieldtype": "Link",
-      "label": "Rate Card",
-      "options": "Freight Rate Card"
-    },
-    {
-      "fieldname": "section_break_1",
-      "fieldtype": "Section Break",
-      "label": "Origin & Destination"
-    },
-    {
-      "fieldname": "origin_warehouse",
-      "fieldtype": "Link",
-      "label": "Origin Warehouse",
-      "options": "Warehouse"
-    },
-    {
-      "fieldname": "origin_address",
-      "fieldtype": "Small Text",
-      "label": "Origin Address"
-    },
-    {
-      "fieldname": "column_break_2",
-      "fieldtype": "Column Break"
-    },
-    {
-      "fieldname": "destination_warehouse",
-      "fieldtype": "Link",
-      "label": "Destination Warehouse",
-      "options": "Warehouse"
-    },
-    {
-      "fieldname": "destination_address",
-      "fieldtype": "Small Text",
-      "label": "Destination Address"
-    },
-    {
-      "fieldname": "section_break_2",
-      "fieldtype": "Section Break",
-      "label": "Route & Schedule"
-    },
-    {
-      "fieldname": "route",
-      "fieldtype": "Link",
-      "label": "Route",
-      "options": "Route Master"
-    },
-    {
-      "fieldname": "scheduled_dispatch_date",
-      "fieldtype": "Date",
-      "in_list_view": 1,
-      "label": "Scheduled Dispatch Date",
-      "reqd": 1
-    },
-    {
-      "fieldname": "column_break_3",
-      "fieldtype": "Column Break"
-    },
-    {
-      "fieldname": "expected_delivery_date",
-      "fieldtype": "Date",
-      "label": "Expected Delivery Date"
-    },
-    {
-      "fieldname": "actual_delivery_date",
-      "fieldtype": "Date",
-      "label": "Actual Delivery Date"
-    },
-    {
-      "fieldname": "section_break_3",
-      "fieldtype": "Section Break",
-      "label": "Vehicle & Driver"
-    },
-    {
-      "fieldname": "vehicle",
-      "fieldtype": "Link",
-      "label": "Vehicle",
-      "options": "Vehicle"
-    },
-    {
-      "fieldname": "driver",
-      "fieldtype": "Link",
-      "label": "Driver",
-      "options": "Driver"
-    },
-    {
-      "fieldname": "column_break_4",
-      "fieldtype": "Column Break"
-    },
-    {
-      "fieldname": "driver_mobile",
-      "fieldtype": "Data",
-      "label": "Driver Mobile",
-      "read_only": 1
-    },
-    {
-      "fieldname": "section_break_4",
-      "fieldtype": "Section Break",
-      "label": "Cargo Details"
-    },
-    {
-      "fieldname": "cargo_items",
-      "fieldtype": "Table",
-      "label": "Cargo Items",
-      "options": "Cargo Item"
-    },
-    {
-      "fieldname": "section_break_5",
-      "fieldtype": "Section Break",
-      "label": "Totals"
-    },
-    {
-      "fieldname": "total_weight_kg",
-      "fieldtype": "Float",
-      "label": "Total Weight (kg)",
-      "read_only": 1
-    },
-    {
-      "fieldname": "total_volume_cbm",
-      "fieldtype": "Float",
-      "label": "Total Volume (CBM)",
-      "read_only": 1
-    },
-    {
-      "fieldname": "column_break_5",
-      "fieldtype": "Column Break"
-    },
-    {
-      "fieldname": "base_freight_amount",
-      "fieldtype": "Currency",
-      "label": "Base Freight Amount (INR)"
-    },
-    {
-      "fieldname": "total_charges",
-      "fieldtype": "Currency",
-      "label": "Additional Charges (INR)",
-      "read_only": 1
-    },
-    {
-      "fieldname": "total_amount",
-      "fieldtype": "Currency",
-      "label": "Total Amount (excl. GST)",
-      "read_only": 1
-    },
-    {
-      "fieldname": "section_break_6",
-      "fieldtype": "Section Break",
-      "label": "Additional Charges"
-    },
-    {
-      "fieldname": "charges",
-      "fieldtype": "Table",
-      "label": "Charges",
-      "options": "Freight Charge"
-    },
-    {
-      "fieldname": "section_break_7",
-      "fieldtype": "Section Break",
-      "label": "GST Details"
-    },
-    {
-      "fieldname": "gst_section",
-      "fieldtype": "Data",
-      "label": "GST Section",
-      "hidden": 1
-    },
-    {
-      "fieldname": "sac_code",
-      "fieldtype": "Select",
-      "label": "SAC Code",
-      "options": "\n996511\n996512\n996521\n996531",
-      "default": "996511"
-    },
-    {
-      "fieldname": "is_interstate",
-      "fieldtype": "Check",
-      "label": "Interstate (IGST Applicable)"
-    },
-    {
-      "fieldname": "column_break_6",
-      "fieldtype": "Column Break"
-    },
-    {
-      "fieldname": "cgst_rate",
-      "fieldtype": "Percent",
-      "label": "CGST Rate %",
-      "default": "9",
-      "depends_on": "eval:!doc.is_interstate"
-    },
-    {
-      "fieldname": "sgst_rate",
-      "fieldtype": "Percent",
-      "label": "SGST Rate %",
-      "default": "9",
-      "depends_on": "eval:!doc.is_interstate"
-    },
-    {
-      "fieldname": "igst_rate",
-      "fieldtype": "Percent",
-      "label": "IGST Rate %",
-      "default": "18",
-      "depends_on": "eval:doc.is_interstate"
-    },
-    {
-      "fieldname": "section_break_8",
-      "fieldtype": "Section Break"
-    },
-    {
-      "fieldname": "cgst_amount",
-      "fieldtype": "Currency",
-      "label": "CGST Amount",
-      "read_only": 1,
-      "depends_on": "eval:!doc.is_interstate"
-    },
-    {
-      "fieldname": "sgst_amount",
-      "fieldtype": "Currency",
-      "label": "SGST Amount",
-      "read_only": 1,
-      "depends_on": "eval:!doc.is_interstate"
-    },
-    {
-      "fieldname": "igst_amount",
-      "fieldtype": "Currency",
-      "label": "IGST Amount",
-      "read_only": 1,
-      "depends_on": "eval:doc.is_interstate"
-    },
-    {
-      "fieldname": "column_break_7",
-      "fieldtype": "Column Break"
-    },
-    {
-      "fieldname": "total_gst_amount",
-      "fieldtype": "Currency",
-      "label": "Total GST Amount",
-      "read_only": 1
-    },
-    {
-      "fieldname": "grand_total",
-      "fieldtype": "Currency",
-      "label": "Grand Total (INR)",
-      "read_only": 1
-    },
-    {
-      "fieldname": "section_break_9",
-      "fieldtype": "Section Break"
-    },
-    {
-      "fieldname": "route_map_html",
-      "fieldtype": "HTML",
-      "label": "Route Map"
-    },
-    {
-      "fieldname": "special_instructions",
-      "fieldtype": "Small Text",
-      "label": "Special Instructions"
-    },
-    {
-      "fieldname": "amended_from",
-      "fieldtype": "Link",
-      "label": "Amended From",
-      "options": "Freight Order",
-      "no_copy": 1,
-      "print_hide": 1,
-      "read_only": 1
-    }
-  ],
-  "is_submittable": 1,
-  "links": [],
-  "modified": "2024-01-01 00:00:00.000000",
-  "modified_by": "Administrator",
-  "module": "Logistics Transportation",
-  "name": "Freight Order",
-  "naming_rule": "By \"Naming Series\" field",
-  "owner": "Administrator",
-  "permissions": [
-    {
-      "create": 1,
-      "delete": 1,
-      "email": 1,
-      "export": 1,
-      "print": 1,
-      "read": 1,
-      "report": 1,
-      "submit": 1,
-      "cancel": 1,
-      "amend": 1,
-      "role": "System Manager",
-      "share": 1,
-      "write": 1
-    },
-    {
-      "create": 1,
-      "read": 1,
-      "report": 1,
-      "write": 1,
-      "role": "All"
-    }
-  ],
-  "sort_field": "modified",
-  "sort_order": "DESC",
-  "title_field": "name",
-  "track_changes": 1
+ "actions": [],
+ "autoname": "naming_series:",
+ "creation": "2024-01-01 00:00:00.000000",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "naming_series",
+  "status",
+  "transport_mode",
+  "column_break_1",
+  "customer",
+  "customer_contract",
+  "rate_card",
+  "section_break_1",
+  "origin_warehouse",
+  "origin_address",
+  "column_break_2",
+  "destination_warehouse",
+  "destination_address",
+  "section_break_2",
+  "route",
+  "scheduled_dispatch_date",
+  "column_break_3",
+  "expected_delivery_date",
+  "actual_delivery_date",
+  "section_break_3",
+  "vehicle",
+  "driver",
+  "column_break_4",
+  "driver_mobile",
+  "section_break_4",
+  "cargo_items",
+  "section_break_5",
+  "total_weight_kg",
+  "total_volume_cbm",
+  "column_break_5",
+  "base_freight_amount",
+  "total_charges",
+  "total_amount",
+  "section_break_6",
+  "charges",
+  "section_break_7",
+  "gst_section",
+  "sac_code",
+  "is_interstate",
+  "column_break_6",
+  "cgst_rate",
+  "sgst_rate",
+  "igst_rate",
+  "section_break_8",
+  "cgst_amount",
+  "sgst_amount",
+  "igst_amount",
+  "column_break_7",
+  "total_gst_amount",
+  "grand_total",
+  "section_break_9",
+  "route_map_html",
+  "special_instructions",
+  "amended_from"
+ ],
+ "fields": [
+  {
+   "default": "FO-.YYYY.-.#####",
+   "fieldname": "naming_series",
+   "fieldtype": "Series",
+   "label": "Series",
+   "options": "FO-.YYYY.-.#####"
+  },
+  {
+   "default": "Booked",
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Status",
+   "options": "\nBooked\nDispatched\nIn Transit\nAt Destination\nDelivered\nCancelled",
+   "reqd": 1
+  },
+  {
+   "default": "Road FTL",
+   "fieldname": "transport_mode",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Transport Mode",
+   "options": "\nRoad FTL\nRoad LTL\nRail\nAir\nMulti-modal"
+  },
+  {
+   "fieldname": "column_break_1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "customer",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Customer",
+   "options": "Customer",
+   "reqd": 1
+  },
+  {
+   "fieldname": "customer_contract",
+   "fieldtype": "Link",
+   "label": "Customer Contract",
+   "options": "Customer Contract"
+  },
+  {
+   "fieldname": "rate_card",
+   "fieldtype": "Link",
+   "label": "Rate Card",
+   "options": "Freight Rate Card"
+  },
+  {
+   "fieldname": "section_break_1",
+   "fieldtype": "Section Break",
+   "label": "Origin & Destination"
+  },
+  {
+   "fieldname": "origin_warehouse",
+   "fieldtype": "Link",
+   "label": "Origin Warehouse",
+   "options": "Warehouse"
+  },
+  {
+   "fieldname": "origin_address",
+   "fieldtype": "Small Text",
+   "label": "Origin Address"
+  },
+  {
+   "fieldname": "column_break_2",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "destination_warehouse",
+   "fieldtype": "Link",
+   "label": "Destination Warehouse",
+   "options": "Warehouse"
+  },
+  {
+   "fieldname": "destination_address",
+   "fieldtype": "Small Text",
+   "label": "Destination Address"
+  },
+  {
+   "fieldname": "section_break_2",
+   "fieldtype": "Section Break",
+   "label": "Route & Schedule"
+  },
+  {
+   "fieldname": "route",
+   "fieldtype": "Link",
+   "label": "Route",
+   "options": "Route Master"
+  },
+  {
+   "fieldname": "scheduled_dispatch_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Scheduled Dispatch Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_3",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "expected_delivery_date",
+   "fieldtype": "Date",
+   "label": "Expected Delivery Date"
+  },
+  {
+   "fieldname": "actual_delivery_date",
+   "fieldtype": "Date",
+   "label": "Actual Delivery Date"
+  },
+  {
+   "fieldname": "section_break_3",
+   "fieldtype": "Section Break",
+   "label": "Vehicle & Driver"
+  },
+  {
+   "fieldname": "vehicle",
+   "fieldtype": "Link",
+   "label": "Vehicle",
+   "options": "Vehicle"
+  },
+  {
+   "fieldname": "driver",
+   "fieldtype": "Link",
+   "label": "Driver",
+   "options": "Driver"
+  },
+  {
+   "fieldname": "column_break_4",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "driver_mobile",
+   "fieldtype": "Data",
+   "label": "Driver Mobile",
+   "read_only": 1
+  },
+  {
+   "fieldname": "section_break_4",
+   "fieldtype": "Section Break",
+   "label": "Cargo Details"
+  },
+  {
+   "fieldname": "cargo_items",
+   "fieldtype": "Table",
+   "label": "Cargo Items",
+   "options": "Cargo Item"
+  },
+  {
+   "fieldname": "section_break_5",
+   "fieldtype": "Section Break",
+   "label": "Totals"
+  },
+  {
+   "fieldname": "total_weight_kg",
+   "fieldtype": "Float",
+   "label": "Total Weight (kg)",
+   "read_only": 1
+  },
+  {
+   "fieldname": "total_volume_cbm",
+   "fieldtype": "Float",
+   "label": "Total Volume (CBM)",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_5",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "base_freight_amount",
+   "fieldtype": "Currency",
+   "label": "Base Freight Amount (INR)"
+  },
+  {
+   "fieldname": "total_charges",
+   "fieldtype": "Currency",
+   "label": "Additional Charges (INR)",
+   "read_only": 1
+  },
+  {
+   "fieldname": "total_amount",
+   "fieldtype": "Currency",
+   "label": "Total Amount (excl. GST)",
+   "read_only": 1
+  },
+  {
+   "fieldname": "section_break_6",
+   "fieldtype": "Section Break",
+   "label": "Additional Charges"
+  },
+  {
+   "fieldname": "charges",
+   "fieldtype": "Table",
+   "label": "Charges",
+   "options": "Freight Charge"
+  },
+  {
+   "fieldname": "section_break_7",
+   "fieldtype": "Section Break",
+   "label": "GST Details"
+  },
+  {
+   "fieldname": "gst_section",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "GST Section"
+  },
+  {
+   "default": "996511",
+   "fieldname": "sac_code",
+   "fieldtype": "Select",
+   "label": "SAC Code",
+   "options": "\n996511\n996512\n996521\n996531"
+  },
+  {
+   "fieldname": "is_interstate",
+   "fieldtype": "Check",
+   "label": "Interstate (IGST Applicable)"
+  },
+  {
+   "fieldname": "column_break_6",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "9",
+   "depends_on": "eval:!doc.is_interstate",
+   "fieldname": "cgst_rate",
+   "fieldtype": "Percent",
+   "label": "CGST Rate %"
+  },
+  {
+   "default": "9",
+   "depends_on": "eval:!doc.is_interstate",
+   "fieldname": "sgst_rate",
+   "fieldtype": "Percent",
+   "label": "SGST Rate %"
+  },
+  {
+   "default": "18",
+   "depends_on": "eval:doc.is_interstate",
+   "fieldname": "igst_rate",
+   "fieldtype": "Percent",
+   "label": "IGST Rate %"
+  },
+  {
+   "fieldname": "section_break_8",
+   "fieldtype": "Section Break"
+  },
+  {
+   "depends_on": "eval:!doc.is_interstate",
+   "fieldname": "cgst_amount",
+   "fieldtype": "Currency",
+   "label": "CGST Amount",
+   "read_only": 1
+  },
+  {
+   "depends_on": "eval:!doc.is_interstate",
+   "fieldname": "sgst_amount",
+   "fieldtype": "Currency",
+   "label": "SGST Amount",
+   "read_only": 1
+  },
+  {
+   "depends_on": "eval:doc.is_interstate",
+   "fieldname": "igst_amount",
+   "fieldtype": "Currency",
+   "label": "IGST Amount",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_7",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "total_gst_amount",
+   "fieldtype": "Currency",
+   "label": "Total GST Amount",
+   "read_only": 1
+  },
+  {
+   "fieldname": "grand_total",
+   "fieldtype": "Currency",
+   "label": "Grand Total (INR)",
+   "read_only": 1
+  },
+  {
+   "fieldname": "section_break_9",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "route_map_html",
+   "fieldtype": "HTML",
+   "label": "Route Map"
+  },
+  {
+   "fieldname": "special_instructions",
+   "fieldtype": "Small Text",
+   "label": "Special Instructions"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Freight Order",
+   "print_hide": 1,
+   "read_only": 1
+  }
+ ],
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2024-01-01 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Logistics Transportation",
+ "name": "Freight Order",
+ "naming_rule": "By \"Naming Series\" field",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "amend": 1,
+   "cancel": 1,
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "read": 1,
+   "report": 1,
+   "role": "All",
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "title_field": "",
+ "track_changes": 1
 }

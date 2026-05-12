@@ -1,198 +1,198 @@
 {
-  "actions": [],
-  "autoname": "naming_series:",
-  "creation": "2024-01-01 00:00:00.000000",
-  "doctype": "DocType",
-  "editable_grid": 1,
-  "engine": "InnoDB",
-  "field_order": [
-    "naming_series",
-    "log_date",
-    "vehicle",
-    "column_break_1",
-    "driver",
-    "trip_sheet",
-    "section_break_1",
-    "fuel_station",
-    "location",
-    "column_break_2",
-    "fuel_type",
-    "quantity_litres",
-    "rate_per_litre",
-    "total_amount",
-    "section_break_2",
-    "odometer_reading_km",
-    "previous_odometer_km",
-    "column_break_3",
-    "distance_since_last_fill",
-    "fuel_efficiency_kmpl",
-    "section_break_3",
-    "receipt_number",
-    "remarks"
-  ],
-  "fields": [
-    {
-      "fieldname": "naming_series",
-      "fieldtype": "Series",
-      "label": "Series",
-      "options": "FL-.YYYY.-.#####",
-      "default": "FL-.YYYY.-.#####"
-    },
-    {
-      "fieldname": "log_date",
-      "fieldtype": "Date",
-      "in_list_view": 1,
-      "label": "Date",
-      "reqd": 1
-    },
-    {
-      "fieldname": "vehicle",
-      "fieldtype": "Link",
-      "in_list_view": 1,
-      "label": "Vehicle",
-      "options": "Vehicle",
-      "reqd": 1
-    },
-    {
-      "fieldname": "column_break_1",
-      "fieldtype": "Column Break"
-    },
-    {
-      "fieldname": "driver",
-      "fieldtype": "Link",
-      "label": "Driver",
-      "options": "Driver"
-    },
-    {
-      "fieldname": "trip_sheet",
-      "fieldtype": "Link",
-      "label": "Trip Sheet",
-      "options": "Trip Sheet"
-    },
-    {
-      "fieldname": "section_break_1",
-      "fieldtype": "Section Break",
-      "label": "Fuel Details"
-    },
-    {
-      "fieldname": "fuel_station",
-      "fieldtype": "Data",
-      "label": "Fuel Station",
-      "reqd": 1
-    },
-    {
-      "fieldname": "location",
-      "fieldtype": "Data",
-      "label": "Location"
-    },
-    {
-      "fieldname": "column_break_2",
-      "fieldtype": "Column Break"
-    },
-    {
-      "fieldname": "fuel_type",
-      "fieldtype": "Select",
-      "label": "Fuel Type",
-      "options": "\nDiesel\nPetrol\nCNG",
-      "default": "Diesel"
-    },
-    {
-      "fieldname": "quantity_litres",
-      "fieldtype": "Float",
-      "in_list_view": 1,
-      "label": "Quantity (Litres)",
-      "reqd": 1
-    },
-    {
-      "fieldname": "rate_per_litre",
-      "fieldtype": "Currency",
-      "label": "Rate per Litre (INR)"
-    },
-    {
-      "fieldname": "total_amount",
-      "fieldtype": "Currency",
-      "in_list_view": 1,
-      "label": "Total Amount (INR)",
-      "read_only": 1
-    },
-    {
-      "fieldname": "section_break_2",
-      "fieldtype": "Section Break",
-      "label": "Odometer"
-    },
-    {
-      "fieldname": "odometer_reading_km",
-      "fieldtype": "Float",
-      "label": "Current Odometer (km)",
-      "reqd": 1
-    },
-    {
-      "fieldname": "previous_odometer_km",
-      "fieldtype": "Float",
-      "label": "Previous Odometer (km)",
-      "read_only": 1
-    },
-    {
-      "fieldname": "column_break_3",
-      "fieldtype": "Column Break"
-    },
-    {
-      "fieldname": "distance_since_last_fill",
-      "fieldtype": "Float",
-      "label": "Distance Since Last Fill (km)",
-      "read_only": 1
-    },
-    {
-      "fieldname": "fuel_efficiency_kmpl",
-      "fieldtype": "Float",
-      "label": "Fuel Efficiency (km/l)",
-      "read_only": 1
-    },
-    {
-      "fieldname": "section_break_3",
-      "fieldtype": "Section Break"
-    },
-    {
-      "fieldname": "receipt_number",
-      "fieldtype": "Data",
-      "label": "Receipt Number"
-    },
-    {
-      "fieldname": "remarks",
-      "fieldtype": "Small Text",
-      "label": "Remarks"
-    }
-  ],
-  "links": [],
-  "modified": "2024-01-01 00:00:00.000000",
-  "modified_by": "Administrator",
-  "module": "Logistics Transportation",
-  "name": "Fuel Log",
-  "naming_rule": "By \"Naming Series\" field",
-  "owner": "Administrator",
-  "permissions": [
-    {
-      "create": 1,
-      "delete": 1,
-      "email": 1,
-      "export": 1,
-      "print": 1,
-      "read": 1,
-      "report": 1,
-      "role": "System Manager",
-      "share": 1,
-      "write": 1
-    },
-    {
-      "create": 1,
-      "read": 1,
-      "report": 1,
-      "write": 1,
-      "role": "All"
-    }
-  ],
-  "sort_field": "modified",
-  "sort_order": "DESC",
-  "title_field": "name",
-  "track_changes": 1
+ "actions": [],
+ "autoname": "naming_series:",
+ "creation": "2024-01-01 00:00:00.000000",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "naming_series",
+  "log_date",
+  "vehicle",
+  "column_break_1",
+  "driver",
+  "trip_sheet",
+  "section_break_1",
+  "fuel_station",
+  "location",
+  "column_break_2",
+  "fuel_type",
+  "quantity_litres",
+  "rate_per_litre",
+  "total_amount",
+  "section_break_2",
+  "odometer_reading_km",
+  "previous_odometer_km",
+  "column_break_3",
+  "distance_since_last_fill",
+  "fuel_efficiency_kmpl",
+  "section_break_3",
+  "receipt_number",
+  "remarks"
+ ],
+ "fields": [
+  {
+   "default": "FL-.YYYY.-.#####",
+   "fieldname": "naming_series",
+   "fieldtype": "Series",
+   "label": "Series",
+   "options": "FL-.YYYY.-.#####"
+  },
+  {
+   "fieldname": "log_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "vehicle",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Vehicle",
+   "options": "Vehicle",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "driver",
+   "fieldtype": "Link",
+   "label": "Driver",
+   "options": "Driver"
+  },
+  {
+   "fieldname": "trip_sheet",
+   "fieldtype": "Link",
+   "label": "Trip Sheet",
+   "options": "Trip Sheet"
+  },
+  {
+   "fieldname": "section_break_1",
+   "fieldtype": "Section Break",
+   "label": "Fuel Details"
+  },
+  {
+   "fieldname": "fuel_station",
+   "fieldtype": "Data",
+   "label": "Fuel Station",
+   "reqd": 1
+  },
+  {
+   "fieldname": "location",
+   "fieldtype": "Data",
+   "label": "Location"
+  },
+  {
+   "fieldname": "column_break_2",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "Diesel",
+   "fieldname": "fuel_type",
+   "fieldtype": "Select",
+   "label": "Fuel Type",
+   "options": "\nDiesel\nPetrol\nCNG"
+  },
+  {
+   "fieldname": "quantity_litres",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "Quantity (Litres)",
+   "reqd": 1
+  },
+  {
+   "fieldname": "rate_per_litre",
+   "fieldtype": "Currency",
+   "label": "Rate per Litre (INR)"
+  },
+  {
+   "fieldname": "total_amount",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "Total Amount (INR)",
+   "read_only": 1
+  },
+  {
+   "fieldname": "section_break_2",
+   "fieldtype": "Section Break",
+   "label": "Odometer"
+  },
+  {
+   "fieldname": "odometer_reading_km",
+   "fieldtype": "Float",
+   "label": "Current Odometer (km)",
+   "reqd": 1
+  },
+  {
+   "fieldname": "previous_odometer_km",
+   "fieldtype": "Float",
+   "label": "Previous Odometer (km)",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_3",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "distance_since_last_fill",
+   "fieldtype": "Float",
+   "label": "Distance Since Last Fill (km)",
+   "read_only": 1
+  },
+  {
+   "fieldname": "fuel_efficiency_kmpl",
+   "fieldtype": "Float",
+   "label": "Fuel Efficiency (km/l)",
+   "read_only": 1
+  },
+  {
+   "fieldname": "section_break_3",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "receipt_number",
+   "fieldtype": "Data",
+   "label": "Receipt Number"
+  },
+  {
+   "fieldname": "remarks",
+   "fieldtype": "Small Text",
+   "label": "Remarks"
+  }
+ ],
+ "links": [],
+ "modified": "2024-01-01 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Logistics Transportation",
+ "name": "Fuel Log",
+ "naming_rule": "By \"Naming Series\" field",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "read": 1,
+   "report": 1,
+   "role": "All",
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "title_field": "",
+ "track_changes": 1
 }
