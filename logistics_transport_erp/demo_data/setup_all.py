@@ -10,8 +10,9 @@ def run_all():
     from logistics_transport_erp.demo_data.install_demo_data import install_demo_data
     from logistics_transport_erp.demo_data.install_transactional_demo import install_transactional_demo
 
-    print("🚀 Installing Logistics ERP Demo Data...")
+    print("📦 Step 1: Master Data...")
     install_demo_data()
+    print("📦 Step 2: Transactional Data...")
     install_transactional_demo()
     print("\n✅ All demo data installed successfully!")
     print("\nNaming Series Summary:")
@@ -37,6 +38,12 @@ def run_all():
     print("  Outbound Shipment    → OUT-.YYYY.-.#####")
     print("  Stock Transfer Order → STO-.YYYY.-.#####")
     print("  Toll & Detention     → TDC-.YYYY.-.#####")
+
+    print("\n📊 Database Verification (Total Records):")
+    key_doctypes = ["Vehicle", "Driver", "Freight Order", "Trip Sheet", "Freight Invoice", "POD", "E Way Bill"]
+    for dt in key_doctypes:
+        count = frappe.db.count(dt)
+        print(f"   {dt:20}: {count}")
 
 def clear_all():
     from logistics_transport_erp.demo_data.clear_demo_data import run
