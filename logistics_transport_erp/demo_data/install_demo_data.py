@@ -77,8 +77,8 @@ def install_demo_data():
     for v in vehicles:
         if not frappe.db.exists("Vehicle", v["registration_number"]):
             doc = frappe.get_doc({"doctype": "Vehicle", **v})
-            doc.append("documents", {"document_type": "Registration Certificate", "expiry_date": add_days(today(), 365)})
-            doc.append("documents", {"document_type": "Insurance Policy", "expiry_date": add_days(today(), 180)})
+            doc.append("documents", {"document_type": "Registration Certificate (RC)", "expiry_date": add_days(today(), 365)})
+            doc.append("documents", {"document_type": "Insurance", "expiry_date": add_days(today(), 180)})
             doc.append("documents", {"document_type": "Fitness Certificate", "expiry_date": add_days(today(), 240)})
             doc.insert(ignore_permissions=True)
 
