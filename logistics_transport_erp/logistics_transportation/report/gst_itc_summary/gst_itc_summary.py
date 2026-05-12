@@ -30,26 +30,26 @@ def get_data(filters):
 
     output = frappe.db.sql(f"""
         SELECT
-            DATE_FORMAT(fi.invoice_date, '%Y-%m') as month,
+            DATE_FORMAT(fi.invoice_date, '%%Y-%%m') as month,
             SUM(fi.total_gst_amount) as output_gst,
             SUM(fi.cgst_amount) as cgst_output,
             SUM(fi.sgst_amount) as sgst_output,
             SUM(fi.igst_amount) as igst_output
         FROM `tabFreight Invoice` fi
         {conditions}
-        GROUP BY DATE_FORMAT(fi.invoice_date, '%Y-%m')
+        GROUP BY DATE_FORMAT(fi.invoice_date, '%%Y-%%m')
         ORDER BY month DESC
     """, filters, as_dict=True)
 
     input_gst = frappe.db.sql(f"""
         SELECT
-            DATE_FORMAT(vfb.bill_date, '%Y-%m') as month,
+            DATE_FORMAT(vfb.bill_date, '%%Y-%%m') as month,
             SUM(vfb.igst_amount) as input_gst
         FROM `tabVendor Freight Bill` vfb
         WHERE vfb.docstatus = 1 AND vfb.is_rcm = 1
         {'AND vfb.bill_date >= %(from_date)s' if filters.get('from_date') else ''}
         {'AND vfb.bill_date <= %(to_date)s' if filters.get('to_date') else ''}
-        GROUP BY DATE_FORMAT(vfb.bill_date, '%Y-%m')
+        GROUP BY DATE_FORMAT(vfb.bill_date, '%%Y-%%m')
     """, filters, as_dict=True)
 
     input_by_month = {r.month: flt(r.input_gst) for r in input_gst}
