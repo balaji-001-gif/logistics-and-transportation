@@ -177,7 +177,7 @@ def install_transactional_demo():
          "origin": "Mumbai Hub", "destination": "Delhi Gateway"},
         {"naming_series": "TS-.YYYY.-.#####", "trip_date": add_days(today(), -2),
          "vehicle": "DL-01-GH-5678", "driver": _drv("Suresh Prasad Yadav"),
-         "start_odometer_km": 81200, "status": "In Progress",
+         "start_odometer_km": 81200, "status": "In Transit",
          "origin": "Delhi Gateway", "destination": "Bengaluru Cross-Dock"},
     ]
     ts_names = []
@@ -190,10 +190,10 @@ def install_transactional_demo():
     pods = [
         {"naming_series": "POD-.YYYY.-.#####", "freight_order": fo_names[0],
          "delivery_datetime": f"{add_days(today(), -3)} 16:45:00", "receiver_name": "Sanjay Sharma",
-         "status": "Verified", "remarks": "Delivered in good condition."},
+         "status": "Delivered", "remarks": "Delivered in good condition."},
         {"naming_series": "POD-.YYYY.-.#####", "freight_order": fo_names[5],
          "delivery_datetime": f"{add_days(today(), -8)} 11:30:00", "receiver_name": "Rahul Mehta",
-         "status": "Verified", "remarks": "Minor scratches on drum surface, but seals intact."},
+         "status": "Delivered", "remarks": "Minor scratches on drum surface, but seals intact."},
     ]
     for p in pods:
         frappe.get_doc({"doctype": "POD", **p}).insert(ignore_permissions=True)
@@ -202,7 +202,7 @@ def install_transactional_demo():
     invoices = [
         {"naming_series": "FINV-.YYYY.-.#####", "invoice_date": add_days(today(), -2),
          "customer": _cust("Acme Electronics Pvt Ltd"), "total_amount": 45000,
-         "tax_amount": 8100, "grand_total": 53100, "status": "Unpaid"},
+         "tax_amount": 8100, "grand_total": 53100, "status": "Draft"},
     ]
     for inv in invoices:
         doc = frappe.get_doc({"doctype": "Freight Invoice", **inv})
@@ -214,7 +214,7 @@ def install_transactional_demo():
         {"naming_series": "FS-.YYYY.-.#####", "settlement_date": today(),
          "trip_sheet": ts_names[0], "driver": _drv("Ramesh Kumar Singh"),
          "total_advance_paid": 8000, "total_expenses": 7200, "balance_amount": 800,
-         "status": "Settled"},
+         "status": "Submitted"},
     ]
     for fs in settlements:
         frappe.get_doc({"doctype": "Freight Settlement", **fs}).insert(ignore_permissions=True)
@@ -242,14 +242,14 @@ def install_transactional_demo():
     # ── Shipments (Inbound/Outbound) ────────────────────────────────────────
     outs = [
         {"naming_series": "OUT-.YYYY.-.#####", "dispatch_date": add_days(today(), -5),
-         "warehouse": "Mumbai Hub", "freight_order": fo_names[0], "status": "Completed"},
+         "warehouse": "Mumbai Hub", "freight_order": fo_names[0], "status": "Dispatched"},
     ]
     for o in outs:
         frappe.get_doc({"doctype": "Outbound Shipment", **o}).insert(ignore_permissions=True)
 
     inbs = [
         {"naming_series": "INB-.YYYY.-.#####", "receipt_date": add_days(today(), -3),
-         "warehouse": "Delhi Gateway", "freight_order": fo_names[0], "status": "Completed"},
+         "warehouse": "Delhi Gateway", "freight_order": fo_names[0], "status": "Received"},
     ]
     for i in inbs:
         frappe.get_doc({"doctype": "Inbound Shipment", **i}).insert(ignore_permissions=True)
@@ -268,7 +268,7 @@ def install_transactional_demo():
     vfbs = [
         {"naming_series": "VFB-.YYYY.-.#####", "bill_date": add_days(today(), -1),
          "transporter_name": "Blue Dart Express", "base_freight_amount": 15000, "tax_amount": 2700,
-         "total_bill_amount": 17700, "status": "Pending"},
+         "total_bill_amount": 17700, "status": "Pending Approval"},
     ]
     for vfb in vfbs:
         frappe.get_doc({"doctype": "Vendor Freight Bill", **vfb}).insert(ignore_permissions=True)
