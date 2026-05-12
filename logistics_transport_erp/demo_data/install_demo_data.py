@@ -72,7 +72,7 @@ def install_demo_data():
          "make": "BharatBenz", "model": "2523R", "year_of_manufacture": 2019,
          "fuel_type": "Diesel", "payload_capacity_kg": 13000, "current_odometer_km": 120000,
          "next_service_km": 125000, "next_service_date": add_days(today(), 5),
-         "ownership_type": "Owned", "home_warehouse": "Hyderabad Spoke"},
+         "ownership_type": "Owned", "home_warehouse": "Hyderabad Spoke", "rc_status": "Active"},
     ]
     for v in vehicles:
         if not frappe.db.exists("Vehicle", v["registration_number"]):
@@ -88,7 +88,7 @@ def install_demo_data():
          "status": "Active", "mobile_number": "9876543210", "primary_dl_number": "MH0120210012345",
          "dl_expiry_date": add_months(today(), 24), "dl_class": "HMV",
          "date_of_birth": "1985-06-15", "blood_group": "B+",
-         "home_warehouse": "Mumbai Hub"},
+         "home_warehouse": "Mumbai Hub", "dl_verified_status": "Active"},
         {"naming_series": "DRV-.YYYY.-.####", "full_name": "Suresh Prasad Yadav",
          "status": "Active", "mobile_number": "9845678901", "primary_dl_number": "DL0220180023456",
          "dl_expiry_date": add_months(today(), 18), "dl_class": "HMV",

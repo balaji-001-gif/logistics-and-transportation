@@ -177,7 +177,7 @@ def install_transactional_demo():
     trip_sheets = [
         {"naming_series": "TS-.YYYY.-.#####", "trip_date": add_days(today(), -5),
          "vehicle": "MH-12-AB-1234", "driver": _drv("Ramesh Kumar Singh"),
-         "start_odometer_km": 48000, "end_odometer_km": 49420, "status": "Completed",
+         "start_odometer_km": 48000, "end_odometer_km": 49420, "status": "Open",
          "origin": "Mumbai Hub", "destination": "Delhi Gateway"},
         {"naming_series": "TS-.YYYY.-.#####", "trip_date": add_days(today(), -2),
          "vehicle": "DL-01-GH-5678", "driver": _drv("Suresh Prasad Yadav"),
