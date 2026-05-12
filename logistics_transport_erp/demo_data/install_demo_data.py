@@ -25,17 +25,17 @@ def install_demo_data():
     # 2. Warehouses — required: warehouse_name, address_line_1, city, state
     warehouses = [
         {"warehouse_name": "Mumbai Hub", "address_line_1": "Plot 12, JNPT Road, Nhava Sheva",
-         "city": "Mumbai", "state": "Maharashtra", "pincode": "400707", "warehouse_type": "Hub"},
+         "city": "Mumbai", "state": "Maharashtra", "pincode": "400707", "warehouse_type": "Owned"},
         {"warehouse_name": "Delhi Gateway", "address_line_1": "NH-44, Kundli Industrial Area",
-         "city": "New Delhi", "state": "Delhi", "pincode": "131028", "warehouse_type": "Hub"},
+         "city": "New Delhi", "state": "Delhi", "pincode": "131028", "warehouse_type": "Owned"},
         {"warehouse_name": "Bengaluru Cross-Dock", "address_line_1": "Sy No 45, Hoskote Industrial Area",
          "city": "Bengaluru", "state": "Karnataka", "pincode": "562114", "warehouse_type": "Cross-Dock"},
         {"warehouse_name": "Chennai Port Facility", "address_line_1": "Anna Salai, Royapuram",
          "city": "Chennai", "state": "Tamil Nadu", "pincode": "600013", "warehouse_type": "Bonded"},
         {"warehouse_name": "Pune Spoke", "address_line_1": "Bhosari MIDC, Phase II",
-         "city": "Pune", "state": "Maharashtra", "pincode": "411026", "warehouse_type": "Spoke"},
+         "city": "Pune", "state": "Maharashtra", "pincode": "411026", "warehouse_type": "Leased"},
         {"warehouse_name": "Hyderabad Spoke", "address_line_1": "Patancheru Industrial Area, IDA",
-         "city": "Hyderabad", "state": "Telangana", "pincode": "502319", "warehouse_type": "Spoke"},
+         "city": "Hyderabad", "state": "Telangana", "pincode": "502319", "warehouse_type": "3PL"},
     ]
     for w in warehouses:
         if not frappe.db.exists("Warehouse", w["warehouse_name"]):
